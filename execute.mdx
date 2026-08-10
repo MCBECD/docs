@@ -1,0 +1,193 @@
+---
+author: "官方•Dingding OvO"
+updatedAt: "2026-08-09"
+title: "/execute — 执行命令"
+order: 40
+category: commands
+description: "以其他实体的身份、位置或维度执行命令，支持条件判断"
+---
+
+## `/execute` — 执行命令
+
+基岩版最强大的命令。改变命令的执行上下文（执行者、位置、角度、维度），并支持条件判断。子命令可以链式组合，最后以 `run` 结束执行目标命令。
+
+### 语法
+
+```mcfunction
+execute <子命令>... run <command: Command>
+```
+
+### 修改执行上下文
+
+| 子命令 | 语法 | 说明 |
+|--------|------|------|
+| `align` | `... align <axes: string>` | 将执行位置向下取整到方块坐标。轴：`x`、`y`、`z` 及其组合（`xy`、`xz`、`yz`、`xyz`） |
+| `anchored` | `... anchored eyes\|feet` | 设置后续局部坐标（`^`）的锚点为眼睛或脚底 |
+| `as` | `... as <entity: target>` | 以该实体的身份执行（改变执行者） |
+| `at` | `... at <entity: target>` | 在该实体的位置执行（改变坐标、角度） |
+| `facing` | `... facing <pos: x y z>` | 将执行者的朝向设为指向指定坐标 |
+| `facing entity` | `... facing entity <entity: target> [eyes\|feet]` | 将执行者的朝向设为指向指定实体的眼睛或脚底 |
+| `in` | `... in <dimension: Dimension>` | 在指定维度中执行 |
+| `positioned` | `... positioned <pos: x y z>` | 在指定绝对/相对坐标执行 |
+| `positioned as` | `... positioned as <entity: target>` | 在指定实体的位置执行 |
+| `rotated` | `... rotated <rot: yaw xRot>` | 设定执行者视角（水平旋转 垂直旋转） |
+| `rotated as` | `... rotated as <entity: target>` | 使用指定实体的视角 |
+
+### 维度（Dimension）
+
+| 维度 | ID |
+|------|-----|
+| 主世界 | `overworld` |
+| 下界 | `nether` |
+| 末地 | `the_end` |
+
+### align 轴组合
+
+| 值 | 效果 |
+|----|------|
+| `x` | X 轴向下取整 |
+| `y` | Y 轴向下取整 |
+| `z` | Z 轴向下取整 |
+| `xy` | X、Y 轴向下取整 |
+| `xz` | X、Z 轴向下取整 |
+| `yz` | Y、Z 轴向下取整 |
+| `xyz` | 三轴均向下取整 |
+
+### 条件判断
+
+使用 `if` 或 `unless`（与 `if` 相反），支持以下条件：
+
+#### `block` — 方块检测
+```mcfunction
+execute ... if block <pos: x y z> <block: Block> ...
+```
+检测指定位置是否为指定方块。
+
+#### `blocks` — 区域方块匹配
+```mcfunction
+execute ... if blocks <begin: x y z> <end: x y z> <destination: x y z> <maskMode: MaskMode|all|masked> ...
+```
+检测源区域与目标区域的方块是否匹配。
+
+| 模式 | 说明 |
+|------|------|
+| `all` | 所有方块必须完全匹配 |
+| `masked` | 仅检测非空气方块 |
+
+#### `entity` — 实体检测
+```mcfunction
+execute ... if entity <target: target> ...
+```
+检测目标实体是否存在（选择器至少匹配一个实体）。
+
+#### `score` — 分数比较
+
+```mcfunction
+execute ... if score <target: target> <objective: string> <operator: ScoreOperator> <source: target> <objective: string> ...
+execute ... if score <target: target> <objective: string> <operator: ScoreOperator> <source: int> ...
+```
+比较两个实体的分数，或比较实体分数与一个固定整数。
+
+运算符：`=`、`<`、`>`、`<=`、`>=`
+
+### `run` — 执行最终命令
+
+```mcfunction
+execute ... run <command: Command>
+```
+必须放在子命令链最后，执行最终目标命令。
+
+### 示例
+
+#### 基础用法
+
+**在每个玩家脚下放置钻石块：**
+```mcfunction
+/execute as @a at @s run setblock ~ ~-1 ~ diamond_block
+```
+
+**在最近玩家头顶召唤闪电：**
+```mcfunction
+/execute at @p run summon lightning_bolt ~ ~2 ~
+```
+
+#### 条件判断
+
+**杀死站在沙子上的僵尸：**
+```mcfunction
+/execute as @e[type=zombie] at @s if block ~ ~-1 ~ sand run kill @s
+```
+
+**如果附近没有僵尸，显示安全消息：**
+```mcfunction
+/execute unless entity @e[type=zombie,r=10] run tellraw @a {"rawtext":[{"text":"附近安全"}]}
+```
+
+**分数条件判断：**
+```mcfunction
+/execute as @a if score @s money >= 100 run tellraw @s {"rawtext":[{"text":"你达标了！"}]}
+```
+
+**分数与固定值比较：**
+```mcfunction
+/execute as @a if score @s level = 30 run effect @s jump_boost 10 2
+```
+
+#### 位置与方向
+
+**朝向最近的玩家：**
+```mcfunction
+/execute at @e[type=armor_stand] facing entity @p eyes run particle minecraft:basic_flame_particle ^ ^1 ^
+```
+
+**在指定坐标执行：**
+```mcfunction
+/execute positioned 0 64 0 run setblock ~ ~ ~ command_block
+```
+
+**使用实体坐标：**
+```mcfunction
+/execute positioned as @p run summon fireworks_rocket ~ ~5 ~
+```
+
+#### 对齐与锚点
+
+**将坐标对齐到方块网格：**
+```mcfunction
+/execute align xyz run setblock ~ ~ ~ stone
+```
+
+**以眼睛高度为锚点发射粒子：**
+```mcfunction
+/execute anchored eyes run particle minecraft:basic_flame_particle ^ ^1 ^
+```
+
+#### 维度切换
+
+**在下界执行命令：**
+```mcfunction
+/execute in nether run locate fortress
+```
+
+**在末地召唤末影龙：**
+```mcfunction
+/execute in the_end run summon ender_dragon 0 64 0
+```
+
+#### 区域匹配
+
+**检测两个区域方块是否相同：**
+```mcfunction
+/execute if blocks 0 0 0 5 5 5 100 0 100 masked run say 区域匹配
+```
+
+### 基岩版注意
+
+- 需要 OP 等级 2
+- 子命令链的顺序很重要：`as` 改变执行者，`at` 改变位置，`if`/`unless` 进行判断
+- `run` 必须放在命令链最后
+- 基岩版 `/execute` 不支持 `store` 子命令（Java 版支持）
+- 基岩版不支持 `if/unless dimension`、`if/unless biome`、`if/unless loaded` 等条件
+- 条件判断失败时，整个命令链不执行，返回值非零
+- `score` 条件支持实体间比较和与固定整数比较两种形式
+- 返回值使用整数（0 = 成功，非零 = 失败/条件不满足）

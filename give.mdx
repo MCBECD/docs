@@ -1,0 +1,68 @@
+---
+author: "官方•Dingding OvO"
+updatedAt: "2026-08-09"
+title: "/give — 给予物品"
+order: 11
+category: commands
+description: "给予指定数量的物品给一个或多个玩家"
+---
+
+## `/give` — 给予物品
+
+给予指定数量的物品给一个或多个玩家。支持通过数据值指定物品变体，也可通过 JSON 组件为物品添加额外属性。
+
+### 语法
+
+`/give <player: target> <itemName: Item> [amount: int] [data: int] [components: json]`
+
+### 参数
+
+- `player: target` — 接收物品的玩家，必须为一个或多个有效的玩家目标选择器。
+- `itemName: Item` — 要给予的物品 ID（如 `diamond`、`diamond_sword`、`potion`）。
+- `amount: int`（可选）— 给予的物品数量，范围 1–32767，默认为 1。
+- `data: int`（可选）— 物品的数据值，范围 0–32767，默认为 0。用于指定物品的额外变体（如药水效果类型）。
+- `components: json`（可选）— JSON 格式的物品组件。基岩版中仅支持以下组件：
+  - `minecraft:can_place_on` — 指定方块可放置于其上的方块列表（冒险模式）
+  - `minecraft:can_destroy` — 指定方块可破坏的方块列表（冒险模式）
+  - `minecraft:item_lock` — 物品锁定模式
+  - `minecraft:keep_on_death` — 死亡后保留物品
+
+### 示例
+
+**给予所有玩家一瓶夜视药水（数据值 5 代表夜视）：**
+
+```
+/give @a potion 1 5
+```
+
+**给予最近玩家一个钻石块，并指定可放置在泥土上、可破坏石英块：**
+
+```
+/give @p diamond_block 1 0 {"minecraft:can_place_on":{"blocks":["dirt"]},"minecraft:can_destroy":{"blocks":["quartz_block"]}}
+```
+
+**给予最近玩家一把死亡后保留的钻石剑：**
+
+```
+/give @p diamond_sword 1 0 {"keep_on_death":{}}
+```
+
+**给予所有玩家一根锁定在物品栏中的木棍：**
+
+```
+/give @a stick 1 0 {"item_lock":{"mode":"lock_in_inventory"}}
+```
+
+**给予随机玩家一把锁定在物品栏槽位中的木铲：**
+
+```
+/give @r wooden_shovel 1 0 {"item_lock":{"mode":"lock_in_slot"}}
+```
+
+### 基岩版注意
+
+- 需要 OP 等级 1
+- `amount` 最大支持 32767，远超正常堆叠上限 64
+- `data` 参数为基岩版特有的数据值系统，用于区分同一物品的不同变体（如药水效果）
+- 基岩版的 `components` JSON 仅支持 `can_place_on`、`can_destroy`、`item_lock`、`keep_on_death` 四种组件，不支持 Java 版中的 `enchantments`、`display_name`、`lore` 等组件
+- 物品数量超出正常堆叠上限时，超出部分会堆叠到新的物品栏槽位中

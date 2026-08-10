@@ -1,0 +1,105 @@
+---
+author: "官方•Dingding OvO"
+updatedAt: "2026-08-09"
+title: "/setblock — 放置方块"
+order: 30
+category: commands
+description: "在指定坐标放置单个方块"
+---
+
+## `/setblock` — 放置方块
+
+在指定坐标位置放置单个方块。可通过不同模式控制放置行为。
+
+### 语法
+
+`setblock <position: x y z> <blockName: Block> [blockStates: block states] [destroy|keep|replace]`
+
+### 参数
+
+- `<position: x y z>` — 目标方块的坐标，由三个整数值（x、y、z）组成。支持相对坐标（`~`）和局部坐标（`^`）。
+- `<blockName: Block>` — 要放置的方块 ID（如 `stone`、`diamond_block`、`torch`、`water`）。
+- `[blockStates: block states]`（可选）— 方块状态的键值对，用于指定方块的附加属性（如方向、朝向等）。格式为 `[键=值,键=值]`。
+- `[destroy|keep|replace]`（可选）— 方块放置模式，决定当目标位置已有方块时的行为。
+
+### 放置模式
+
+| 模式 | 说明 |
+|------|------|
+| `replace` | 默认模式 — 直接替换目标位置的方块（包括空气），不产生掉落物 |
+| `destroy` | 先破坏目标方块（产生掉落物和方块更新），再放置新方块 |
+| `keep` | 仅在目标位置为空气时放置，否则命令失败并提示"该位置不是空气" |
+
+### 示例
+
+**在脚下方块位置放置石头：**
+
+```
+/setblock ~ ~ ~ stone
+```
+
+**在指定坐标放置钻石块：**
+
+```
+/setblock 100 64 100 diamond_block
+```
+
+**破坏头顶方块并掉落物品，然后放置空气：**
+
+```
+/setblock ~ ~1 ~ air destroy
+```
+
+**仅在目标位置为空气时放置基岩：**
+
+```
+/setblock ~ ~-1 ~ bedrock keep
+```
+
+**放置一个朝北的火把：**
+
+```
+/setblock ~ ~ ~ torch [torch_facing_direction=north]
+```
+
+**放置台阶（下半砖）：**
+
+```
+/setblock ~ ~ ~ stone_slab [stone_slab_type=smooth_stone, top_slot_bit=false]
+```
+
+**使用 destroy 模式替换方块：**
+
+```
+/setblock ~ ~ ~ diamond_block destroy
+```
+
+### 常用方块 ID
+
+| 方块 | ID |
+|------|-----|
+| 石头 | `stone` |
+| 基岩 | `bedrock` |
+| 钻石块 | `diamond_block` |
+| 金块 | `gold_block` |
+| 铁块 | `iron_block` |
+| 草方块 | `grass` |
+| 玻璃 | `glass` |
+| 火把 | `torch` |
+| 水 | `water` |
+| 岩浆 | `lava` |
+| 命令方块 | `command_block` |
+| 重复命令方块 | `repeating_command_block` |
+| 连锁命令方块 | `chain_command_block` |
+| 红石块 | `redstone_block` |
+| TNT | `tnt` |
+
+### 基岩版注意
+
+- 需要 OP 等级 1
+- 默认 `replace` 模式会替换任何方块（包括空气），所以总能在指定位置放置方块
+- `destroy` 模式会先"挖掘"原方块，触发掉落物、方块更新和方块实体（如箱子内容物）的掉落
+- `keep` 模式适用于保护已有建筑，避免误操作覆盖
+- 方块状态（blockStates）的键名和可用值取决于具体方块，不同方块的可用状态不同
+- 放置水源/岩浆时需注意流动方向
+- Y 坐标有效范围为 -64 到 320（基岩版 1.18+ 世界高度扩展后）

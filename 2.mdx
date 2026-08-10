@@ -1,0 +1,14 @@
+---
+author: "官方•Dingding OvO"
+updatedAt: "2026-08-09"
+title: "雪球填平"
+order: 10002
+category: commands
+description: "丢雪球自动填平空地，用循环命令方块实现"
+---
+
+放一个循环命令方块
+
+<CmdRepeat>execute as @e[type=snowball] at @s if y &lt;=55 if block ~ ~ ~ air run setblock ~ ~ ~ sandstone</CmdRepeat>
+
+然后丢出去就可以有了效果

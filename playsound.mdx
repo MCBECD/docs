@@ -1,0 +1,93 @@
+---
+author: "官方•Dingding OvO"
+updatedAt: "2026-08-09"
+title: "/playsound — 播放音效"
+order: 25
+category: commands
+description: "播放音效"
+---
+
+## `/playsound` — 播放音效
+
+播放音效。
+
+### 语法
+
+`playsound <sound: string> [player: target] [position: x y z] [volume: float] [pitch: float] [minimumVolume: float]`
+
+### 参数
+
+- `<sound: string>` — 音效事件标识符
+- `[player: target]` — 目标玩家。如省略，则在指定位置为所有玩家播放音效
+- `[position: x y z]` — 音效发出的坐标位置
+- `[volume: float]` — 音量大小（0.0–2.0，默认：1.0）
+- `[pitch: float]` — 音高/音调（0.0–2.0，默认：1.0）
+- `[minimumVolume: float]` — 远离音源时的最小音量（0.0–1.0）
+
+### 常用音效 ID
+
+| 音效 ID | 说明 |
+|---------|------|
+| `random.explode` | 爆炸声 |
+| `random.levelup` | 经验升级 |
+| `random.orb` | 经验球拾取 |
+| `random.pop` | 弹出/物品拿取 |
+| `random.click` | 按钮点击 |
+| `random.anvil_land` | 铁砧落地 |
+| `random.fizz` | 嘶嘶声（灭火/熔岩触水） |
+| `random.eat` | 进食声 |
+| `random.burp` | 打嗝声 |
+| `random.drink` | 饮水声 |
+| `random.chestopen` | 箱子打开 |
+| `random.chestclosed` | 箱子关闭 |
+| `random.door_open` | 门打开 |
+| `random.door_close` | 门关闭 |
+| `random.wood_click` | 木板点击 |
+| `random.glass` | 玻璃碎裂 |
+| `random.break` | 方块破坏 |
+| `random.place` | 方块放置 |
+| `random.splash` | 入水声 |
+| `random.bowhit` | 箭击中 |
+| `random.totem` | 不死图腾激活 |
+| `ambient.weather.thunder` | 雷声 |
+| `ambient.weather.rain` | 雨声 |
+| `mob.zombie.villager.cure` | 僵尸村民治愈 |
+| `mob.wither.spawn` | 凋灵生成 |
+| `mob.enderdragon.growl` | 末影龙咆哮 |
+| `note.harp` | 音符盒竖琴声 |
+| `note.pling` | 音符盒叮咚声 |
+| `note.bass` | 音符盒低音 |
+| `fire.ignite` | 点火声 |
+
+### 示例
+
+**在指定位置为所有玩家播放爆炸声：**
+```mcfunction
+/playsound random.explode 100 64 100
+```
+
+**为最近玩家播放升级音效：**
+```mcfunction
+/playsound random.levelup @p
+```
+
+**在坐标位置以低音量播放音符声：**
+```mcfunction
+/playsound note.pling @a ~ ~ ~ 0.5 0.5
+```
+
+**为最近玩家播放雷声（大音量）：**
+```mcfunction
+/playsound ambient.weather.thunder @p ~ ~ ~ 2.0 1.0
+```
+
+**播放高音调的弹出声：**
+```mcfunction
+/playsound random.pop @p ~ ~ ~ 1.0 2.0
+```
+
+### 基岩版注意
+
+- 基岩版中 `player` 参数是**可选的**，省略时会在指定位置为所有玩家播放音效
+- 音效 ID 体系与 Java 版有差异，部分音效在基岩版中不可用
+- 需要 OP 等级 1

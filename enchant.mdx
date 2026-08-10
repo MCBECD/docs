@@ -1,0 +1,99 @@
+---
+author: "官方•Dingding OvO"
+updatedAt: "2026-08-09"
+title: "/enchant — 附魔"
+order: 22
+category: commands
+description: "为玩家选中的物品添加附魔"
+---
+
+## `/enchant` — 附魔
+
+为玩家选中的物品添加附魔。默认对主手栏物品生效，也可指定副手栏。
+
+### 语法
+
+`/enchant <player: target> <enchantmentName: Enchant> <level: int> [enchantItemWith: EnchantItemOption]`
+
+### 参数
+
+- `player: target` — 目标玩家，必须持有可附魔的物品。
+- `enchantmentName: Enchant` — 附魔标识符（如 `sharpness`、`protection`、`efficiency`）。
+- `level: int` — 附魔等级，从 1 到该附魔的最大等级。
+- `enchantItemWith: EnchantItemOption`（可选）— 指定要附魔的物品栏位，可选值为 `mainhand`（主手）或 `offhand`（副手）。默认为 `mainhand`。
+
+### 常用附魔
+
+| 附魔名称 | ID | 最大等级 | 适用物品 |
+|----------|-----|---------|----------|
+| 锋利 | `sharpness` | 5 | 剑、斧 |
+| 亡灵杀手 | `smite` | 5 | 剑、斧 |
+| 节肢杀手 | `bane_of_arthropods` | 5 | 剑、斧 |
+| 保护 | `protection` | 4 | 盔甲 |
+| 火焰保护 | `fire_protection` | 4 | 盔甲 |
+| 摔落保护 | `feather_falling` | 4 | 靴子 |
+| 水下速掘 | `aqua_affinity` | 1 | 头盔 |
+| 水下呼吸 | `respiration` | 3 | 头盔 |
+| 效率 | `efficiency` | 5 | 镐、斧、铲 |
+| 耐久 | `unbreaking` | 3 | 所有物品 |
+| 时运 | `fortune` | 3 | 镐、铲、斧 |
+| 精准采集 | `silk_touch` | 1 | 镐、斧、铲 |
+| 力量 | `power` | 5 | 弓 |
+| 火矢 | `flame` | 1 | 弓 |
+| 无限 | `infinity` | 1 | 弓 |
+| 冲击 | `punch` | 2 | 弓 |
+| 抢夺 | `looting` | 3 | 剑 |
+| 击退 | `knockback` | 2 | 剑 |
+| 火焰附加 | `fire_aspect` | 2 | 剑 |
+| 经验修补 | `mending` | 1 | 所有物品 |
+| 消失诅咒 | `vanishing_curse` | 1 | 所有物品 |
+| 绑定诅咒 | `binding_curse` | 1 | 所有物品 |
+| 忠诚 | `loyalty` | 3 | 三叉戟 |
+| 激流 | `riptide` | 3 | 三叉戟 |
+| 引雷 | `channeling` | 1 | 三叉戟 |
+| 荆棘 | `thorns` | 3 | 盔甲 |
+| 深海探索者 | `depth_strider` | 3 | 靴子 |
+| 冰霜行者 | `frost_walker` | 2 | 靴子 |
+| 弹射物保护 | `projectile_protection` | 4 | 盔甲 |
+
+### 示例
+
+**为最近玩家的主手物品附魔锋利 V：**
+
+```
+/enchant @p sharpness 5
+```
+
+**为自己持有的物品附魔效率 V：**
+
+```
+/enchant @s efficiency 5
+```
+
+**为所有玩家的主手物品附魔精准采集：**
+
+```
+/enchant @a silk_touch 1
+```
+
+**为最近玩家的副手物品附魔经验修补：**
+
+```
+/enchant @p mending 1 offhand
+```
+
+**为所有玩家的主手物品附魔耐久 III：**
+
+```
+/enchant @a unbreaking 3 mainhand
+```
+
+### 基岩版注意
+
+- 需要 OP 等级 1
+- 玩家必须持有支持该附魔的物品，否则命令会失败
+- 不兼容的附魔（如锋利与亡灵杀手）不能同时存在于同一物品上
+- 等级参数为必填项，即使附魔 I 级也必须写 `1`
+- `enchantItemWith` 参数为基岩版特有，用于指定对主手还是副手物品附魔，默认为主手
+- 可以通过命令应用超过正常上限的附魔等级（如锋利 100），但实际效果有上限
+- `/enchant` 只能对玩家手持的物品生效，不能对掉落物或容器中的物品附魔

@@ -1,0 +1,119 @@
+---
+author: "官方•Dingding OvO"
+updatedAt: "2026-08-09"
+title: "/locate — 定位结构"
+order: 23
+category: commands
+description: "查找最近的结构或生物群系的坐标"
+---
+
+## `/locate` — 定位结构
+
+查找距离命令执行者最近的结构或生物群系的坐标，结果会显示在聊天栏中。
+
+### 语法
+
+`locate structure <structureType: Structure> [useNewChunksOnly: Boolean]`
+
+`locate biome <biomeType: Biome>`
+
+### 参数
+
+#### locate structure
+
+- `<structureType: Structure>` — 要查找的结构类型 ID。
+- `[useNewChunksOnly: Boolean]`（可选）— 是否仅在未生成的新区块中搜索结构。默认为 `false`。设为 `true` 时，仅在尚未生成区块的区域中查找结构（可能触发新区块生成）。
+
+**基岩版可用结构类型：**
+
+| 结构 ID | 说明 | 维度 |
+|---------|------|------|
+| `village` | 村庄 | 主世界 |
+| `temple` | 沙漠神殿、丛林神庙、沼泽小屋、雪屋 | 主世界 |
+| `stronghold` | 要塞（含末地传送门） | 主世界 |
+| `mineshaft` | 废弃矿井 | 主世界 |
+| `mansion` | 林地府邸 | 主世界 |
+| `monument` | 海底遗迹（守卫者神殿） | 主世界 |
+| `ocean_ruin` | 海底废墟 | 主世界 |
+| `shipwreck` | 沉船 | 主世界 |
+| `pillager_outpost` | 掠夺者前哨站 | 主世界 |
+| `ruined_portal` | 废弃传送门 | 任意 |
+| `buried_treasure` | 埋藏的宝藏 | 主世界 |
+| `bastion_remnant` | 堡垒遗迹 | 下界 |
+| `fortress` | 下界要塞 | 下界 |
+| `end_city` | 末地城 | 末地 |
+| `ancient_city` | 远古城市 | 主世界 |
+| `trial_chambers` | 试炼密室 | 主世界 |
+
+#### locate biome
+
+- `<biomeType: Biome>` — 要查找的生物群系 ID。使用游戏内的生物群系命名空间 ID（如 `plains`、`desert`、`jungle`、`ocean`、`the_end` 等）。
+
+### 示例
+
+**定位最近的村庄：**
+
+```
+/locate structure village
+```
+
+**定位最近的下界要塞（需在下界执行）：**
+
+```
+/locate structure fortress
+```
+
+**定位最近的末地城（需在末地执行）：**
+
+```
+/locate structure end_city
+```
+
+**仅在新区块中搜索埋藏的宝藏：**
+
+```
+/locate structure buried_treasure true
+```
+
+**定位远古城市：**
+
+```
+/locate structure ancient_city
+```
+
+**定位试炼密室：**
+
+```
+/locate structure trial_chambers
+```
+
+**查找最近的沙漠群系：**
+
+```
+/locate biome desert
+```
+
+**查找最近的丛林群系：**
+
+```
+/locate biome jungle
+```
+
+### 配合传送使用
+
+`/locate` 返回坐标后，可配合 `/tp` 传送至该位置：
+
+```
+/tp @s <返回的坐标>
+```
+
+> 基岩版中 `/locate` 的返回值会显示在聊天栏中，部分版本可点击坐标直接复制或传送。
+
+### 基岩版注意
+
+- 需要 OP 等级 1
+- 基岩版使用 `locate structure` 和 `locate biome` 两个子命令，旧版仅使用 `/locate <结构类型>`
+- 某些结构只能在其对应维度中定位：`fortress` 和 `bastion_remnant` 在下界，`end_city` 在末地
+- 返回的坐标是结构的近似位置（通常为结构入口或中心点）
+- 如果搜索范围内没有目标结构，命令会报错
+- `useNewChunksOnly` 设为 `true` 可能会触发新区块的生成

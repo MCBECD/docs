@@ -1,0 +1,95 @@
+---
+author: "官方•Dingding OvO"
+updatedAt: "2026-08-09"
+title: "/effect — 状态效果"
+order: 15
+category: commands
+description: "给予或移除实体的状态效果"
+---
+
+## `/effect` — 状态效果
+
+给予或移除实体的状态效果。
+
+### 语法
+
+`effect <target: target> <effect: Effect> [seconds: int] [amplifier: int] [hideParticles: Boolean]`
+
+`effect <target: target> <effect: Effect> infinite [amplifier: int] [hideParticles: Boolean]`
+
+`effect <target: target> clear [effect: Effect]`
+
+### 参数
+
+- `<target: target>` — 目标选择器（`@p`、`@a`、`@s`、`@e`）
+- `<effect: Effect>` — 效果 ID（英文名称）
+- `[seconds: int]` — 持续时间（秒）
+- `infinite` — 无限持续时间
+- `[amplifier: int]` — 效果等级，从 0 开始（0 = I 级，1 = II 级，以此类推）
+- `[hideParticles: Boolean]` — `true` 隐藏粒子效果
+- `clear` — 清除效果；不带效果名则清除全部效果，指定效果名则仅清除该效果
+
+### 常用效果
+
+| 效果 ID | 说明 | 最大等级 |
+|--------|------|----------|
+| `speed` | 提高移动速度 | II (1) |
+| `jump_boost` | 提高跳跃高度 | II (1) |
+| `strength` | 增加近战伤害 | II (1) |
+| `regeneration` | 持续恢复生命 | IV (3) |
+| `invisibility` | 使实体不可见 | I (0) |
+| `night_vision` | 在黑暗中看清 | I (0) |
+| `resistance` | 减少受到的伤害 | IV (3) |
+| `fire_resistance` | 免疫火焰伤害 | I (0) |
+| `water_breathing` | 水下呼吸 | I (0) |
+| `hunger` | 饥饿效果（负面） | I (0) |
+| `poison` | 中毒（负面） | II (1) |
+| `wither` | 凋零（负面） | II (1) |
+| `slowness` | 减速（负面） | IV (3) |
+| `weakness` | 虚弱（负面） | IV (3) |
+| `absorption` | 伤害吸收 | IV (3) |
+| `levitation` | 悬浮 | I (0) |
+| `slow_falling` | 缓降 | I (0) |
+| `conduit_power` | 潮涌能量 | I (0) |
+| `darkness` | 黑暗效果 | I (0) |
+
+### 示例
+
+```mcfunction
+/effect @p speed 30 1
+```
+
+给予最近玩家 30 秒速度 II。
+
+```mcfunction
+/effect @p speed infinite 0 true
+```
+
+给予最近玩家无限速度 I（隐藏粒子）。
+
+```mcfunction
+/effect @p clear
+```
+
+清除最近玩家的所有效果。
+
+```mcfunction
+/effect @p clear speed
+```
+
+仅清除最近玩家的速度效果。
+
+```mcfunction
+/effect @e[type=zombie] slowness 30 2 true
+```
+
+给所有僵尸 30 秒减速 III（隐藏粒子）。
+
+### 基岩版注意
+
+- 效果 ID 使用英文名称，不是数字
+- 基岩版语法**没有** `give` 子命令关键字，直接写效果名即可
+- 使用 `infinite` 关键字可给予无限持续时间的效果
+- 放大器从 0 开始（0 = I 级，1 = II 级，2 = III 级）
+- `clear` 可以清除全部效果或仅清除指定效果
+- 需要 OP 等级 1

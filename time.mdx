@@ -1,0 +1,106 @@
+---
+author: "官方•Dingding OvO"
+updatedAt: "2026-08-09"
+title: "/time — 时间控制"
+order: 13
+category: commands
+description: "查询或设置游戏世界的时间"
+---
+
+## `/time` — 时间控制
+
+查询或设置游戏世界的时间。游戏内一天为 24000 刻（对应真实时间 20 分钟），每秒 20 刻。
+
+### 语法
+
+`time add <amount: int>`
+
+`time query <timeType: TimeType>`
+
+`time set <amount: int>`
+
+`time set <timeType: TimeType>`
+
+### 参数
+
+- `<amount: int>` — 要增加或设置的时间数值，单位为游戏刻。有效范围为 0–24000（超过 24000 会取模回绕）。`time add` 可以为负数以回退时间。
+- `<timeType: TimeType>` — 时间类型关键字，在 `time set` 中作为预设值使用，在 `time query` 中作为查询类型使用。
+
+#### `time set` 的 TimeType 预设值
+
+| 关键字 | 对应刻数 | 说明 |
+|--------|----------|------|
+| `sunrise` | 23000 | 日出 |
+| `day` | 1000 | 白天 |
+| `noon` | 6000 | 正午（太阳最高点） |
+| `sunset` | 12000 | 日落 |
+| `night` | 13000 | 夜晚 |
+| `midnight` | 18000 | 午夜 |
+
+#### `time query` 的 TimeType 查询类型
+
+| 关键字 | 说明 |
+|--------|------|
+| `daytime` | 当天世界时间（0–24000 循环） |
+| `gametime` | 世界自创建以来的总游戏时间（不因 `/time set` 重置） |
+| `day` | 世界已流逝的完整天数 |
+
+### 示例
+
+**将时间设为正午：**
+
+```
+/time set noon
+```
+
+**将时间设为白天：**
+
+```
+/time set day
+```
+
+**使用原始刻值设置时间为午夜：**
+
+```
+/time set 18000
+```
+
+**时间前进 1000 刻：**
+
+```
+/time add 1000
+```
+
+**查询当前游戏时间：**
+
+```
+/time query daytime
+```
+
+**查询世界总游戏时间：**
+
+```
+/time query gametime
+```
+
+**查询已过的游戏天数：**
+
+```
+/time query day
+```
+
+**设为正午并锁定昼夜循环：**
+
+```
+/time set noon
+/gamerule doDaylightCycle false
+```
+
+### 基岩版注意
+
+- 需要 OP 等级 1
+- 基岩版中 0 刻为日出时刻（不是正午），时间轴与直觉不同：0 = 日出，6000 = 正午，12000 = 日落，18000 = 午夜
+- `time set <int>` 接受 0–24000 范围内的任意整数值
+- `time add` 可使用负数回退时间（如 `/time add -1000`）
+- 查询结果会显示在聊天栏中
+- 配合 `/gamerule doDaylightCycle false` 可永久锁定时间
