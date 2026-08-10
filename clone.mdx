@@ -9,32 +9,29 @@ description: "将一个区域的方块复制到另一个位置"
 
 ## `/clone` — 克隆方块
 
-将一个区域的方块复制到另一个位置。
+将一个区域的方块复制到另一个位置。常用于复制建筑、批量建造和地图制作。
 
 ### 语法
 
-`clone <begin: x y z> <end: x y z> <destination: x y z> [maskMode: MaskMode] [cloneMode: CloneMode]`
-
-`clone <begin: x y z> <end: x y z> <destination: x y z> filtered <blockName: Block> [blockStates: block states] [cloneMode: CloneMode]`
+`/clone <起点> <终点> <目标位置> [遮罩模式] [克隆模式] [方块过滤]`
 
 ### 参数
 
-- `<begin: x y z>` `<end: x y z>` — 源区域的两个对角坐标
-- `<destination: x y z>` — 目标区域的西北下角坐标（最小 x、y、z）
-- `[maskMode: MaskMode]` — 控制复制哪些方块（默认 `replace`）
-- `[cloneMode: CloneMode]` — 控制源区域和重叠区域的行为
-- `<blockName: Block>` — 当遮罩模式为 `filtered` 时，指定只复制的方块 ID
-- `[blockStates: block states]` — 方块状态
+- `<起点>` `<终点>` — 源区域的两个对角坐标
+- `<目标位置>` — 目标区域的西北下角坐标（最低 x、y、z）
+- `[遮罩模式]` — 控制复制哪些方块
+- `[克隆模式]` — 控制源区域和重叠区域的行为
+- `[方块过滤]` — 当遮罩模式为 `filtered` 时，指定只复制的方块 ID
 
-### 遮罩模式（MaskMode）
+### 遮罩模式
 
 | 模式 | 说明 |
 |------|------|
 | `replace` | 默认 — 复制源区域的所有方块（包括空气） |
-| `masked` | 只复制非空气方块 |
+| `masked` | 只复制非空气方块（空气不会被复制过去） |
 | `filtered` | 只复制指定的方块类型 |
 
-### 克隆模式（CloneMode）
+### 克隆模式
 
 | 模式 | 说明 |
 |------|------|
@@ -54,14 +51,14 @@ description: "将一个区域的方块复制到另一个位置"
 /clone ~ ~ ~ ~10 ~5 ~10 200 64 200 masked move
 ```
 
-**只克隆非空气方块：**
+**只克隆非空气方块（保留目标区域的已有方块）：**
 ```mcfunction
 /clone 0 60 0 10 70 10 50 64 50 masked
 ```
 
-**只克隆特定方块（如钻石块）：**
+**只克隆特定方块（如只复制钻石块）：**
 ```mcfunction
-/clone 0 0 0 10 10 10 50 64 50 filtered diamond_block
+/clone 0 0 0 10 10 10 50 64 50 filtered normal diamond_block
 ```
 
 **强制克隆即使区域重叠：**

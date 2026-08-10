@@ -9,67 +9,66 @@ description: "用指定方块填充一个矩形区域"
 
 ## `/fill` — 填充方块
 
-用指定方块填充一个矩形区域。
+用指定方块填充一个矩形区域。这是最常用的建筑和地图制作命令之一。
 
 ### 语法
 
-`fill <from: x y z> <to: x y z> <blockName: Block> [blockStates: block states] [oldBlockHandling: FillMode]`
+`/fill <起点> <终点> <方块> [数据值] [模式]`
 
-`fill <from: x y z> <to: x y z> <blockName: Block> [blockStates: block states] replace [replaceTileName: Block] [replaceBlockStates: block states]`
+`/fill <起点> <终点> <方块> [数据值] replace [被替换方块]`
 
 ### 参数
 
-- `<from: x y z>` — 矩形区域的一个角坐标
-- `<to: x y z>` — 矩形区域的对角坐标
-- `<blockName: Block>` — 要填充的方块 ID
-- `[blockStates: block states]` — 方块状态
-- `[oldBlockHandling: FillMode]` — 填充模式（默认 `replace`）
-- `[replaceTileName: Block]` — `replace` 模式下可指定只替换某种方块
-- `[replaceBlockStates: block states]` — 被替换方块的方块状态
+- `<起点>` — 矩形区域的一个角坐标 `x y z`
+- `<终点>` — 矩形区域的对角坐标 `x y z`
+- `<方块>` — 要填充的方块 ID
+- `[数据值]` — 方块数据值（已弃用）
+- `[模式]` — 填充模式
+- `[被替换方块]` — `replace` 模式下可指定只替换某种方块
 
-### 填充模式（FillMode）
+### 填充模式
 
 | 模式 | 说明 |
 |------|------|
-| `replace` | 默认模式 — 替换区域内的所有方块，或仅替换指定方块 |
+| `replace` | 默认模式 — 替换区域内的所有方块 |
 | `destroy` | 替换方块，被替换的方块会掉落物品 |
 | `hollow` | 只填充外层方块，内部填充为空气 |
 | `keep` | 只填充空气位置，已有方块不受影响 |
-| `outline` | 只填充外层方块（与 `hollow` 相同） |
+| `outline` | 与 `hollow` 相同 — 只填充外层 |
 
 ### 示例
 
-```mcfunction
+```
 /fill ~-5 ~-1 ~-5 ~5 ~-1 ~5 stone
 ```
 
 填充脚下的 11×11 石头地板。
 
-```mcfunction
+```
 /fill 0 64 0 10 70 10 air
 ```
 
 清除一个 11×7×11 的区域（替换为空气）。
 
-```mcfunction
+```
 /fill ~ ~ ~ ~10 ~ ~10 glass hollow
 ```
 
 创建 11×11×11 的中空玻璃盒子。
 
-```mcfunction
+```
 /fill ~ ~ ~ ~5 ~5 ~5 stone keep
 ```
 
 在区域内只填充空气位置为石头，已有方块不受影响。
 
-```mcfunction
+```
 /fill ~ ~ ~ ~10 ~ ~10 air replace stone
 ```
 
 只清除区域内的石头方块，其他方块不受影响。
 
-```mcfunction
+```
 /fill 0 60 0 20 80 20 stone destroy
 ```
 
@@ -77,7 +76,7 @@ description: "用指定方块填充一个矩形区域"
 
 ### 基岩版注意
 
-- `/fill` 有方块数量限制，最大为 **32768** 个方块，超出限制命令会失败
+- `/fill` 有方块数量限制（默认 32768 个方块），超出限制命令会失败
 - 使用 `destroy` 模式在大型区域中可能产生大量掉落物，导致严重卡顿
 - `hollow` / `outline` 模式适用于创建房间、竞技场等中空结构
 - 使用 `replace <方块>` 可以精确替换特定方块类型，常用于批量修改

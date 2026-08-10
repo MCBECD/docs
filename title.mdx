@@ -1,108 +1,98 @@
 ---
 author: "官方•Dingding OvO"
-updatedAt: "2026-08-09"
+updatedAt: "2026-08-08"
 title: "/title — 屏幕标题"
 order: 28
 category: commands
-description: "在玩家屏幕上显示标题、副标题或操作栏文字"
+description: "在玩家屏幕上显示文字：标题、副标题和操作栏"
 ---
 
 ## `/title` — 屏幕标题
 
-在玩家屏幕上显示标题、副标题或操作栏文字。`/titleraw` 变体使用 JSON rawtext 格式发送格式化文本。
+在玩家屏幕上显示文字，包括主标题、副标题和操作栏消息。
 
 ### 语法
 
-#### `/title`
+`/title <玩家> clear`
 
-```mcfunction
-title <player: target> title <titleText: message>
-title <player: target> subtitle <titleText: message>
-title <player: target> actionbar <titleText: message>
-title <player: target> times <fadeIn: int> <stay: int> <fadeOut: int>
-title <player: target> clear
-```
+`/title <玩家> reset`
 
-#### `/titleraw`
+`/title <玩家> title <标题文字>`
 
-```mcfunction
-titleraw <player: target> title <rawText: json>
-titleraw <player: target> subtitle <rawText: json>
-titleraw <player: target> actionbar <rawText: json>
-titleraw <player: target> times <fadeIn: int> <stay: int> <fadeOut: int>
-```
+`/title <玩家> subtitle <副标题文字>`
+
+`/title <玩家> actionbar <操作栏文字>`
+
+`/title <玩家> times <淡入> <停留> <淡出>`
 
 ### 参数
 
-| 参数 | 类型 | 说明 |
-|------|------|------|
-| `player: target` | 目标选择器 | 要显示标题的玩家 |
-| `titleText: message` | 字符串 | 标题文字，支持 `§` 格式化代码 |
-| `rawText: json` | JSON | 使用 rawtext 格式的格式化文本 |
-| `fadeIn: int` | 整数 | 淡入时间（刻） |
-| `stay: int` | 整数 | 停留时间（刻） |
-| `fadeOut: int` | 整数 | 淡出时间（刻） |
-| `clear` | — | 立即清除屏幕上的标题 |
-
-### 默认时间
-
-| 阶段 | 默认值 | 换算 |
-|------|--------|------|
-| 淡入 | 10 刻 | 0.5 秒 |
-| 停留 | 70 刻 | 3.5 秒 |
-| 淡出 | 20 刻 | 1.0 秒 |
-
-1 秒 = 20 刻。
+- `<玩家>` — 目标玩家
+- `<标题文字>` — 主标题文字（支持原始 JSON 文本）
+- `<副标题文字>` — 主标题下方的副标题文字
+- `<操作栏文字>` — 显示在操作栏上的文字（快捷栏上方）
+- `<淡入>` — 淡入持续时间，以刻为单位（默认：10）
+- `<停留>` — 标题在屏幕上停留的持续时间，以刻为单位（默认：70）
+- `<淡出>` — 淡出持续时间，以刻为单位（默认：20）
+- `clear` — 立即移除当前标题
+- `reset` — 将标题时间重置为默认值
 
 ### 示例
 
 **显示简单标题：**
 ```mcfunction
-/title @p title 欢迎来到服务器！
+/title @p title 欢迎！
 ```
 
-**显示带副标题的标题（先设副标题再设主标题）：**
+**显示带副标题的标题：**
 ```mcfunction
-/title @p subtitle 恭喜通关！
-/title @p title Boss 被击败了！
+/title @p title Boss被击败了！
+/title @p subtitle 恭喜！
 ```
 
-**在操作栏显示消息：**
+**在操作栏上显示消息：**
 ```mcfunction
 /title @p actionbar §a§l你发现了秘密！
 ```
 
-**自定义时间后显示标题（必须在显示之前设置）：**
+**自定义淡入淡出时间（1.5秒淡入，5秒停留，1秒淡出）：**
 ```mcfunction
 /title @p times 30 100 20
 /title @p title §6第 1 轮
 ```
 
-**使用 `/titleraw` 发送 JSON rawtext：**
-```mcfunction
-/titleraw @p title {"rawtext":[{"text":"","color":"red","bold":true},{"text":" 警报！"}]}
-```
-
-**清除标题：**
+**提前清除标题：**
 ```mcfunction
 /title @p clear
 ```
 
-### `/title` 与 `/titleraw` 的区别
+### 文字格式
 
-| 特性 | `/title` | `/titleraw` |
-|------|----------|-------------|
-| 文本格式 | 纯文本 + `§` 格式化代码 | JSON rawtext 格式 |
-| `times` 子命令 | ✅ 支持 | ✅ 支持 |
-| `clear` 子命令 | ✅ 支持 | ❌ 不支持 |
-| `times` 设置时间 | 对两者生效 | 对两者生效 |
+标题支持带格式化代码和组件的原始 JSON 文本：
+
+```mcfunction
+/title @p title {"rawtext":[{"text":"§c§l警报！"}]}
+```
+
+### 常用格式化代码
+
+| 代码 | 效果 |
+|------|------|
+| `§0` | 黑色 |
+| `§c` | 红色 |
+| `§a` | 绿色 |
+| `§b` | 青色 |
+| `§e` | 黄色 |
+| `§6` | 金色 |
+| `§l` | 粗体 |
+| `§o` | 斜体 |
+| `§k` | 乱码 |
+| `§n` | 下划线 |
 
 ### 基岩版注意
 
-- **时间必须先设置**：`times` 必须在显示标题（`title`/`subtitle`/`actionbar`）**之前**调用，否则使用默认时间
-- `/title` 的 `titleText: message` 参数支持 `§` 格式化代码（如 `§c` 红色、`§l` 粗体）
-- `/titleraw` 的 `rawText: json` 参数使用基岩版 rawtext JSON 格式，不支持 `§` 代码
-- `times` 设置的时间对 `/title` 和 `/titleraw` 都生效，只需设置一次
-- 操作栏（actionbar）文字显示在快捷栏上方
-- 基岩版没有 `reset` 子命令（Java 版有）
-- 需要 OP 等级 1
+- 标题时间必须在显示标题之前设置才能生效
+- 默认时间：淡入 10 刻，停留 70 刻，淡出 20 刻
+- 1 秒 = 20 刻
+- 操作栏文字显示在快捷栏上方，会一直保留直到被清除
+- 推荐使用 JSON rawtext 发送格式化文字

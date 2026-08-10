@@ -1,68 +1,98 @@
 ---
 author: "官方•Dingding OvO"
-updatedAt: "2026-08-09"
+updatedAt: "2026-08-08"
 title: "/give — 给予物品"
 order: 11
 category: commands
-description: "给予指定数量的物品给一个或多个玩家"
+description: "给予玩家指定物品，支持数量、数据值与组件"
+tags: ["物品", "玩家"]
 ---
 
 ## `/give` — 给予物品
 
-给予指定数量的物品给一个或多个玩家。支持通过数据值指定物品变体，也可通过 JSON 组件为物品添加额外属性。
+给予玩家指定物品。基岩版 1.20.50+ 已弃用旧版数据值语法，改用物品组件系统。
 
 ### 语法
 
-`/give <player: target> <itemName: Item> [amount: int] [data: int] [components: json]`
+**新版语法（1.20.50+）：**
+
+`/give <玩家> <物品> [数量] [组件]`
+
+**旧版语法（1.20.50 以下）：**
+
+`/give <玩家> <物品> [数量] [数据值] [组件]`
 
 ### 参数
 
-- `player: target` — 接收物品的玩家，必须为一个或多个有效的玩家目标选择器。
-- `itemName: Item` — 要给予的物品 ID（如 `diamond`、`diamond_sword`、`potion`）。
-- `amount: int`（可选）— 给予的物品数量，范围 1–32767，默认为 1。
-- `data: int`（可选）— 物品的数据值，范围 0–32767，默认为 0。用于指定物品的额外变体（如药水效果类型）。
-- `components: json`（可选）— JSON 格式的物品组件。基岩版中仅支持以下组件：
-  - `minecraft:can_place_on` — 指定方块可放置于其上的方块列表（冒险模式）
-  - `minecraft:can_destroy` — 指定方块可破坏的方块列表（冒险模式）
-  - `minecraft:item_lock` — 物品锁定模式
-  - `minecraft:keep_on_death` — 死亡后保留物品
+- `<玩家>` — 目标选择器
+- `<物品>` — 物品 ID（如 `diamond`、`stone`、`granite`）
+- `[数量]` — 数量（1-64，默认 1）
+- `[数据值]` — 旧版物品变体数据值（已弃用，1.20.50+ 应使用独立物品 ID）
+- `[组件]` — JSON 格式的物品组件
+
+### 物品组件
+
+基岩版使用 JSON 格式的物品组件来定义额外属性，常见组件包括：
+
+| 组件 | 说明 |
+|------|------|
+| `"enchantments"` | 附魔列表 |
+| `"display_name"` | 自定义物品名称 |
+| `"lore"` | 物品描述 |
+| `"item_lock"` | 物品锁定模式 |
+| `"keep_on_death"` | 死亡后保留 |
+| `"damage"` | 物品耐久值 |
+| `"count"` | 物品数量（组件内） |
 
 ### 示例
 
-**给予所有玩家一瓶夜视药水（数据值 5 代表夜视）：**
-
 ```
-/give @a potion 1 5
+/give @p diamond 64
 ```
 
-**给予最近玩家一个钻石块，并指定可放置在泥土上、可破坏石英块：**
+给予最近玩家 64 个钻石。
 
 ```
-/give @p diamond_block 1 0 {"minecraft:can_place_on":{"blocks":["dirt"]},"minecraft:can_destroy":{"blocks":["quartz_block"]}}
+/give @a diamond_sword 1
 ```
 
-**给予最近玩家一把死亡后保留的钻石剑：**
+给予所有玩家一把钻石剑。
 
 ```
-/give @p diamond_sword 1 0 {"keep_on_death":{}}
+/give @p stone 64
 ```
 
-**给予所有玩家一根锁定在物品栏中的木棍：**
+给予石头（在 1.20.50+ 中石头就是 `stone`，花岗岩使用独立 ID `granite`）。
 
 ```
-/give @a stick 1 0 {"item_lock":{"mode":"lock_in_inventory"}}
+/give @s diamond_sword 1 0 {"enchantments":[{"id":"sharpness","level":5}]}
 ```
 
-**给予随机玩家一把锁定在物品栏槽位中的木铲：**
+给予一把锋利 V 钻石剑（使用旧版组件语法）。
 
 ```
-/give @r wooden_shovel 1 0 {"item_lock":{"mode":"lock_in_slot"}}
+/give @s golden_apple 1 0 {"item_lock":"lock_in_inventory"}
 ```
+
+给予一个锁定在物品栏中的金苹果。
+
+### 常用物品 ID
+
+| 物品 | ID |
+|------|-----|
+| 钻石 | `diamond` |
+| 钻石剑 | `diamond_sword` |
+| 金苹果 | `golden_apple` |
+| 附魔金苹果 | `enchanted_golden_apple` |
+| 命令方块 | `command_block` |
+| 基岩 | `bedrock` |
+| 花岗岩 | `granite` |
+| 闪长岩 | `diorite` |
+| 安山岩 | `andesite` |
 
 ### 基岩版注意
 
+- 1.20.50+ 版本弃用了物品数据值，改用独立物品 ID（如花岗岩从 `stone 1` 变为 `granite`）
+- 物品组件语法在近期版本中有较大变化，建议查阅对应版本的 Wiki
+- 旧版命令中使用数据值 0 的物品可省略数据值参数
 - 需要 OP 等级 1
-- `amount` 最大支持 32767，远超正常堆叠上限 64
-- `data` 参数为基岩版特有的数据值系统，用于区分同一物品的不同变体（如药水效果）
-- 基岩版的 `components` JSON 仅支持 `can_place_on`、`can_destroy`、`item_lock`、`keep_on_death` 四种组件，不支持 Java 版中的 `enchantments`、`display_name`、`lore` 等组件
-- 物品数量超出正常堆叠上限时，超出部分会堆叠到新的物品栏槽位中

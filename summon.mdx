@@ -13,70 +13,90 @@ description: "在指定位置生成实体"
 
 ### 语法
 
-`summon <entityType: Entity> [spawnPos: x y z] [yRot: value] [xRot: value] [spawnEvent: string] [nameTag: string]`
-
-`summon <entityType: Entity> [spawnPos: x y z] [spawnEvent: string] [nameTag: string]`
-
-`summon <entityType: Entity> [spawnPos: x y z] facing <lookAtEntity: target> [spawnEvent: string] [nameTag: string]`
-
-`summon <entityType: Entity> [spawnPos: x y z] facing <lookAtPos: x y z> [spawnEvent: string] [nameTag: string]`
+`/summon <实体类型> [位置] [命名规则:NameTag]`
 
 ### 参数
 
-- `<entityType: Entity>` — 实体 ID（如 `zombie`、`creeper`）
-- `[spawnPos: x y z]` — 生成坐标（默认为命令执行位置）
-- `[yRot: value]` — 生成实体的水平旋转角度（绕 Y 轴）
-- `[xRot: value]` — 生成实体的垂直旋转角度（绕 X 轴）
-- `[spawnEvent: string]` — 生成时触发的事件
-- `[nameTag: string]` — 实体的自定义名称
-- `facing <lookAtEntity: target>` — 使实体朝向指定目标实体
-- `facing <lookAtPos: x y z>` — 使实体朝向指定坐标
+- `<实体类型>` — 实体 ID（如 `zombie`、`creeper`）
+- `[位置]` — 生成坐标 `x y z`（默认：命令执行位置）
+- `[命名规则:NameTag]` — 实体的自定义名称（可选，使用 `~` 前缀显示名称始终可见）
 
 ### 示例
 
-```mcfunction
+```
 /summon zombie ~ ~ ~
 ```
 
 在当前位置生成僵尸。
 
-```mcfunction
+```
 /summon creeper 100 64 100
 ```
 
 在指定坐标生成苦力怕。
 
-```mcfunction
+```
 /summon lightning_bolt ~ ~ ~
 ```
 
 在当前位置生成闪电。
 
-```mcfunction
-/summon villager ~ ~ ~ "村庄守卫"
+```
+/summon villager ~ ~ ~
 ```
 
-生成一个名为"村庄守卫"的村民。
+在当前位置生成村民。
 
-```mcfunction
-/summon armor_stand ~ ~ ~ facing @p
 ```
-
-在当前位置生成一个朝向最近玩家的盔甲架。
-
-```mcfunction
 /summon tnt ~ ~1 ~
 ```
 
 在头顶生成 TNT（会被立刻激活）。
+
+```
+/summon zombie ~ ~ ~ "~Guard"
+```
+
+生成一个始终显示名称的僵尸。
+
+### 常用实体 ID
+
+| 实体 | ID |
+|------|-----|
+| 僵尸 | `zombie` |
+| 骷髅 | `skeleton` |
+| 苦力怕 | `creeper` |
+| 蜘蛛 | `spider` |
+| 末影人 | `enderman` |
+| 烈焰人 | `blaze` |
+| 凋灵骷髅 | `wither_skeleton` |
+| 末影龙 | `ender_dragon` |
+| 凋灵 | `wither` |
+| 村民 | `villager` |
+| 流浪商人 | `wandering_trader` |
+| 铁傀儡 | `iron_golem` |
+| 雪傀儡 | `snow_golem` |
+| 恶魂 | `ghast` |
+| 岩浆怪 | `magma_cube` |
+| 史莱姆 | `slime` |
+| 尸壳 | `husk` |
+| 爬行者 | `cave_spider` |
+| 女巫 | `witch` |
+| 幻翼 | `phantom` |
+| 掠夺者 | `pillager` |
+| 卫道士 | `vindicator` |
+| 唤魔者 | `evoker` |
+| TNT | `tnt` |
+| 闪电 | `lightning_bolt` |
+| 盔甲架 | `armor_stand` |
+| 矿车 | `minecart` |
+| 掉落物 | 不可用 `/summon`（使用 `/give`） |
 
 ### 基岩版注意
 
 - 实体 ID 必须使用小写英文名称
 - 掉落物（item）无法使用 `/summon` 生成，需要使用 `/give` 命令
 - 某些实体（如闪电）生成时会立即产生效果（闪电会点燃周围方块）
-- 使用 `facing` 参数可以控制生成实体的朝向，可朝向实体或坐标
-- `yRot` 和 `xRot` 可以直接指定实体的旋转角度
-- `spawnEvent` 可在生成时触发实体事件，用于自定义实体行为
+- 命名规则使用 `~名称` 可使实体名称始终可见（不受到距离限制）
 - 生成范围有限制，不能在未加载的区块中生成实体
 - 需要 OP 等级 1

@@ -1,26 +1,27 @@
 ---
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-09"
-title: "/enchant — 附魔"
+title: "/enchant — 附魔物品"
 order: 22
 category: commands
-description: "为玩家选中的物品添加附魔"
+description: "为玩家手持物品添加附魔"
 ---
 
-## `/enchant` — 附魔
+## `/enchant` — 附魔物品
 
-为玩家选中的物品添加附魔。默认对主手栏物品生效，也可指定副手栏。
+为玩家手持或主手栏中的物品添加附魔。
 
 ### 语法
 
-`/enchant <player: target> <enchantmentName: Enchant> <level: int> [enchantItemWith: EnchantItemOption]`
+`/enchant <玩家> <附魔ID> <等级>`
 
 ### 参数
 
-- `player: target` — 目标玩家，必须持有可附魔的物品。
-- `enchantmentName: Enchant` — 附魔标识符（如 `sharpness`、`protection`、`efficiency`）。
-- `level: int` — 附魔等级，从 1 到该附魔的最大等级。
-- `enchantItemWith: EnchantItemOption`（可选）— 指定要附魔的物品栏位，可选值为 `mainhand`（主手）或 `offhand`（副手）。默认为 `mainhand`。
+- `<玩家>` — 目标玩家（必须手持可附魔的物品）
+- `<附魔ID>` — 附魔标识符（英文名称，如 `sharpness`）
+- `<等级>` — 附魔等级（从 1 开始；1 = I 级，2 = II 级，以此类推）
+
+> 注意：基岩版中等级参数是**必填的**，即使附魔 I 级也需要写等级 1。
 
 ### 常用附魔
 
@@ -58,42 +59,36 @@ description: "为玩家选中的物品添加附魔"
 
 ### 示例
 
-**为最近玩家的主手物品附魔锋利 V：**
-
-```
+**为手持物品附魔锋利 V：**
+```mcfunction
 /enchant @p sharpness 5
 ```
 
-**为自己持有的物品附魔效率 V：**
-
-```
-/enchant @s efficiency 5
-```
-
-**为所有玩家的主手物品附魔精准采集：**
-
-```
-/enchant @a silk_touch 1
+**为最近玩家的手持物品附魔效率 V：**
+```mcfunction
+/enchant @p efficiency 5
 ```
 
-**为最近玩家的副手物品附魔经验修补：**
-
+**应用精准采集：**
+```mcfunction
+/enchant @s silk_touch 1
 ```
-/enchant @p mending 1 offhand
+
+**给所有玩家耐久 III：**
+```mcfunction
+/enchant @a unbreaking 3
 ```
 
-**为所有玩家的主手物品附魔耐久 III：**
-
-```
-/enchant @a unbreaking 3 mainhand
+**为手持头盔附魔水下呼吸 III：**
+```mcfunction
+/enchant @p respiration 3
 ```
 
 ### 基岩版注意
 
+- 玩家必须手持要附魔的物品（主手栏）
+- 物品必须支持该附魔，否则命令会失败
+- 不兼容的附魔（如同时有锋利和亡灵杀手）不能共存
+- 可以通过命令应用超过正常上限的附魔等级（例如锋利 100），但实际效果有上限
+- `/enchant` 只能给玩家手中的物品附魔，不能给掉落物或容器中的物品附魔
 - 需要 OP 等级 1
-- 玩家必须持有支持该附魔的物品，否则命令会失败
-- 不兼容的附魔（如锋利与亡灵杀手）不能同时存在于同一物品上
-- 等级参数为必填项，即使附魔 I 级也必须写 `1`
-- `enchantItemWith` 参数为基岩版特有，用于指定对主手还是副手物品附魔，默认为主手
-- 可以通过命令应用超过正常上限的附魔等级（如锋利 100），但实际效果有上限
-- `/enchant` 只能对玩家手持的物品生效，不能对掉落物或容器中的物品附魔

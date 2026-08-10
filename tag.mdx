@@ -1,42 +1,40 @@
 ---
 author: "官方•Dingding OvO"
-updatedAt: "2026-08-09"
+updatedAt: "2026-08-08"
 title: "/tag — 实体标签"
 order: 27
 category: commands
-description: "添加、移除或列出实体上的标签"
+description: "添加、移除或列出实体标签"
 ---
 
 ## `/tag` — 实体标签
 
-添加、移除或列出实体上的标签。标签用于标记实体，方便后续通过目标选择器定位。
+添加、移除或列出实体上的标签。标签用于标记实体，方便后续定位。
 
 ### 语法
 
-```mcfunction
-tag <target: target> add <name: string>
-tag <target: target> remove <name: string>
-tag <target: target> list
-```
+`/tag <实体> add <名称>`
+
+`/tag <实体> remove <名称>`
+
+`/tag <实体> list`
 
 ### 参数
 
-| 参数 | 类型 | 说明 |
-|------|------|------|
-| `target: target` | 目标选择器 | 要操作标签的实体 |
-| `name: string` | 字符串 | 标签名称 |
-| `add` | — | 为实体添加标签 |
-| `remove` | — | 从实体移除标签 |
-| `list` | — | 列出实体上的所有标签 |
+- `<实体>` — 目标实体
+- `<名称>` — 标签名称（最多32个字符，字母数字、下划线和连字符）
+- `add` — 为实体添加标签
+- `remove` — 从实体移除标签
+- `list` — 列出实体上的所有标签
 
 ### 示例
 
-**给自己添加标签：**
+**给自己添加"admin"标签：**
 ```mcfunction
 /tag @s add admin
 ```
 
-**给所有僵尸添加标签：**
+**给所有僵尸添加"undead"标签：**
 ```mcfunction
 /tag @e[type=zombie] add undead
 ```
@@ -56,36 +54,29 @@ tag <target: target> list
 /kill @e[tag=cleanup]
 ```
 
-### 标签与目标选择器配合
+### 标签与其他命令配合使用
 
-标签通过 `tag=` 选择器参数与其他命令结合使用：
+标签通过目标选择器与其他命令结合使用时最为强大：
 
-**给所有带 "winner" 标签的玩家钻石：**
+**给所有带"winner"标签的实体钻石：**
 ```mcfunction
-/give @a[tag=winner] diamond 64
+/give @e[tag=winner,type=player] diamond 64
 ```
 
-**传送所有 "team_red" 玩家：**
+**传送所有"team_red"玩家：**
 ```mcfunction
 /tp @a[tag=team_red] 0 64 0
 ```
 
-**给所有 "buffed" 玩家添加效果：**
+**给所有"buffed"玩家添加效果：**
 ```mcfunction
-/effect @a[tag=buffed] speed 30 2 true
-```
-
-**反向选择没有标签的实体：**
-```mcfunction
-/execute as @e[type=cow,tag=!branded] run tag @s add branded
+/effect @a[tag=buffed] strength 30 2 true
 ```
 
 ### 基岩版注意
 
-- **标签是持久的**：实体卸载后重新加载，标签仍然存在
-- **区分大小写**：`Admin` 和 `admin` 是两个不同的标签
-- **每个实体最多 1024 个标签**
+- 标签是持久的，实体重新加载后仍然存在
+- 标签区分大小写 — `Admin` 和 `admin` 是不同的
 - 一个实体可以同时拥有多个标签
-- 标签广泛用于队伍管理、状态标记和逻辑判断
-- 在命令系统中推荐使用标签而非名称进行实体定位
-- 需要 OP 等级 1
+- 标签广泛用于小游戏队伍管理和逻辑判断
+- 在命令系统中使用标签而非名称进行可靠的实体定位

@@ -1,6 +1,6 @@
 ---
 author: "官方•Dingding OvO"
-updatedAt: "2026-08-09"
+updatedAt: "2026-08-08"
 title: "/effect — 状态效果"
 order: 15
 category: commands
@@ -13,21 +13,21 @@ description: "给予或移除实体的状态效果"
 
 ### 语法
 
-`effect <target: target> <effect: Effect> [seconds: int] [amplifier: int] [hideParticles: Boolean]`
+`/effect <目标> give <效果> [秒] [放大器] [隐藏粒子]`
 
-`effect <target: target> <effect: Effect> infinite [amplifier: int] [hideParticles: Boolean]`
+`/effect <目标> clear`
 
-`effect <target: target> clear [effect: Effect]`
+`/effect <目标> clear <效果>`
 
 ### 参数
 
-- `<target: target>` — 目标选择器（`@p`、`@a`、`@s`、`@e`）
-- `<effect: Effect>` — 效果 ID（英文名称）
-- `[seconds: int]` — 持续时间（秒）
-- `infinite` — 无限持续时间
-- `[amplifier: int]` — 效果等级，从 0 开始（0 = I 级，1 = II 级，以此类推）
-- `[hideParticles: Boolean]` — `true` 隐藏粒子效果
-- `clear` — 清除效果；不带效果名则清除全部效果，指定效果名则仅清除该效果
+- `<目标>` — 目标选择器（`@p`、`@a`、`@s`、`@e`）
+- `give` — 给予效果（子命令关键字）
+- `<效果>` — 效果 ID（英文名称）
+- `[秒]` — 持续时间（秒，默认 30）
+- `[放大器]` — 效果等级（默认 0，即 I 级；1 表示 II 级，以此类推）
+- `[隐藏粒子]` — `true` 隐藏粒子效果
+- `clear` — 清除效果（不带效果名则清除全部）
 
 ### 常用效果
 
@@ -55,32 +55,32 @@ description: "给予或移除实体的状态效果"
 
 ### 示例
 
-```mcfunction
-/effect @p speed 30 1
+```
+/effect @p give speed 30 1
 ```
 
 给予最近玩家 30 秒速度 II。
 
-```mcfunction
-/effect @p speed infinite 0 true
+```
+/effect @p give night_vision 999999 0 true
 ```
 
-给予最近玩家无限速度 I（隐藏粒子）。
+给予永久夜视（隐藏粒子，约 578 小时）。
 
-```mcfunction
+```
 /effect @p clear
 ```
 
 清除最近玩家的所有效果。
 
-```mcfunction
+```
 /effect @p clear speed
 ```
 
 仅清除最近玩家的速度效果。
 
-```mcfunction
-/effect @e[type=zombie] slowness 30 2 true
+```
+/effect @e[type=zombie] give slowness 30 2 true
 ```
 
 给所有僵尸 30 秒减速 III（隐藏粒子）。
@@ -88,8 +88,7 @@ description: "给予或移除实体的状态效果"
 ### 基岩版注意
 
 - 效果 ID 使用英文名称，不是数字
-- 基岩版语法**没有** `give` 子命令关键字，直接写效果名即可
-- 使用 `infinite` 关键字可给予无限持续时间的效果
+- 基岩版语法为 `/effect <target> give <effect> ...`，注意 `give` 子命令关键字是**必需的**
+- `clear` 子命令可以清除全部效果或指定效果
 - 放大器从 0 开始（0 = I 级，1 = II 级，2 = III 级）
-- `clear` 可以清除全部效果或仅清除指定效果
 - 需要 OP 等级 1
