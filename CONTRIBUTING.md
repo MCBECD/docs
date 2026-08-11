@@ -37,7 +37,7 @@ git checkout -b add-weather-command
 **命令文档：**
 ```yaml
 ---
-title: "/weather — 设置天气"
+title: "/weather  设置天气"
 order: 200
 category: commands
 description: "更改当前世界的天气状态"

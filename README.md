@@ -55,7 +55,7 @@ MCBECD/docs/
 
 ```yaml
 ---
-title: "/give — 给予物品"
+title: "/give  给予物品"
 order: 110
 category: commands
 description: "给予玩家指定物品"
