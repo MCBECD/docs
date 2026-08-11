@@ -2,8 +2,7 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-09"
 title: "写作指南"
-order: 5
-category: basics
+category: basics/5
 pinned: true
 description: "图标系统、自定义 MDX 组件与文档写作规范"
 ---
@@ -21,8 +20,7 @@ description: "图标系统、自定义 MDX 组件与文档写作规范"
 author: "作者名称"
 updatedAt: "YYYY-MM-DD"
 title: "/command  中文名称"
-order: 10
-category: commands
+category: commands/Player
 description: "一句话描述"
 tags: ["标签1", "标签2"]
 ---
@@ -31,11 +29,10 @@ tags: ["标签1", "标签2"]
 | 字段 | 必填 | 说明 |
 |------|------|------|
 | `title` | ✅ | 文档标题 |
-| `order` | ✅ | 排序权重（数字越小越靠前，建议间隔 10） |
+| `category` | ✅ | 分类路径，如 `basics/0`、`commands/Player`、`examples` |
 | `description` | ✅ | 简短描述（用于 SEO 和列表展示） |
 | `author` | ✅ | 作者名称 |
 | `updatedAt` | ✅ | 更新日期，格式 `YYYY-MM-DD` |
-| `category` | 推荐 | 分类：`intro` / `basics` / `commands` |
 | `tags` | 可选 | 标签数组，用于筛选 |
 
 ### 命令方块图标组件
@@ -191,8 +188,7 @@ tags: ["标签1", "标签2"]
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-09"
 title: "/command  中文名称"
-order: 10
-category: commands
+category: commands/Player
 description: "简短描述"
 tags: ["标签1", "标签2"]
 ---
