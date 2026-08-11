@@ -2,7 +2,7 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-09"
 title: "写作指南"
-category: basics/5
+category: basics/3
 pinned: true
 description: "图标系统、自定义 MDX 组件与文档写作规范"
 ---
@@ -29,8 +29,8 @@ tags: ["标签1", "标签2"]
 | 字段 | 必填 | 说明 |
 |------|------|------|
 | `title` | ✅ | 文档标题 |
-| `category` | ✅ | 分类路径，如 `basics/0`、`commands/Player`、`examples` |
-| `description` | ✅ | 简短描述（用于 SEO 和列表展示） |
+| `category` | ✅ | 分类路径，如 `commands/Player`、`examples` |
+| `description` | ✅ | 简短描述 |
 | `author` | ✅ | 作者名称 |
 | `updatedAt` | ✅ | 更新日期，格式 `YYYY-MM-DD` |
 | `tags` | 可选 | 标签数组，用于筛选 |
@@ -118,8 +118,6 @@ tags: ["标签1", "标签2"]
 - 数字和坐标（`100`、`~ ~1 ~`、`^ ^ ^1`）— 数值高亮
 - 参数名（如 `sharpness`、`speed`）— 参数高亮
 
-> 如果不指定语言，默认使用 `mcfunction` 高亮。也可以使用其他 Shiki 支持的语言，如 `json`、`javascript`、`bash` 等。
-
 #### 内联代码
 
 使用单个反引号包裹内联代码：
@@ -136,7 +134,7 @@ tags: ["标签1", "标签2"]
 详见 [`/give`](../give/) 命令文档。
 ```
 
-这种格式在列表页和正文中都能提供一致的视觉体验。链接必须使用**相对路径**（如 `../give`），不要使用绝对路径（如 `/docs/give`）。
+这种格式在列表页和正文中都能提供一致的视觉体验。链接必须使用**相对路径**（如 `../give/`），不要使用绝对路径（如 `/docs/give`）。
 
 ### 折叠内容
 
@@ -251,24 +249,15 @@ node scripts/validate-docs.mjs
 
 ### 文件存放
 
-文档存放在 `content/docs/` 目录下，支持两种格式：
-
-**平铺格式**（推荐）：
+文档存放在 `content/docs/` 目录下
 
 ```
 content/docs/
-├── give.mdx
-├── tp.mdx
-└── kill.mdx
+├── commands/
+|   ├── execute.mdx
+|   ├── give.mdx
+|   ├── tp.mdx
+|   └── kill.mdx
+└── examples/
+    └── ...
 ```
-
-**目录格式**（适用于需要额外元数据的文档）：
-
-```
-content/docs/
-├── give-diamonds/
-│   ├── index.mdx      # 文档正文
-│   └── meta.json      # 额外元数据（会覆盖 frontmatter）
-```
-
-`meta.json` 中指定的字段会覆盖 frontmatter 中的同名字段。
