@@ -29,7 +29,7 @@ tags: ["标签1", "标签2"]
 | 字段 | 必填 | 说明 |
 |------|------|------|
 | `title` | ✅ | 文档标题 |
-| `category` | ✅ | 分类路径，如 `commands`、`community` |
+| `category` | ✅ | 分类路径，如 `basics`、`commands`、`community` |
 | `description` | ✅ | 简短描述 |
 | `author` | ✅ | 作者名称 |
 | `updatedAt` | ✅ | 更新日期，格式 `YYYY-MM-DD` |
@@ -240,23 +240,30 @@ node scripts/validate-docs.mjs
 ```
 
 校验规则：
-- 必填字段：`title`、`order`、`description`、`author`、`updatedAt`
-- `order` 必须是数字
-- `category` 必须是 `intro` / `basics` / `commands` 之一
+- 必填字段：`title`、`description`、`author`、`updatedAt`
+- `category` 必须是 `basics` / `commands` / `community` 之一
 - `updatedAt` 必须符合 `YYYY-MM-DD` 格式
 - 链接应使用相对路径（绝对路径会产生警告）
 
 ### 文件存放
 
-文档存放在 `content/docs/` 目录下
+文档存放在仓库根目录，命令文档存放在 `commands/` 子目录下
 
 ```
-content/docs/
+MCBECD/docs/
+├── about.mdx
+├── getting-started.mdx
+├── command-syntax.mdx
 ├── commands/
-|   ├── execute.mdx
-|   ├── give.mdx
-|   ├── tp.mdx
-|   └── kill.mdx
-└── community/
-    └── ...
+│   ├── execute.mdx
+│   ├── give.mdx
+│   ├── tp.mdx
+│   └── kill.mdx
+├── 1.mdx
+├── 2.mdx
+├── 3.mdx
+├── standards/
+│   └── *.mdx
+├── CONTRIBUTING.md
+└── README.md
 ```
