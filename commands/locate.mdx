@@ -1,6 +1,6 @@
 ---
 author: "官方•Dingding OvO"
-updatedAt: "2026-08-09"
+updatedAt: "2026-08-12"
 title: "/locate  定位结构"
 category: commands
 description: "查找最近结构或生物群系的坐标"
@@ -43,34 +43,46 @@ tags: ["世界", "聊天栏", "创造", "地图制作", "OP1", "即时"]
 /locate village
 ```
 
+返回最近村庄的坐标，显示在聊天栏中。可直接点击坐标复制，配合 [`/tp`](../commands/tp/) 快速传送。
+
 **查找最近的下界要塞（需在下界执行）：**
 ```mcfunction
 /locate fortress
 ```
+
+返回下界要塞的坐标，必须在下界维度执行。使用 [`/execute`](../commands/execute/) 可在其他维度中跨维度定位。
 
 **查找最近的末地城（需在末地执行）：**
 ```mcfunction
 /locate end_city
 ```
 
+返回末地城的坐标，末地城包含鞘翅、潜影贝等珍贵战利品。
+
 **定位埋藏的宝藏：**
 ```mcfunction
 /locate buried_treasure
 ```
+
+返回藏宝图标记的埋藏宝藏坐标，通常包含铁锭和金锭。
 
 **定位远古城市：**
 ```mcfunction
 /locate ancient_city
 ```
 
+返回远古城市坐标，包含潜影贝、回响碎片和迅捷潜行附魔书。
+
 **定位试炼密室：**
 ```mcfunction
 /locate trial_chambers
 ```
 
+返回试炼密室坐标，包含刷怪笼、钥匙和丰厚奖励。
+
 ### 配合传送使用
 
-`/locate` 返回坐标后，可直接配合 `/tp` 传送：
+`/locate` 返回坐标后，可直接配合 [`/tp`](../commands/tp/) 传送：
 
 ```mcfunction
 /locate village
@@ -82,11 +94,11 @@ tags: ["世界", "聊天栏", "创造", "地图制作", "OP1", "即时"]
 /tp @p <返回的坐标>
 ```
 
-> 注意：基岩版中 `/locate` 的返回值会自动显示在聊天栏中，可以点击坐标直接复制。
+### 基岩版注意
 
->[!NOTE]
-> - 结构必须在已生成的区块中才能被定位
-> - 某些结构只能在其对应维度中定位：`fortress` 和 `bastion_remnant` 在下界，`end_city` 在末地
-> - 返回的坐标是结构入口的近似位置
-> - 如果附近没有目标结构，命令会返回最远的搜索结果或报错
-> - 需要 OP 等级 1
+- 基岩版中 `/locate` 的返回值会自动显示在聊天栏中，可以点击坐标直接复制
+- 结构必须在已生成的区块中才能被定位
+- 某些结构只能在其对应维度中定位：`fortress` 和 `bastion_remnant` 在下界，`end_city` 在末地
+- 返回的坐标是结构入口的近似位置
+- 如果附近没有目标结构，命令会返回最远的搜索结果或报错
+- 需要 OP 等级 1
