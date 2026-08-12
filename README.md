@@ -10,7 +10,7 @@ MCBECD Docs 是 [MCBECD 站点](https://github.com/MCBECD/site) 的**文档内�
 
 ## 文档结构
 
-所有文档为扁平 `.mdx` 文件，放在仓库根目录：
+所有文档为扁平 `.mdx` 文件，放在仓库根目录或子目录中：
 
 ```
 MCBECD/docs/
@@ -18,6 +18,7 @@ MCBECD/docs/
 ├── getting-started.mdx       # 快速开始
 ├── command-syntax.mdx        # 命令语法基础
 ├── writing-guide.mdx         # 文档写作指南
+├── standards.mdx             # 标准规范总纲
 │
 ├── commands/
 │   ├── give.mdx              # /give 命令
@@ -25,9 +26,15 @@ MCBECD/docs/
 │   ├── execute.mdx           # /execute 命令
 │   ...（22 个官方命令）
 │
-├── community-1.mdx           # 社区贡献：「在线时间」
-├── community-2.mdx           # 社区贡献：「雪球填平」
-├── community-get-diamonds.mdx # 社区贡献：「获取全套钻石装备」
+├── 1.mdx                     # 社区贡献：「在线时间」
+├── 2.mdx                     # 社区贡献
+├── 3.mdx                     # 社区贡献
+│
+├── standards/
+│   ├── frontmatter-standard.mdx
+│   ├── structure-standard.mdx
+│   ├── tag-standard.mdx
+│   ...（12 个标准规范文档）
 │
 ├── README.md                 # 本文件
 └── CONTRIBUTING.md           # 贡献指南
@@ -36,16 +43,12 @@ MCBECD/docs/
 ### 命名规则
 
 | 类型 | 命名方式 | 示例 | category 值 |
-|------|---------|------|-----------|
-| **基础文档** | 语义化英文 | `getting-started.mdx` | `basics/0` |
+|------|---------|------|-------------|
+| **基础文档** | 语义化英文 | `getting-started.mdx` | `basics` |
 | **官方命令** | `commands/` 子目录 + 命令名 | `commands/give.mdx` | `commands` |
-| **社区文档** | `community-` 前缀 + 数字/名称 | `community-1.mdx` | `community` |
+| **社区文档** | 纯数字编号 | `3.mdx` | `community` |
 
-> 社区文档用 `community-` 前缀避免与基础文档和命令文档冲突，站点渲染时使用 frontmatter 中的 `title` 字段。
-
-### 子目录（已废弃）
-
-不再使用 `{name}/index.mdx + meta.json` 文件夹格式，统一扁平 `.mdx`。
+> 社区文档使用纯数字编号（从 1 递增），放在仓库根目录。站点渲染时使用 frontmatter 中的 `title` 字段作为显示名称。
 
 ## 文档格式
 
@@ -54,42 +57,55 @@ MCBECD/docs/
 ```yaml
 ---
 title: "/give  给予物品"
-order: 110
+author: "官方•Dingding OvO"
+updatedAt: "2026-08-12"
 category: commands
-description: "给予玩家指定物品"
-author: "官方"
-updatedAt: "2026-08-09"
+description: "给予玩家指定物品，支持数量、数据值与组件"
+tags: ["物品", "玩家", "聊天栏", "生存", "创造", "OP1", "多目标"]
 ---
 ```
 
 ### Frontmatter 字段
 
 | 字段 | 必填 | 说明 |
-|------|-----|------|
-| `title` | ✅ | 文档标题，显示在页面和侧边栏 |
-| `order` | ✅ | 排序权重，越小越靠前 |
-| `category` | ✅ | 分类：`basics/N` / `commands/Type` / `community` |
-| `description` | ✅ | SEO 描述，120 字以内 |
-| `author` | ❌ | 作者署名 |
-| `updatedAt` | ❌ | 最后更新日期 |
-| `pinned` | ❌ | 是否置顶（`true` / `false`） |
-| `tags` | ❌ | 标签数组 |
+|------|------|------|
+| `title` | ✅ | 文档标题。命令文档格式：`/command  中文名称`（两个空格）；社区文档：纯中文名称 |
+| `author` | ✅ | 作者署名（MCBECD 社区名称或 GitHub 用户名） |
+| `updatedAt` | ✅ | 最后更新日期，格式 `YYYY-MM-DD` |
+| `category` | ✅ | 分类：`basics` / `commands` / `community` |
+| `description` | ✅ | 一句话描述，15-40 个汉字 |
+| `tags` | ⚠️ | 标签数组。命令文档和社区文档**必填**，基础文档可选。标签名使用简体中文 |
+| `pinned` | ❌ | 是否置顶（仅限 `basics` 文档使用） |
+| `hidden` | ❌ | 是否在列表中隐藏 |
 
 ## 命令文档要求
 
-每个命令文档应包含以下章节：
+每个命令文档**必须**包含以下章节：
 
-1. **语法** — 完整命令格式
-2. **参数** — 表格列出每个参数的类型、说明、可选值
-3. **示例** — 至少 2 个可直接使用的命令示例
-4. **基岩版注意** — 与 Java 版的差异、版本兼容性
+1. **开头段落**（无标题）—— 1-3 句话概括命令功能
+2. **语法**（`### 语法`）—— 完整命令格式
+3. **参数**（`### 参数`）—— 列出每个参数的类型与说明
+4. **示例**（`### 示例`）—— 至少 **3 个**可直接使用的命令示例，从简单到复杂排列
+5. **基岩版注意**（`### 基岩版注意`）—— 与 Java 版的差异、版本兼容性、OP 等级要求
+
+正文长度不低于 800 字（不含代码块）。
+
+## 标签要求
+
+标签从预定义的标签集中选取，不得自行创造新标签。
+
+- **命令文档**：3-7 个标签，必须对照[标签对照表](./standards/tag-standard.mdx)检查
+- **社区文档**：3-6 个标签，包含 1 个内容类型标签 + 1-2 个技术栈标签
+- **基础文档**：0-2 个标签
+
+标签书写格式：`tags: ["标签A", "标签B"]`
 
 ## 添加新文档
 
 1. Fork 本仓库
-2. 创建 `.mdx` 文件（社区文档用下一个可用数字 ID，命令文档用命令名）
-3. 填写正确的 frontmatter
-4. **使用相对链接**引用其他文档：`[语法基础](./command-syntax)`
+2. 创建 `.mdx` 文件（社区文档用下一个可用数字编号，命令文档用命令名）
+3. 填写正确的 frontmatter（确保所有必填字段已填写）
+4. **使用相对链接**引用其他文档：[`/give`](../commands/give/)
 5. 提交 PR 到 `main` 分支
 
 详见 [CONTRIBUTING.md](./CONTRIBUTING.md)。
