@@ -7,9 +7,9 @@ description: "一键给予玩家全套附魔钻石装备，含武器与防具"
 tags: ["工具", "原版", "聊天栏"]
 ---
 
-## 命令
+以下命令可一次性给予执行者全套附魔钻石装备，包含武器、工具和防具。所有命令均在聊天栏中逐条执行，基于 [`/give`](../commands/give/) 命令的旧版附魔组件语法。完整语法与参数说明见 [`/give`](../commands/give/) 命令文档。
 
-以下命令可一次性给予执行者全套附魔钻石装备，包含武器、工具和防具。请在聊天栏中逐条执行：
+### 命令
 
 ```mcfunction
 /give @s diamond_sword 1 0 {"enchantments":[{"id":"sharpness","level":5},{"id":"unbreaking","level":3},{"id":"looting","level":3}]}
@@ -22,7 +22,7 @@ tags: ["工具", "原版", "聊天栏"]
 /give @s diamond_boots 1 0 {"enchantments":[{"id":"protection","level":4},{"id":"unbreaking","level":3},{"id":"feather_falling","level":4},{"id":"mending","level":1}]}
 ```
 
-## 装备说明
+### 装备说明
 
 | 物品 | 附魔 | 效果 |
 |------|------|------|
@@ -35,24 +35,32 @@ tags: ["工具", "原版", "聊天栏"]
 | 钻石护腿 | 保护 IV + 耐久 III + 经验修补 | 全面防护与耐久恢复 |
 | 钻石靴子 | 保护 IV + 耐久 III + 摔落保护 IV + 经验修补 | 全面防护、防摔与耐久恢复 |
 
-## 基岩版 `/give` 完整语法
+### 常见问题
 
-```mcfunction
-give <player: target> <itemName: Item> [amount: int] [data: int] [components: json]
-```
+<details>
+<summary>附魔等级超过上限会怎样？</summary>
 
-| 参数 | 类型 | 说明 |
-|------|------|------|
-| `player: target` | 选择器 | 接收物品的玩家 |
-| `itemName: Item` | 物品 ID | 物品标识符（如 `diamond_sword`） |
-| `amount: int` | 整数 | 物品数量（默认 1） |
-| `data: int` | 整数 | 物品数据值/附加值（默认 0） |
-| `components: json` | JSON | 物品组件（附魔、名称等） |
+命令中允许写入超过正常上限的附魔等级（如锋利 5），但实际游戏内效果仍受上限限制。锋利的上限为 V（5），写入更高数值不会带来额外效果。
 
-## 基岩版注意
+</details>
+
+<details>
+<summary>1.20.50+ 版本能用这些命令吗？</summary>
+
+不能直接使用。1.20.50+ 版本中物品组件格式有较大变更，旧版 `enchantments` 组件被替换为 `minecraft:enchantable` 等新组件。详见 [`/give`](../commands/give/) 命令文档中的版本兼容说明。
+
+</details>
+
+<details>
+<summary>可以修改附魔组合吗？</summary>
+
+可以。修改命令中 `enchantments` 数组的内容即可自定义附魔组合。可用的附魔 ID 见 [Minecraft Wiki](https://minecraft.wiki/w/Enchanting) 的附魔列表。你也可以先给予物品再使用 [`/enchant`](../commands/enchant/) 命令添加附魔。
+
+</details>
+
+### 基岩版注意
 
 - 以上命令使用旧版附魔组件语法（`{"enchantments":[...]}`），适用于基岩版 1.20.50 以下版本
-- **1.20.50+ 版本**中，物品组件格式有较大变更，附魔需要使用新版 `minecraft:enchantable` 等组件
-- 附魔等级超过正常上限（如锋利 5）在命令中允许，但实际效果受上限限制
+- 1.20.50+ 版本中，附魔需要使用新版 `minecraft:enchantable` 等组件，详见 [`/give`](../commands/give/) 命令文档
 - 物品 ID 使用下划线命名（如 `diamond_sword` 而非 `diamond sword`）
 - 需要 OP 等级 1
