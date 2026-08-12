@@ -59,33 +59,51 @@ tags: ["音效", "聊天栏", "命令方块", "地图制作", "OP1", "批量", "
 ### 示例
 
 **为最近玩家播放爆炸声：**
+
 ```mcfunction
 /playsound random.explode @p
 ```
 
+为最近玩家播放一次爆炸声。
+
 **为所有玩家播放升级音效：**
+
 ```mcfunction
 /playsound random.levelup @a
 ```
 
+为所有玩家播放经验升级音效。
+
 **播放安静低音的音符声：**
+
 ```mcfunction
 /playsound note.pling @p 0.5 0.5
 ```
 
+以半音量和半音高为最近玩家播放音符盒叮咚声。
+
 **为最近玩家播放雷声（大音量）：**
+
 ```mcfunction
 /playsound ambient.weather.thunder @p 2.0 1.0
 ```
 
+以最大音量为最近玩家播放雷声。
+
 **播放高音调的弹出声：**
+
 ```mcfunction
 /playsound random.pop @p 1.0 2.0
 ```
 
->[!NOTE]
-> - 基岩版 `/playsound` **必须指定玩家**，不支持无目标的位置播放
-> - 音效从目标玩家的位置发出
-> - 音效 ID 体系与 Java 版有差异，部分音效在基岩版中不可用
-> - 音量和音高参数可超出推荐范围，但可能产生失真
-> - 需要 OP 等级 1
+以最高音调为最近玩家播放弹出声。
+
+### 基岩版注意
+
+- 基岩版 `/playsound` **必须指定玩家**，不支持无目标的位置播放
+- 音效从目标玩家的位置发出
+- 音效 ID 体系与 Java 版有差异，部分音效在基岩版中不可用
+- 音量和音高参数可超出推荐范围，但可能产生失真
+- 常与 [`/effect`](../commands/effect/) 配合使用，在给予状态效果时播放对应音效
+- 播放音效的同时可使用 [`/particle`](../commands/particle/) 添加视觉效果，实现视听结合的反馈
+- 需要 OP 等级 1
