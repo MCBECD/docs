@@ -1,0 +1,227 @@
+---
+title: "雪球菜单"
+category: community
+description: "丢雪球打开菜单，支持传送主城、去世、切换模式、设重生点、发起/接受传送"
+author: "社区"
+updatedAt: "2026-08-12"
+---
+
+丢雪球打开菜单，抬头选择选项，低头关闭。支持传送主城、原地去世、生存模式、设重生点、发起传送和接受传送。
+
+## 前置指令
+
+在聊天栏中依次执行：
+
+<CmdChat>/scoreboard objectives add 雪球菜单 dummy</CmdChat>
+<CmdChat>/gamerule commandblockoutput false</CmdChat>
+<CmdChat>/gamerule sendcommandfeedback false</CmdChat>
+
+## 命令方块摆放
+
+将以下三组命令方块**按顺序摆放**，箭头方向沿指令编号递增。复制指令前请先查看文末常见问题。
+
+### 一、雪球菜单运行
+
+**指令 1** — 给予命名雪球（循环/无条件/保持开启/延迟 0）
+
+<CmdRepeat>/replaceitem entity @a slot.hotbar 8 destroy snowball 16 0 {"minecraft:item_lock":{"mode":"lock_in_slot"},"minecraft:display_name":{"value":"雪球菜单"}}</CmdRepeat>
+
+**指令 2** — 丢雪球时计分 +1（连锁/无条件/保持开启/延迟 0）
+
+<CmdChain>/execute at @e[type=snowball] run scoreboard players add @p[r=2] 雪球菜单 1</CmdChain>
+
+**指令 3** — 丢雪球时播放音效（连锁/无条件/保持开启/延迟 0）
+
+<CmdChain>/execute at @e[type=snowball] run playsound random.orb @p[r=2]</CmdChain>
+
+**指令 4** — 清除雪球实体（连锁/无条件/保持开启/延迟 0）
+
+<CmdChain>/execute at @a[scores={雪球菜单=1..}] run kill @e[type=snowball,c=1,r=2]</CmdChain>
+
+**指令 5** — 显示菜单（连锁/无条件/保持开启/延迟 0）
+
+<CmdChain>/execute as @a[scores={雪球菜单=1..6}] run titleraw @s actionbar {"rawtext":[{"text":"§l§b 『雪球菜单』\n▶==================◀\n"},{"translate":"%%2","with":{"rawtext":[{"selector":"@s[scores={雪球菜单=1}]"},{"text":" §6"},{"text":" §e"}]}},{"text":"①.『传送主城』\n"},{"translate":"%%2","with":{"rawtext":[{"selector":"@s[scores={雪球菜单=2}]"},{"text":" §6"},{"text":" §e"}]}},{"text":"②.『原地去世』\n"},{"translate":"%%2","with":{"rawtext":[{"selector":"@s[scores={雪球菜单=3}]"},{"text":" §6"},{"text":" §e"}]}},{"text":"③.『生存模式』\n"},{"translate":"%%2","with":{"rawtext":[{"selector":"@s[scores={雪球菜单=4}]"},{"text":" §6"},{"text":" §e"}]}},{"text":"④.『设重生点』\n"},{"translate":"%%2","with":{"rawtext":[{"selector":"@s[scores={雪球菜单=5}]"},{"text":" §6"},{"text":" §e"}]}},{"text":"⑤.『发起传送』\n"},{"translate":"%%2","with":{"rawtext":[{"selector":"@s[scores={雪球菜单=6}]"},{"text":" §6"},{"text":" §e"}]}},{"text":"⑥.『接受传送』\n"},{"text":"§b▶==================◀\n§a抬头确定✔§c低头关闭✘\n\n\n\n\n"}]}</CmdChain>
+
+**指令 6** — 分数上限为 6（连锁/无条件/保持开启/延迟 0）
+
+<CmdChain>/scoreboard players set @a[scores={雪球菜单=7..}] 雪球菜单 1</CmdChain>
+
+**指令 7** — 低头时显示关闭提示（连锁/无条件/保持开启/延迟 0）
+
+<CmdChain>/title @a[scores={雪球菜单=!0},rxm=88] actionbar §l§cMenu Off§f ｜ §7已关闭</CmdChain>
+
+**指令 8** — 低头时播放音效（连锁/无条件/保持开启/延迟 0）
+
+<CmdChain>/execute as @a[scores={雪球菜单=!0},rxm=88] at @s run playsound random.levelup @s ~~~ 1 1.5</CmdChain>
+
+**指令 9** — 低头时重置分数（连锁/无条件/保持开启/延迟 0）
+
+<CmdChain>/scoreboard players set @a[scores={雪球菜单=!0},rxm=88] 雪球菜单 0</CmdChain>
+
+### 二、雪球菜单功能
+
+> 坐标等需自行修改。以下指令编号接续上方。
+
+**指令 10** — 传送主城（循环/无条件/保持开启/延迟 0，坐标请替换）
+
+<CmdRepeat>/tp @a[scores={雪球菜单=1},rx=-88] 5000 70 5000</CmdRepeat>
+
+**指令 11** — 回城提示（连锁/无条件/保持开启/延迟 0）
+
+<CmdChain>/title @a[scores={雪球菜单=1},rx=-88] actionbar §l§b回城成功</CmdChain>
+
+**指令 12** — 原地去世（连锁/无条件/保持开启/延迟 0）
+
+<CmdChain>/kill @a[scores={雪球菜单=2},rx=-88]</CmdChain>
+
+**指令 13** — 去世提示（连锁/无条件/保持开启/延迟 0）
+
+<CmdChain>/title @a[scores={雪球菜单=2},rx=-88] actionbar §l§c去世成功</CmdChain>
+
+**指令 14** — 切换生存模式（连锁/无条件/保持开启/延迟 0）
+
+<CmdChain>/gamemode 0 @a[scores={雪球菜单=3},rx=-88]</CmdChain>
+
+**指令 15** — 模式切换提示（连锁/无条件/保持开启/延迟 0）
+
+<CmdChain>/title @a[scores={雪球菜单=3},rx=-88] actionbar §l§a已变为生存模式</CmdChain>
+
+**指令 16** — 设置重生点（连锁/无条件/保持开启/延迟 0）
+
+<CmdChain>/spawnpoint @a[scores={雪球菜单=4},rx=-88]</CmdChain>
+
+**指令 17** — 设置成功提示（连锁/无条件/保持开启/延迟 0）
+
+<CmdChain>/title @a[scores={雪球菜单=4},rx=-88] actionbar §l§6设置成功</CmdChain>
+
+**指令 18** — 发起传送（通道被占用时提示）
+
+<CmdChain>/execute if entity @a[scores={传送=1}] as @a[scores={雪球菜单=5},rx=-88] run title @s actionbar §l§c互传通道已被占用</CmdChain>
+
+**指令 19** — 发起传送（全服公告）
+
+<CmdChain>/execute unless entity @a[scores={传送=1}] as @a[scores={雪球菜单=5},rx=-88] run tellraw @a {"rawtext":[{"text":"§l〈§d世界公告§f〉§r玩家§b"},{"selector":"@s"},{"text":"§r发起了传送请求\n§7----------------------------\n§b●§7 打开雪球菜单接受传送请求\n§b●§7 60秒后无人同意自动取消传送\n§b●§7 发起传送者低头可取消传送\n----------------------------"}]}</CmdChain>
+
+**指令 20** — 创建传送计分板
+
+<CmdChain>/execute unless entity @a[scores={传送=1}] as @a[scores={雪球菜单=5},rx=-88] run scoreboard objectives add 传送 dummy</CmdChain>
+
+**指令 21** — 设置 60 秒倒计时
+
+<CmdChain>/execute unless entity @a[scores={传送=1}] as @a[scores={雪球菜单=5},rx=-88] run scoreboard players set 计时 雪球菜单 60</CmdChain>
+
+**指令 22** — 标记发起者
+
+<CmdChain>/execute unless entity @a[scores={传送=1}] as @a[scores={雪球菜单=5},rx=-88] run scoreboard players set @s 传送 1</CmdChain>
+
+**指令 23** — 接受传送（公告）
+
+<CmdChain>/execute if entity @a[scores={传送=1}] as @a[scores={雪球菜单=6},rx=-88] run tellraw @a {"rawtext":[{"text":"§l〈§d世界公告§f〉§r已成功将玩家§b"},{"selector":"@a[scores={传送=1}]"},{"text":"§r传送至§b"},{"selector":"@s"}]}</CmdChain>
+
+**指令 24** — 执行传送
+
+<CmdChain>/tp @a[scores={传送=1}] @a[scores={雪球菜单=6},rx=-88]</CmdChain>
+
+**指令 25** — 删除传送计分板（连锁/有条件/保持开启/延迟 0）
+
+<CmdConditionalChain>/scoreboard objectives remove 传送</CmdConditionalChain>
+
+**指令 26** — 重置菜单分数
+
+<CmdChain>/scoreboard players set @a[scores={雪球菜单=1..6},rx=-88] 雪球菜单 0</CmdChain>
+
+### 三、处理传送超时与低头取消
+
+> 第三条指令使用**红石块**保持开启而非"循环"模式，因为网易版循环命令方块延迟不准，红石控制可保证 60 秒准确。
+
+**指令 27** — 倒计时递减（循环/无条件/红石控制/延迟 20）
+
+<CmdRepeat>/execute if score 计时 雪球菜单 matches 0..60 run scoreboard players remove 计时 雪球菜单 1</CmdRepeat>
+
+**指令 28** — 超时后删除计分板（连锁/无条件/保持开启/延迟 0）
+
+<CmdChain>/execute if score 计时 雪球菜单 matches ..-1 run scoreboard objectives remove 传送</CmdChain>
+
+**指令 29** — 超时公告（连锁/有条件/保持开启/延迟 0）
+
+<CmdConditionalChain>/tellraw @a {"rawtext":[{"text":"§l〈§d世界公告§f〉§r超时无人同意或发起传送者离线，已自动取消传送请求。"}]}</CmdConditionalChain>
+
+**指令 30** — 低头取消传送（公告）
+
+<CmdChain>/execute as @a[scores={传送=1},rxm=88] run tellraw @a {"rawtext":[{"text":"§l〈§d世界公告§f〉§r玩家§b"},{"selector":"@s"},{"text":"§r已取消传送请求。"}]}</CmdChain>
+
+**指令 31** — 低头取消传送（删除计分板）
+
+<CmdChain>/execute as @a[scores={传送=1},rxm=88] run scoreboard objectives remove 传送</CmdChain>
+
+## 常见问题
+
+<details>
+<summary>雪球菜单离远了没有用？</summary>
+
+没有设置常加载区域。必须把命令方块放在常加载区域才能全图生效。基岩版 1.20+ 使用 [`/tickingarea`](../commands/time/) 命令。
+
+站在命令方块位置执行：
+
+```mcfunction
+/tickingarea add ~-10 ~-10 ~-10 ~10 ~10 ~10 菜单加载
+```
+
+即可将周围 21×21×21 范围设为常加载。范围不够可调整坐标或添加多个区域。
+
+</details>
+
+<details>
+<summary>回城会一直原地罚站 / 视角被锁定？</summary>
+
+重置雪球菜单分数的指令没生效。可能原因：抄错/漏抄；命令方块箭头方向不对；顺序错（重置指令必须在最后）；还没做完就使用。解决办法：先关闭"启用命令方块"，全部做完再开启。
+
+</details>
+
+<details>
+<summary>全服公告刷屏？</summary>
+
+发起/接受传送的公告刷屏 → 重置失败，同上。超时公告刷屏 → 没把超时显示的命令方块设为"有条件"。
+
+</details>
+
+<details>
+<summary>想要黄色角标的可移动雪球？</summary>
+
+将第一条给雪球的指令替换为：
+
+```mcfunction
+/give @a[hasitem={item=snowball,data=1,quantity=0}] snowball 16 1 {"minecraft:item_lock":{"mode":"lock_in_inventory"},"minecraft:display_name":{"value":"雪球菜单"}}
+```
+
+背包满了可加循环指令 `/clear @s snowball`。若要死亡不掉落，加上 `"minecraft:keep_on_death":{}` 组件。
+
+</details>
+
+<details>
+<summary>菜单显示复制进去变成了 ***？</summary>
+
+多复制几次，有几率成功。全服公告变成 *** 则是因为玩家名字含屏蔽词，无法解决。部分符号变成问号是 iOS 系统问题，可让安卓朋友帮忙复制。
+
+</details>
+
+<details>
+<summary>一直显示"互传通道被占用"？</summary>
+
+超过 60 秒仍占用，说明传送计分板未被移除。检查第三组指令是否抄错，特别是删除计分板的指令是否设为"有条件"。
+
+</details>
+
+<details>
+<summary>为什么用计分板而不是 tag？</summary>
+
+离线玩家无法清除 tag，但计分板可直接删除（`/scoreboard objectives remove`），避免发起者下线后仍被标记。删除计分板也比重置更省性能。
+
+</details>
+
+## 基岩版注意
+
+- 部分命令（如 `/replaceitem`）在较新版本中可能被 `/item replace` 替代，如果报错请尝试替换
+- 网易版与国际版在命令语法上存在细微差异，本文档基于国际版编写
+- `/titleraw` 中的 `rawtext` 格式为基岩版特有语法
+- 传送倒计时的循环命令方块建议使用红石控制而非"保持开启"，以保证延迟准确
