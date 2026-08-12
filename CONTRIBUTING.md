@@ -29,8 +29,8 @@ git checkout -b add-weather-command
 
 | 类型 | 命名 | 示例 |
 |------|------|------|
-| 命令文档 | `{命令名}.mdx` | `weather.mdx` |
-| 社区/教程 | `{下一个数字}.mdx` | `3.mdx` |
+| 命令文档 | `commands/{命令名}.mdx` | `commands/weather.mdx` |
+| 社区文档 | `community-{编号或名称}.mdx` | `community-3.mdx` |
 
 ### Frontmatter 模板
 
@@ -50,8 +50,7 @@ updatedAt: "2026-08-10"
 ```yaml
 ---
 title: "你的教程标题"
-order: 10003
-category: commands
+category: community
 description: "简短描述"
 author: "你的名字"
 updatedAt: "2026-08-10"
@@ -62,9 +61,9 @@ updatedAt: "2026-08-10"
 
 | 范围 | 用途 |
 |------|------|
-| 1–99 | 基础文档（intro, getting-started） |
-| 100–9999 | 官方命令（10 间隔，如 110, 120） |
-| 10000+ | 社区内容（递增，如 10001, 10002, 10003） |
+| `basics/N` | 基础文档（N 为排序号，如 basics/0, basics/1） |
+| `commands` | 官方命令 |
+| `community` | 社区内容 |
 
 ### 必须包含的章节（命令文档）
 

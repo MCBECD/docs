@@ -1,0 +1,178 @@
+---
+author: "官方•Dingding OvO"
+updatedAt: "2026-08-12"
+title: "交叉引用标准"
+category: basics
+pinned: true
+description: "文档间链接的完整规范——链接格式、路径规则、命令引用格式、外部链接规则与常见错误"
+tags: ["标准"]
+---
+
+## 交叉引用标准
+
+交叉引用是文档之间建立关联的方式。正确的交叉引用帮助读者快速跳转到相关文档，形成文档网络。错误的交叉引用会导致 404 页面和读者困惑。
+
+本文档定义 MCBECD 文档中所有链接类型的书写规范。
+
+---
+
+### 一、命令引用格式
+
+在文档正文中引用其他命令时，必须使用以下格式：
+
+```mdx
+[`/command`](../commands/command-name/)
+```
+
+分解说明：
+- 反引号包裹命令文本：`` `/give` ``（显示为等宽字体的 `/give`）
+- 方括号包裹整体作为链接文本
+- 圆括号内为链接路径
+
+**关键规则**：
+
+1. 命令文本必须包含 `/` 前缀
+2. 命令文本必须是命令的实际名称（不使用中文翻译作为链接文本）
+3. 链接路径末尾必须有 `/`
+4. 链接路径不包含 `.mdx` 后缀
+
+正确示例：
+
+```mdx
+详见 [`/give`](../commands/give/) 命令文档。
+
+配合 [`/execute`](../commands/execute/) 在不同上下文中执行。
+
+使用 [`/scoreboard`](../commands/scoreboard/) 追踪玩家数据。
+
+与 [`/tp`](../commands/tp/) 类似，但支持条件判断。
+```
+
+错误示例：
+
+```mdx
+详见 /give 命令。              # 没有链接
+详见 [give](../commands/give/)  # 缺少 / 前缀
+详见 [`/give`](./give)          # 路径末尾缺少 /
+详见 [`/give`](../give/)        # 路径错误，缺少 commands/
+详见 [`给予物品`](../commands/give/)  # 链接文本不应使用中文
+```
+
+---
+
+### 二、链接路径规则
+
+#### 2.1 路径类型
+
+MCBECD 文档中的链接全部使用**相对路径**。绝对路径（如 `/docs/give`）在某些情况下可能不工作，因此禁止使用。
+
+#### 2.2 路径映射
+
+根据文档引擎（`lib/docs.ts`）的 ID 生成规则，文件路径到文档 ID 的映射如下：
+
+| 文件 | 文档 ID | 链接路径（从任意文档引用） |
+|------|---------|--------------------------|
+| `commands/give.mdx` | `commands/give` | `../commands/give/` |
+| `commands/execute.mdx` | `commands/execute` | `../commands/execute/` |
+| `command-syntax.mdx` | `command-syntax` | `../command-syntax/` |
+| `getting-started.mdx` | `getting-started` | `../getting-started/` |
+| `1.mdx` | `1` | `../1/` |
+| `standards/tag-standard.mdx` | `standards/tag-standard` | `../standards/tag-standard/` |
+
+#### 2.3 从不同位置引用的路径
+
+**命令文档引用其他命令文档**（都在 `commands/` 下）：
+
+```mdx
+[`/execute`](../commands/execute/)
+```
+
+**命令文档引用基础文档**（从 `commands/` 到根目录）：
+
+```mdx
+更多选择器用法见[命令语法基础](../command-syntax/)。
+```
+
+**命令文档引用社区文档**（从 `commands/` 到根目录）：
+
+```mdx
+类似功能见[雪球菜单](../3/)。
+```
+
+**社区文档引用命令文档**（从根目录到 `commands/`）：
+
+```mdx
+基岩版 1.20+ 使用 [`/tickingarea`](../commands/time/) 命令。
+```
+
+**基础文档引用命令文档**（从根目录到 `commands/`）：
+
+```mdx
+详见 [`/give`](../commands/give/) 命令。
+```
+
+#### 2.4 路径末尾的斜杠
+
+链接路径末尾**必须**带 `/`。这是 MDX 渲染器（`MDXRenderer.tsx`）处理内部链接的方式。
+
+正确：`../commands/give/`
+错误：`../commands/give`、`../commands/give.mdx`
+
+---
+
+### 三、外部链接
+
+#### 3.1 站点引擎自动处理
+
+`MDXRenderer.tsx` 中的 `a` 组件会自动检测链接协议：
+
+- `http://` 或 `https://` 开头 → 外部链接，在新标签页打开（`target="_blank"`），添加 `rel="noopener noreferrer"`
+- 其他 → 内部链接，使用 Next.js 的 `<Link>` 组件
+
+#### 3.2 外部链接书写格式
+
+```mdx
+[Minecraft Wiki](https://minecraft.wiki/w/Commands)
+```
+
+不需要手动添加 `target="_blank"` 或其他属性，站点引擎会自动处理。
+
+#### 3.3 外部链接使用场景
+
+外部链接用于：
+- Minecraft Wiki 的参考页面
+- 官方公告或更新日志
+- 第三方工具的下载页面
+
+不在以下场景使用外部链接：
+- 引用其他 MCBECD 文档（使用内部相对路径）
+
+---
+
+### 四、引用频率要求
+
+#### 4.1 命令文档的引用要求
+
+每篇命令文档至少引用 **2 个**其他文档。常见的引用方式：
+
+- 语法章节引用相关的命令
+- 示例章节引用用到的命令
+- 基岩版注意章节引用相关命令
+
+#### 4.2 引用准确性
+
+所有引用的命令必须在 MCBECD 文档库中实际存在。引用不存在的命令会产生 404 错误。
+
+当前文档库中的命令列表：clone, difficulty, effect, enchant, execute, fill, gamemode, gamerule, give, kill, locate, particle, playsound, scoreboard, setblock, summon, tag, time, title, tp, weather, xp
+
+---
+
+### 五、常见错误与修正
+
+| 错误 | 修正 | 原因 |
+|------|------|------|
+| `详见 /give 命令` | `详见 [`/give`](../commands/give/)` | 没有链接 |
+| `[give](./give)` | `[`/give`](../commands/give/)` | 缺少 / 前缀和正确路径 |
+| `[`/give`](../commands/give)` | `[`/give`](../commands/give/)` | 末尾缺少 / |
+| `[`/give`](commands/give/)` | `[`/give`](../commands/give/)` | 缺少 `../` |
+| `[`/data`](../commands/data/)` | 删除此引用 | `/data` 不存在于基岩版 |
