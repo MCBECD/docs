@@ -6,8 +6,7 @@ category: examples
 description: "丢雪球自动填平空地，用循环命令方块实现"
 ---
 
-放一个循环命令方块
+#### 丢雪球自动填平空地，用循环命令方块实现
 
-<CmdRepeat>execute as @e[type=snowball] at @s if y &lt;=55 if block ~ ~ ~ air run setblock ~ ~ ~ sandstone</CmdRepeat>
-
-然后丢出去就可以有了效果
+<CmdRepeat>execute as @e[type=snowball] at @s if y &lt;=55 if block ~ ~ ~ air run setblock ~ ~ ~ sandstone and damage @s 100 0 with 0 health</CmdRepeat>
+循环 无条件

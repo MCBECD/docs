@@ -74,75 +74,72 @@ description: "以其他实体的身份、位置或维度执行命令，支持条
 
 #### 基础用法
 
-**在每个玩家脚下放置钻石块：**
 ```mcfunction
 /execute as @a at @s run setblock ~ ~-1 ~ diamond_block
 ```
+在每个玩家脚下放置钻石块
 
-**在最近玩家头顶召唤闪电：**
 ```mcfunction
 /execute at @p run summon lightning_bolt ~ ~2 ~
 ```
+在最近玩家头顶召唤闪电
 
 #### 条件判断
 
-**杀死站在沙子上的僵尸：**
 ```mcfunction
 /execute as @e[type=zombie] at @s if block ~ ~-1 ~ sand run kill @s
 ```
+杀死站在沙子上的僵尸
 
-**只给站在草方块上的玩家钻石：**
 ```mcfunction
 /execute as @a at @s if block ~ ~-1 ~ grass run give @s diamond 1
 ```
+只给站在草方块上的玩家钻石
 
-**如果玩家分数大于等于 100，执行命令：**
 ```mcfunction
 /execute as @a if score @s money >= 100 run title @a title "达标！"
 ```
+如果玩家分数大于等于 100，执行命令
 
-**如果附近没有僵尸，显示消息：**
 ```mcfunction
 /execute unless entity @e[type=zombie,r=10] run title @p actionbar "附近安全"
 ```
+如果附近没有僵尸，显示消息
 
 #### 位置与方向
 
-**朝向最近的玩家发射粒子：**
 ```mcfunction
 /execute at @p facing entity @p eyes run particle minecraft:basic_flame_particle ~ ~ ~1
 ```
+朝向最近的玩家发射粒子
 
-**在世界原点执行命令：**
 ```mcfunction
 /execute positioned 0 64 0 run setblock ~ ~ ~ command_block
 ```
+在世界原点执行命令
 
 #### 维度切换
 
-**在下界中执行命令：**
 ```mcfunction
 /execute in nether run locate fortress
 ```
+在下界中执行命令
 
-**在末地召唤末影龙：**
 ```mcfunction
 /execute in the_end run summon ender_dragon 0 64 0
 ```
+在末地召唤末影龙
 
 #### 高级组合
 
-**给所有存活玩家加分，每秒执行一次（配合重复命令方块）：**
-```mcfunction
-/execute as @a if entity @s run scoreboard players add @s survival_time 1
-```
+<CmdRepeat>/execute as @a if entity @s run scoreboard players add @s survival_time 1</CmdRepeat>
+给所有存活玩家加分，每秒执行一次
 
-**检测区域内的方块并替换：**
 ```mcfunction
 /execute at @p if block ~ ~-1 ~ lava run setblock ~ ~-1 ~ obsidian
 ```
+检测区域内的方块并替换
 
-### 基岩版注意
 
 - `/execute` 子命令链的顺序很重要：`as` 改变执行者，`at` 改变位置，`if/unless` 进行判断
 - `run` 必须放在命令链最后，表示执行最终命令

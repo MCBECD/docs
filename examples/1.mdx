@@ -6,16 +6,20 @@ category: examples
 description: "用计分板显示每位玩家的在线时长"
 ---
 
+```
+/scoreboard objectives add online dummy §e在线时间§6（§b分§6）
+```
 *创建名为在线时间的计分板*
 
-<CmdChat>/scoreboard objectives add 在线时间 dummy §e在线时间§6（§b分§6）</CmdChat>
 
-*将在线时间显示在玩家头上，注：自己看不到自己的在线时间*
+```
+/scoreboard objectives setdisplay belowname online_time
+```
+*将在线时间显示在玩家头上. 注：看不到自己的在线时间*
 
-<CmdChat>/scoreboard objectives setdisplay belowname 在线时间</CmdChat>
 
-*每隔一秒增加所有玩家的在线时间1秒*
+<CmdRepeat>/scoreboard players add @a online_time 1</CmdRepeat>
 
-*这个要循环无条件保持开启，延时1200*
+*循环无条件保持开启，延时1200*
 
-<CmdRepeat>/scoreboard players add @a 在线时间 1</CmdRepeat>
+*每秒增加所有玩家的在线时间*
