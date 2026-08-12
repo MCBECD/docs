@@ -14,36 +14,34 @@ MCBECD Docs 是 [MCBECD 站点](https://github.com/MCBECD/site) 的**文档内�
 
 ```
 MCBECD/docs/
-├── mccd-intro.mdx          # 项目介绍
-├── getting-started.mdx     # 快速开始
-├── command-syntax.mdx      # 命令语法基础
-├── commands-reference.mdx  # 命令速查目录
-├── writing-guide.mdx       # 文档写作指南
+├── about.mdx                # 项目介绍
+├── getting-started.mdx       # 快速开始
+├── command-syntax.mdx        # 命令语法基础
+├── writing-guide.mdx         # 文档写作指南
 │
-├── give.mdx                # /give 命令
-├── effect.mdx              # /effect 命令
-├── execute.mdx             # /execute 命令
+├── commands/
+│   ├── give.mdx              # /give 命令
+│   ├── effect.mdx            # /effect 命令
+│   ├── execute.mdx           # /execute 命令
 │   ...（22 个官方命令）
 │
-├── give-diamonds.mdx       # 教程：/give 钻石全套装备
+├── community-1.mdx           # 社区贡献：「在线时间」
+├── community-2.mdx           # 社区贡献：「雪球填平」
+├── community-get-diamonds.mdx # 社区贡献：「获取全套钻石装备」
 │
-├── 1.mdx                   # 社区贡献：「在线时间」
-├── 2.mdx                   # 社区贡献：「雪球填平」
-│   ...
-│
-├── README.md               # 本文件
-└── CONTRIBUTING.md         # 贡献指南
+├── README.md                 # 本文件
+└── CONTRIBUTING.md           # 贡献指南
 ```
 
 ### 命名规则
 
-| 类型 | 命名方式 | 示例 | order 范围 |
+| 类型 | 命名方式 | 示例 | category 值 |
 |------|---------|------|-----------|
-| **基础文档** | 语义化英文 | `getting-started.mdx` | 1–99 |
-| **官方命令** | 命令名（无斜杠） | `give.mdx` | 100–9999 |
-| **社区文档** | 递增数字 ID | `1.mdx`, `2.mdx` | 10000+ |
+| **基础文档** | 语义化英文 | `getting-started.mdx` | `basics/0` |
+| **官方命令** | `commands/` 子目录 + 命令名 | `commands/give.mdx` | `commands/Player` |
+| **社区文档** | `community-` 前缀 + 数字/名称 | `community-1.mdx` | `community` |
 
-> 社区文档用数字 ID 避免标题冲突，站点渲染时使用 frontmatter 中的 `title` 字段。
+> 社区文档用 `community-` 前缀避免与基础文档和命令文档冲突，站点渲染时使用 frontmatter 中的 `title` 字段。
 
 ### 子目录（已废弃）
 
@@ -70,7 +68,7 @@ updatedAt: "2026-08-09"
 |------|-----|------|
 | `title` | ✅ | 文档标题，显示在页面和侧边栏 |
 | `order` | ✅ | 排序权重，越小越靠前 |
-| `category` | ✅ | 分类：`intro` / `basics` / `commands` |
+| `category` | ✅ | 分类：`basics/N` / `commands/Type` / `community` |
 | `description` | ✅ | SEO 描述，120 字以内 |
 | `author` | ❌ | 作者署名 |
 | `updatedAt` | ❌ | 最后更新日期 |
