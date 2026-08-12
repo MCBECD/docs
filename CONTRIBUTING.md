@@ -62,7 +62,7 @@ updatedAt: "2026-08-10"
 | 范围 | 用途 |
 |------|------|
 | `basics/N` | 基础文档（N 为排序号，如 basics/0, basics/1） |
-| `commands/Type` | 官方命令（Type: Player, World, Building, Entity, UI, Advanced） |
+| `commands` | 官方命令 |
 | `community` | 社区内容 |
 
 ### 必须包含的章节（命令文档）

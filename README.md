@@ -38,7 +38,7 @@ MCBECD/docs/
 | 类型 | 命名方式 | 示例 | category 值 |
 |------|---------|------|-----------|
 | **基础文档** | 语义化英文 | `getting-started.mdx` | `basics/0` |
-| **官方命令** | `commands/` 子目录 + 命令名 | `commands/give.mdx` | `commands/Player` |
+| **官方命令** | `commands/` 子目录 + 命令名 | `commands/give.mdx` | `commands` |
 | **社区文档** | `community-` 前缀 + 数字/名称 | `community-1.mdx` | `community` |
 
 > 社区文档用 `community-` 前缀避免与基础文档和命令文档冲突，站点渲染时使用 frontmatter 中的 `title` 字段。
