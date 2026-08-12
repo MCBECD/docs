@@ -24,7 +24,7 @@ updatedAt: "2026-08-12"
 
 **指令 1** — 给予命名雪球（循环/无条件/保持开启/延迟 0）
 
-<CmdRepeat>/replaceitem entity @a slot.hotbar 8 destroy snowball 16 0 {"minecraft:item_lock":{"mode":"lock_in_slot"},"minecraft:display_name":{"value":"雪球菜单"}}</CmdRepeat>
+<CmdRepeat>{"/replaceitem entity @a slot.hotbar 8 destroy snowball 16 0 {\"minecraft:item_lock\":{\"mode\":\"lock_in_slot\"},\"minecraft:display_name\":{\"value\":\"\u96ea\u7403\u83dc\u5355\"}}"}</CmdRepeat>
 
 **指令 2** — 丢雪球时计分 +1（连锁/无条件/保持开启/延迟 0）
 
@@ -36,27 +36,27 @@ updatedAt: "2026-08-12"
 
 **指令 4** — 清除雪球实体（连锁/无条件/保持开启/延迟 0）
 
-<CmdChain>/execute at @a[scores={雪球菜单=1..}] run kill @e[type=snowball,c=1,r=2]</CmdChain>
+<CmdChain>{"/execute at @a[scores={\u96ea\u7403\u83dc\u5355=1..}] run kill @e[type=snowball,c=1,r=2]"}</CmdChain>
 
 **指令 5** — 显示菜单（连锁/无条件/保持开启/延迟 0）
 
-<CmdChain>/execute as @a[scores={雪球菜单=1..6}] run titleraw @s actionbar {"rawtext":[{"text":"§l§b 『雪球菜单』\n▶==================◀\n"},{"translate":"%%2","with":{"rawtext":[{"selector":"@s[scores={雪球菜单=1}]"},{"text":" §6"},{"text":" §e"}]}},{"text":"①.『传送主城』\n"},{"translate":"%%2","with":{"rawtext":[{"selector":"@s[scores={雪球菜单=2}]"},{"text":" §6"},{"text":" §e"}]}},{"text":"②.『原地去世』\n"},{"translate":"%%2","with":{"rawtext":[{"selector":"@s[scores={雪球菜单=3}]"},{"text":" §6"},{"text":" §e"}]}},{"text":"③.『生存模式』\n"},{"translate":"%%2","with":{"rawtext":[{"selector":"@s[scores={雪球菜单=4}]"},{"text":" §6"},{"text":" §e"}]}},{"text":"④.『设重生点』\n"},{"translate":"%%2","with":{"rawtext":[{"selector":"@s[scores={雪球菜单=5}]"},{"text":" §6"},{"text":" §e"}]}},{"text":"⑤.『发起传送』\n"},{"translate":"%%2","with":{"rawtext":[{"selector":"@s[scores={雪球菜单=6}]"},{"text":" §6"},{"text":" §e"}]}},{"text":"⑥.『接受传送』\n"},{"text":"§b▶==================◀\n§a抬头确定✔§c低头关闭✘\n\n\n\n\n"}]}</CmdChain>
+<CmdChain>{"/execute as @a[scores={\u96ea\u7403\u83dc\u5355=1..6}] run titleraw @s actionbar {\"rawtext\":[{\"text\":\"\u00a7l\u00a7b \u300e\u96ea\u7403\u83dc\u5355\u300f\\n\u25b6==================\u25c0\\n\"},{\"translate\":\"%%2\",\"with\":{\"rawtext\":[{\"selector\":\"@s[scores={\u96ea\u7403\u83dc\u5355=1}]\"},{\"text\":\" \u00a76\"},{\"text\":\" \u00a7e\"}]}},{\"text\":\"\u2460.\u300e\u4f20\u9001\u4e3b\u57ce\u300f\\n\"},{\"translate\":\"%%2\",\"with\":{\"rawtext\":[{\"selector\":\"@s[scores={\u96ea\u7403\u83dc\u5355=2}]\"},{\"text\":\" \u00a76\"},{\"text\":\" \u00a7e\"}]}},{\"text\":\"\u2461.\u300e\u539f\u5730\u53bb\u4e16\u300f\\n\"},{\"translate\":\"%%2\",\"with\":{\"rawtext\":[{\"selector\":\"@s[scores={\u96ea\u7403\u83dc\u5355=3}]\"},{\"text\":\" \u00a76\"},{\"text\":\" \u00a7e\"}]}},{\"text\":\"\u2462.\u300e\u751f\u5b58\u6a21\u5f0f\u300f\\n\"},{\"translate\":\"%%2\",\"with\":{\"rawtext\":[{\"selector\":\"@s[scores={\u96ea\u7403\u83dc\u5355=4}]\"},{\"text\":\" \u00a76\"},{\"text\":\" \u00a7e\"}]}},{\"text\":\"\u2463.\u300e\u8bbe\u91cd\u751f\u70b9\u300f\\n\"},{\"translate\":\"%%2\",\"with\":{\"rawtext\":[{\"selector\":\"@s[scores={\u96ea\u7403\u83dc\u5355=5}]\"},{\"text\":\" \u00a76\"},{\"text\":\" \u00a7e\"}]}},{\"text\":\"\u2464.\u300e\u53d1\u8d77\u4f20\u9001\u300f\\n\"},{\"translate\":\"%%2\",\"with\":{\"rawtext\":[{\"selector\":\"@s[scores={\u96ea\u7403\u83dc\u5355=6}]\"},{\"text\":\" \u00a76\"},{\"text\":\" \u00a7e\"}]}},{\"text\":\"\u2465.\u300e\u63a5\u53d7\u4f20\u9001\u300f\\n\"},{\"text\":\"\u00a7b\u25b6==================\u25c0\\n\u00a7a\u62ac\u5934\u786e\u5b9a\u2714\u00a7c\u4f4e\u5934\u5173\u95ed\u2718\\n\\n\\n\\n\\n\"}]}"}</CmdChain>
 
 **指令 6** — 分数上限为 6（连锁/无条件/保持开启/延迟 0）
 
-<CmdChain>/scoreboard players set @a[scores={雪球菜单=7..}] 雪球菜单 1</CmdChain>
+<CmdChain>{"/scoreboard players set @a[scores={\u96ea\u7403\u83dc\u5355=7..}] \u96ea\u7403\u83dc\u5355 1"}</CmdChain>
 
 **指令 7** — 低头时显示关闭提示（连锁/无条件/保持开启/延迟 0）
 
-<CmdChain>/title @a[scores={雪球菜单=!0},rxm=88] actionbar §l§cMenu Off§f ｜ §7已关闭</CmdChain>
+<CmdChain>{"/title @a[scores={\u96ea\u7403\u83dc\u5355=!0},rxm=88] actionbar \u00a7l\u00a7cMenu Off\u00a7f \uff5c \u00a77\u5df2\u5173\u95ed"}</CmdChain>
 
 **指令 8** — 低头时播放音效（连锁/无条件/保持开启/延迟 0）
 
-<CmdChain>/execute as @a[scores={雪球菜单=!0},rxm=88] at @s run playsound random.levelup @s ~~~ 1 1.5</CmdChain>
+<CmdChain>{"/execute as @a[scores={\u96ea\u7403\u83dc\u5355=!0},rxm=88] at @s run playsound random.levelup @s ~~~ 1 1.5"}</CmdChain>
 
 **指令 9** — 低头时重置分数（连锁/无条件/保持开启/延迟 0）
 
-<CmdChain>/scoreboard players set @a[scores={雪球菜单=!0},rxm=88] 雪球菜单 0</CmdChain>
+<CmdChain>{"/scoreboard players set @a[scores={\u96ea\u7403\u83dc\u5355=!0},rxm=88] \u96ea\u7403\u83dc\u5355 0"}</CmdChain>
 
 ### 二、雪球菜单功能
 
@@ -64,63 +64,63 @@ updatedAt: "2026-08-12"
 
 **指令 10** — 传送主城（循环/无条件/保持开启/延迟 0，坐标请替换）
 
-<CmdRepeat>/tp @a[scores={雪球菜单=1},rx=-88] 5000 70 5000</CmdRepeat>
+<CmdRepeat>{"/tp @a[scores={\u96ea\u7403\u83dc\u5355=1},rx=-88] 5000 70 5000"}</CmdRepeat>
 
 **指令 11** — 回城提示（连锁/无条件/保持开启/延迟 0）
 
-<CmdChain>/title @a[scores={雪球菜单=1},rx=-88] actionbar §l§b回城成功</CmdChain>
+<CmdChain>{"/title @a[scores={\u96ea\u7403\u83dc\u5355=1},rx=-88] actionbar \u00a7l\u00a7b\u56de\u57ce\u6210\u529f"}</CmdChain>
 
 **指令 12** — 原地去世（连锁/无条件/保持开启/延迟 0）
 
-<CmdChain>/kill @a[scores={雪球菜单=2},rx=-88]</CmdChain>
+<CmdChain>{"/kill @a[scores={\u96ea\u7403\u83dc\u5355=2},rx=-88]"}</CmdChain>
 
 **指令 13** — 去世提示（连锁/无条件/保持开启/延迟 0）
 
-<CmdChain>/title @a[scores={雪球菜单=2},rx=-88] actionbar §l§c去世成功</CmdChain>
+<CmdChain>{"/title @a[scores={\u96ea\u7403\u83dc\u5355=2},rx=-88] actionbar \u00a7l\u00a7c\u53bb\u4e16\u6210\u529f"}</CmdChain>
 
 **指令 14** — 切换生存模式（连锁/无条件/保持开启/延迟 0）
 
-<CmdChain>/gamemode 0 @a[scores={雪球菜单=3},rx=-88]</CmdChain>
+<CmdChain>{"/gamemode 0 @a[scores={\u96ea\u7403\u83dc\u5355=3},rx=-88]"}</CmdChain>
 
 **指令 15** — 模式切换提示（连锁/无条件/保持开启/延迟 0）
 
-<CmdChain>/title @a[scores={雪球菜单=3},rx=-88] actionbar §l§a已变为生存模式</CmdChain>
+<CmdChain>{"/title @a[scores={\u96ea\u7403\u83dc\u5355=3},rx=-88] actionbar \u00a7l\u00a7a\u5df2\u53d8\u4e3a\u751f\u5b58\u6a21\u5f0f"}</CmdChain>
 
 **指令 16** — 设置重生点（连锁/无条件/保持开启/延迟 0）
 
-<CmdChain>/spawnpoint @a[scores={雪球菜单=4},rx=-88]</CmdChain>
+<CmdChain>{"/spawnpoint @a[scores={\u96ea\u7403\u83dc\u5355=4},rx=-88]"}</CmdChain>
 
 **指令 17** — 设置成功提示（连锁/无条件/保持开启/延迟 0）
 
-<CmdChain>/title @a[scores={雪球菜单=4},rx=-88] actionbar §l§6设置成功</CmdChain>
+<CmdChain>{"/title @a[scores={\u96ea\u7403\u83dc\u5355=4},rx=-88] actionbar \u00a7l\u00a76\u8bbe\u7f6e\u6210\u529f"}</CmdChain>
 
 **指令 18** — 发起传送（通道被占用时提示）
 
-<CmdChain>/execute if entity @a[scores={传送=1}] as @a[scores={雪球菜单=5},rx=-88] run title @s actionbar §l§c互传通道已被占用</CmdChain>
+<CmdChain>{"/execute if entity @a[scores={\u4f20\u9001=1}] as @a[scores={\u96ea\u7403\u83dc\u5355=5},rx=-88] run title @s actionbar \u00a7l\u00a7c\u4e92\u4f20\u901a\u9053\u5df2\u88ab\u5360\u7528"}</CmdChain>
 
 **指令 19** — 发起传送（全服公告）
 
-<CmdChain>/execute unless entity @a[scores={传送=1}] as @a[scores={雪球菜单=5},rx=-88] run tellraw @a {"rawtext":[{"text":"§l〈§d世界公告§f〉§r玩家§b"},{"selector":"@s"},{"text":"§r发起了传送请求\n§7----------------------------\n§b●§7 打开雪球菜单接受传送请求\n§b●§7 60秒后无人同意自动取消传送\n§b●§7 发起传送者低头可取消传送\n----------------------------"}]}</CmdChain>
+<CmdChain>{"/execute unless entity @a[scores={\u4f20\u9001=1}] as @a[scores={\u96ea\u7403\u83dc\u5355=5},rx=-88] run tellraw @a {\"rawtext\":[{\"text\":\"\u00a7l\u3008\u00a7d\u4e16\u754c\u516c\u544a\u00a7f\u3009\u00a7r\u73a9\u5bb6\u00a7b\"},{\"selector\":\"@s\"},{\"text\":\"\u00a7r\u53d1\u8d77\u4e86\u4f20\u9001\u8bf7\u6c42\\n\u00a77----------------------------\\n\u00a7b\u25cf\u00a77 \u6253\u5f00\u96ea\u7403\u83dc\u5355\u63a5\u53d7\u4f20\u9001\u8bf7\u6c42\\n\u00a7b\u25cf\u00a77 60\u79d2\u540e\u65e0\u4eba\u540c\u610f\u81ea\u52a8\u53d6\u6d88\u4f20\u9001\\n\u00a7b\u25cf\u00a77 \u53d1\u8d77\u4f20\u9001\u8005\u4f4e\u5934\u53ef\u53d6\u6d88\u4f20\u9001\\n----------------------------\"}]}"}</CmdChain>
 
 **指令 20** — 创建传送计分板
 
-<CmdChain>/execute unless entity @a[scores={传送=1}] as @a[scores={雪球菜单=5},rx=-88] run scoreboard objectives add 传送 dummy</CmdChain>
+<CmdChain>{"/execute unless entity @a[scores={\u4f20\u9001=1}] as @a[scores={\u96ea\u7403\u83dc\u5355=5},rx=-88] run scoreboard objectives add \u4f20\u9001 dummy"}</CmdChain>
 
 **指令 21** — 设置 60 秒倒计时
 
-<CmdChain>/execute unless entity @a[scores={传送=1}] as @a[scores={雪球菜单=5},rx=-88] run scoreboard players set 计时 雪球菜单 60</CmdChain>
+<CmdChain>{"/execute unless entity @a[scores={\u4f20\u9001=1}] as @a[scores={\u96ea\u7403\u83dc\u5355=5},rx=-88] run scoreboard players set \u8ba1\u65f6 \u96ea\u7403\u83dc\u5355 60"}</CmdChain>
 
 **指令 22** — 标记发起者
 
-<CmdChain>/execute unless entity @a[scores={传送=1}] as @a[scores={雪球菜单=5},rx=-88] run scoreboard players set @s 传送 1</CmdChain>
+<CmdChain>{"/execute unless entity @a[scores={\u4f20\u9001=1}] as @a[scores={\u96ea\u7403\u83dc\u5355=5},rx=-88] run scoreboard players set @s \u4f20\u9001 1"}</CmdChain>
 
 **指令 23** — 接受传送（公告）
 
-<CmdChain>/execute if entity @a[scores={传送=1}] as @a[scores={雪球菜单=6},rx=-88] run tellraw @a {"rawtext":[{"text":"§l〈§d世界公告§f〉§r已成功将玩家§b"},{"selector":"@a[scores={传送=1}]"},{"text":"§r传送至§b"},{"selector":"@s"}]}</CmdChain>
+<CmdChain>{"/execute if entity @a[scores={\u4f20\u9001=1}] as @a[scores={\u96ea\u7403\u83dc\u5355=6},rx=-88] run tellraw @a {\"rawtext\":[{\"text\":\"\u00a7l\u3008\u00a7d\u4e16\u754c\u516c\u544a\u00a7f\u3009\u00a7r\u5df2\u6210\u529f\u5c06\u73a9\u5bb6\u00a7b\"},{\"selector\":\"@a[scores={\u4f20\u9001=1}]\"},{\"text\":\"\u00a7r\u4f20\u9001\u81f3\u00a7b\"},{\"selector\":\"@s\"}]}"}</CmdChain>
 
 **指令 24** — 执行传送
 
-<CmdChain>/tp @a[scores={传送=1}] @a[scores={雪球菜单=6},rx=-88]</CmdChain>
+<CmdChain>{"/tp @a[scores={\u4f20\u9001=1}] @a[scores={\u96ea\u7403\u83dc\u5355=6},rx=-88]"}</CmdChain>
 
 **指令 25** — 删除传送计分板（连锁/有条件/保持开启/延迟 0）
 
@@ -128,7 +128,7 @@ updatedAt: "2026-08-12"
 
 **指令 26** — 重置菜单分数
 
-<CmdChain>/scoreboard players set @a[scores={雪球菜单=1..6},rx=-88] 雪球菜单 0</CmdChain>
+<CmdChain>{"/scoreboard players set @a[scores={\u96ea\u7403\u83dc\u5355=1..6},rx=-88] \u96ea\u7403\u83dc\u5355 0"}</CmdChain>
 
 ### 三、处理传送超时与低头取消
 
@@ -144,15 +144,15 @@ updatedAt: "2026-08-12"
 
 **指令 29** — 超时公告（连锁/有条件/保持开启/延迟 0）
 
-<CmdConditionalChain>/tellraw @a {"rawtext":[{"text":"§l〈§d世界公告§f〉§r超时无人同意或发起传送者离线，已自动取消传送请求。"}]}</CmdConditionalChain>
+<CmdConditionalChain>{"/tellraw @a {\"rawtext\":[{\"text\":\"\u00a7l\u3008\u00a7d\u4e16\u754c\u516c\u544a\u00a7f\u3009\u00a7r\u8d85\u65f6\u65e0\u4eba\u540c\u610f\u6216\u53d1\u8d77\u4f20\u9001\u8005\u79bb\u7ebf\uff0c\u5df2\u81ea\u52a8\u53d6\u6d88\u4f20\u9001\u8bf7\u6c42\u3002\"}]}"}</CmdConditionalChain>
 
 **指令 30** — 低头取消传送（公告）
 
-<CmdChain>/execute as @a[scores={传送=1},rxm=88] run tellraw @a {"rawtext":[{"text":"§l〈§d世界公告§f〉§r玩家§b"},{"selector":"@s"},{"text":"§r已取消传送请求。"}]}</CmdChain>
+<CmdChain>{"/execute as @a[scores={\u4f20\u9001=1},rxm=88] run tellraw @a {\"rawtext\":[{\"text\":\"\u00a7l\u3008\u00a7d\u4e16\u754c\u516c\u544a\u00a7f\u3009\u00a7r\u73a9\u5bb6\u00a7b\"},{\"selector\":\"@s\"},{\"text\":\"\u00a7r\u5df2\u53d6\u6d88\u4f20\u9001\u8bf7\u6c42\u3002\"}]}"}</CmdChain>
 
 **指令 31** — 低头取消传送（删除计分板）
 
-<CmdChain>/execute as @a[scores={传送=1},rxm=88] run scoreboard objectives remove 传送</CmdChain>
+<CmdChain>{"/execute as @a[scores={\u4f20\u9001=1},rxm=88] run scoreboard objectives remove \u4f20\u9001"}</CmdChain>
 
 ## 常见问题
 
