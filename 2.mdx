@@ -7,7 +7,56 @@ description: "丢雪球自动填平空地，用循环命令方块实现"
 tags: ["玩法", "命令方块", "原版"]
 ---
 
-#### 丢雪球自动填平空地，用循环命令方块实现
+丢出雪球后，雪球飞行经过的空气方块会自动被替换为砂岩，实现快速填平空地的效果。该系统利用一个循环命令方块持续检测空中的雪球实体，当雪球到达指定 Y 轴高度以下且所在位置为空气时，立即填充方块并移除雪球。核心逻辑通过 [`/execute`](../commands/execute/) 的条件判断与 [`/setblock`](../commands/setblock/) 实现。
 
-<CmdRepeat>execute as @e[type=snowball] at @s if y &lt;=55 if block ~ ~ ~ air run setblock ~ ~ ~ sandstone and damage @s 100 0 with 0 health</CmdRepeat>
-循环 无条件
+### 搭建步骤
+
+#### 填平命令方块
+
+**指令 1** — 检测雪球并自动填充空气方块（循环/无条件/保持开启/延迟 0）
+
+<CmdRepeat>execute as @e[type=snowball] at @s if y <=55 if block ~ ~ ~ air run setblock ~ ~ ~ sandstone and damage @s 100 0 with 0 health</CmdRepeat>
+
+该指令的执行逻辑：以所有雪球实体为上下文，在雪球所在位置判断 Y 坐标是否小于等于 55，同时判断该位置是否为空气方块。两个条件同时满足时，将空气替换为砂岩，并对雪球造成致命伤害使其消失。`y <=55` 中的 55 可根据实际需求修改为其他高度值。
+
+> [!TIP]
+- 将 `sandstone` 替换为其他方块 ID（如 `stone`、`grass`）可改变填充的方块类型
+- 修改 `55` 为目标高度值，可控制填充生效的最大高度
+- 该指令每游戏刻执行一次，多个雪球同时飞行时也能正确处理
+
+### 常见问题
+
+<details>
+<summary>雪球飞过去没有填充方块？</summary>
+
+检查命令方块是否放在常加载区域内。如果玩家将雪球丢到远离命令方块加载范围的位置，循环命令方块不会检测到该区域的雪球实体。请在丢雪球的区域设置常加载区域，可参考 [`/time`](../commands/time/) 命令相关功能。
+
+</details>
+
+<details>
+<summary>雪球落地后没有被清除，还在地上弹跳？</summary>
+
+这通常是因为雪球落地位置的 Y 坐标高于设定的阈值（默认 55）。如果玩家站在高处以 y > 55 的高度丢雪球，雪球落地时 Y 值可能仍大于 55，条件判断不通过。将 `55` 改为更大的值即可解决。
+
+</details>
+
+<details>
+<summary>已经填充过的方块会被重复替换吗？</summary>
+
+不会。指令中包含 `if block ~ ~ ~ air` 条件，仅当目标位置为空气时才执行填充。已经放下方块的位置不会被重复替换，因此不会产生多余的性能消耗。
+
+</details>
+
+<details>
+<summary>可以同时填充水和岩浆吗？</summary>
+
+可以。将 `if block ~ ~ ~ air` 中的 `air` 改为 `water` 或 `lava` 即可针对性填充液体。如果需要同时填充空气和水，可以复制一份命令方块，分别设置不同的方块条件。
+
+</details>
+
+### 基岩版注意
+- [`/execute`](../commands/execute/) 的 `if y` 条件判断是基岩版特有语法，Java 版不支持此写法
+- [`/setblock`](../commands/setblock/) 需要 OP 等级 1
+- 循环命令方块必须放在常加载区域内才能持续工作
+- `damage` 子命令的语法在基岩版各版本间可能有差异，如果报错请检查当前版本是否支持
+- 雪球实体在基岩版中最多存在约 3-4 秒后自动消失，丢太远可能来不及填充

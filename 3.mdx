@@ -9,7 +9,7 @@ updatedAt: "2026-08-12"
 
 丢雪球打开菜单，抬头选择选项，低头关闭。支持传送主城、原地去世、生存模式、设重生点、发起传送和接受传送。
 
-## 前置指令
+### 前置指令
 
 在聊天栏中依次执行：
 
@@ -17,11 +17,11 @@ updatedAt: "2026-08-12"
 <CmdChat>/gamerule commandblockoutput false</CmdChat>
 <CmdChat>/gamerule sendcommandfeedback false</CmdChat>
 
-## 命令方块摆放
+### 命令方块摆放
 
 将以下三组命令方块**按顺序摆放**，箭头方向沿指令编号递增。复制指令前请先查看文末常见问题。
 
-### 一、雪球菜单运行
+#### 一、雪球菜单运行
 
 **指令 1** — 给予命名雪球（循环/无条件/保持开启/延迟 0）
 
@@ -59,7 +59,7 @@ updatedAt: "2026-08-12"
 
 <CmdChain>{"/scoreboard players set @a[scores={\u96ea\u7403\u83dc\u5355=!0},rxm=88] \u96ea\u7403\u83dc\u5355 0"}</CmdChain>
 
-### 二、雪球菜单功能
+#### 二、雪球菜单功能
 
 > 坐标等需自行修改。以下指令编号接续上方。
 
@@ -131,7 +131,7 @@ updatedAt: "2026-08-12"
 
 <CmdChain>{"/scoreboard players set @a[scores={\u96ea\u7403\u83dc\u5355=1..6},rx=-88] \u96ea\u7403\u83dc\u5355 0"}</CmdChain>
 
-### 三、处理传送超时与低头取消
+#### 三、处理传送超时与低头取消
 
 > 第三条指令使用**红石块**保持开启而非"循环"模式，因为网易版循环命令方块延迟不准，红石控制可保证 60 秒准确。
 
@@ -155,7 +155,7 @@ updatedAt: "2026-08-12"
 
 <CmdChain>{"/execute as @a[scores={\u4f20\u9001=1},rxm=88] run scoreboard objectives remove \u4f20\u9001"}</CmdChain>
 
-## 常见问题
+### 常见问题
 
 <details>
 <summary>雪球菜单离远了没有用？</summary>
@@ -220,9 +220,10 @@ updatedAt: "2026-08-12"
 
 </details>
 
-## 基岩版注意
+### 基岩版注意
 
 - 部分命令（如 `/replaceitem`）在较新版本中可能被 `/item replace` 替代，如果报错请尝试替换
 - 网易版与国际版在命令语法上存在细微差异，本文档基于国际版编写
-- `/titleraw` 中的 `rawtext` 格式为基岩版特有语法
-- 传送倒计时的循环命令方块建议使用红石控制而非"保持开启"，以保证延迟准确
+- [`/title`](../commands/title/) 中的 `titleraw` 子命令和 `rawtext` 格式为基岩版特有语法
+- 传送倒计时的循环命令方块建议使用红石控制而非「保持开启」，以保证延迟准确
+- 涉及的 [`/scoreboard`](../commands/scoreboard/)、[`/execute`](../commands/execute/)、[`/tp`](../commands/tp/)、[`/kill`](../commands/kill/)、[`/gamemode`](../commands/gamemode/)、[`/gamerule`](../commands/gamerule/) 均需要 OP 等级 1
