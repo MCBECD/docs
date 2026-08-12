@@ -1,0 +1,104 @@
+---
+author: "3-1415f"
+updatedAt: "2026-08-12"
+title: "/ride  骑乘"
+category: commands
+description: "让实体骑乘或被骑乘，支持召唤实体作为坐骑或乘客"
+tags: ["实体", "骑乘", "聊天栏", "命令方块", "OP1"]
+---
+
+让实体骑乘或被骑乘。
+
+### 语法
+
+`/ride <乘客> start_riding <坐骑> [传送规则] [填充方式]`
+让指定乘客骑乘指定坐骑
+
+`/ride <乘客> stop_riding`
+让指定乘客停止骑乘
+
+`/ride <坐骑> evict_riders`
+让指定坐骑逐出所有乘客
+
+`/ride <坐骑> summon_rider <实体类型> [生成事件] [名称]`
+在指定坐骑位置召唤实体并让其骑乘到坐骑上
+
+`/ride <乘客> summon_ride <实体类型> [骑乘规则] [生成事件] [名称]`
+在指定乘客位置召唤实体并让乘客骑乘所召唤的实体
+
+### 参数
+
+- `<乘客>` — 指定乘客。必须为玩家名或目标选择器。
+- `<坐骑>` — 指定坐骑。必须为玩家名或目标选择器。应仅有一个实体
+- `[传送规则]` — 指定将被传送的实体。(`teleport_ride` 传送坐骑至乘客 | `teleport_rider` 传送乘客至坐骑) , 默认为 `teleport_rider`
+- `[填充方式]` — 填充方式（`if_group_fits` 仅当所有乘客都能一起骑上坐骑时才执行 | `until_full` 逐个尝试骑乘直到坐骑满载）, 默认为 `until_full`
+- `<实体类型>` — 指定召唤的实体类型。必须为实体类型 ID（如 `zombie`、`horse`）
+- `[生成事件]` — 实体生成时执行的事件名称（行为包中的实体事件）
+- `[名称]` — 实体生成时的名字。必须为单个词或双引号括起的字符串，支持 `\` 转义
+- `[骑乘规则]` — 骑乘规则。
+
+### 骑乘规则说明
+
+| 值 | 说明 |
+|----|------|
+| `skip_riders` | 仅为没有在骑乘的乘客召唤实体 |
+| `no_ride_change` | 仅为没有骑乘且没有被骑乘的乘客召唤实体 |
+| `reassign_rides` | 让正在骑乘的乘客停止骑乘，然后为所有乘客召唤实体 |
+
+### 示例
+
+```mcfunction
+/ride @p start_riding @e[type=horse,limit=1]
+```
+
+让最近玩家骑乘最近的一匹马。
+
+```mcfunction
+/ride @p start_riding @e[type=horse,limit=1] teleport_ride
+```
+
+将马传送到最近玩家身边并骑乘。
+
+```mcfunction
+/ride @a stop_riding
+```
+
+让所有玩家下骑。
+
+```mcfunction
+/ride @e[type=horse] evict_riders
+```
+
+让所有马逐出乘客。
+
+```mcfunction
+/ride @e[type=pig] summon_rider zombie
+```
+
+在每头猪身上各召唤一只僵尸作为乘客。
+
+```mcfunction
+/ride @p summon_ride horse
+```
+
+在最近玩家位置召唤一匹马并让玩家骑乘。
+
+```mcfunction
+/ride @p summon_ride horse skip_riders
+```
+
+仅当最近玩家未骑乘时，召唤一匹马让其骑乘。
+
+```mcfunction
+/ride @e[type=pig] summon_rider zombie "minecraft:entity.zombie.spawn" "小僵尸"
+```
+
+在每头猪身上召唤一只名为"小僵尸"的僵尸乘客。
+
+> [!NOTE]
+> - 不能为玩家、拴绳结、闪电束和浮漂添加乘客
+> - 某些实体不允许其他实体骑乘
+> - `summon_rider` 和 `summon_ride` 只能召唤允许被骑乘或可作为乘客的实体类型
+> - `实体类型` 必须使用实体 ID（如 `zombie`、`horse`），不在自动补全列表中的实体类型无法解析
+> - `名称` 中的字符串需要用双引号括起，特殊字符使用 `\` 转义
+> - 需要 OP 等级 1
