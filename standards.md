@@ -731,19 +731,20 @@ frontmatter 之后的第一段必须是命令的一句话功能描述。不要�
 
 规则：
 - 链接文字用反引号包裹：`` `/give` ``
-- 使用相对路径链接
-- 命令文档之间的链接格式：`[文本](../commands/command-name/)`
-- 社区/基础文档链接到命令：`[文本](../commands/command-name/)`
-- 命令文档链接到基础文档：`[文本](../basics-doc-name/)`
+- 使用相对路径链接（相对于当前文档所在目录，`../` 表示向上一层）
+- 命令文档之间的链接（都在 `commands/` 下）：`[文本](../command-name/)`
+- 社区文档（`community/`）链接到命令：`[文本](../../commands/command-name/)`
+- 基础文档（根目录）链接到命令：`[文本](../commands/command-name/)`
+- 命令文档链接到基础文档（`commands/` → 根目录）：`[文本](../../basics-doc-name/)`
 
-正确示例：
+正确示例（从命令文档 `commands/give` 出发）：
 
 ```mdx
-详见 [`/give`](../commands/give/) 命令文档。
+详见 [`/execute`](../execute/) 命令文档。
 
-配合 [`/execute`](../commands/execute/) 在不同上下文中执行命令。
+配合 [`/summon`](../summon/) 在不同上下文中执行命令。
 
-更多选择器用法见[命令语法基础](../command-syntax/)。
+更多选择器用法见[命令语法基础](../../command-syntax/)。
 ```
 
 错误示例：
@@ -758,11 +759,12 @@ frontmatter 之后的第一段必须是命令的一句话功能描述。不要�
 
 | 从 | 到 | 路径格式 |
 |----|----|----|
-| `commands/give.mdx` | `commands/execute.mdx` | `../commands/execute/` |
-| `commands/give.mdx` | `command-syntax.mdx` | `../command-syntax/` |
-| `commands/give.mdx` | `1.mdx` | `../1/` |
+| `commands/give.md` | `commands/execute.md` | `../execute/` |
+| `commands/give.md` | `command-syntax.md` | `../../command-syntax/` |
+| `commands/give.md` | `community/1.md` | `../community/1/` |
+| `community/2.md` | `commands/time.md` | `../../commands/time/` |
 
-注意：链接路径末尾带 `/`，不带 `.mdx` 后缀。
+注意：链接路径末尾带 `/`，不带 `.md` 后缀。完整的相对路径规则见[交叉引用标准](crossref-standard/)。
 
 ---
 

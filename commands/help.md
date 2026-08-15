@@ -29,4 +29,4 @@ tags: ["信息", "聊天栏", "生存", "创造"]
 
 > [!NOTE]
 > - `?` 命令是 `help` 命令的别名
-> - 如需查看特定命令的详细用法，可查阅各命令文档，如 [`/give`](../commands/give/)、[`/execute`](../commands/execute/) 等
+> - 如需查看特定命令的详细用法，可查阅各命令文档，如 [`/give`](../give/)、[`/execute`](../execute/) 等

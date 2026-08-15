@@ -59,5 +59,5 @@ tags: ["状态", "聊天栏", "服务器", "地图制作", "OP1", "即时", "版
 
 ### 相关命令
 
-- [`/time`](../commands/time/) — `doDaylightCycle` 规则控制昼夜循环，配合时间命令可完全控制游戏时间
-- [`/difficulty`](../commands/difficulty/) — 设置游戏难度，部分游戏规则与难度相关联
+- [`/time`](../time/) — `doDaylightCycle` 规则控制昼夜循环，配合时间命令可完全控制游戏时间
+- [`/difficulty`](../difficulty/) — 设置游戏难度，部分游戏规则与难度相关联

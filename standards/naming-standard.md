@@ -84,7 +84,7 @@ tags: ["标准"]
 站点引擎将 `commands/give.mdx` 的文档 ID 生成为 `commands/give`。这个 ID 用于：
 
 - 路由：`/docs/commands/give`
-- 链接：`[文本](../commands/give/)`
+- 链接：`[文本](../../commands/give/)`
 - 缓存键
 - 收藏和历史记录
 

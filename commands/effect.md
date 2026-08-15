@@ -99,6 +99,6 @@ tags: ["玩家", "实体", "聊天栏", "生存", "OP1", "批量", "多人"]
 - 基岩版语法为 `/effect <target> give <effect> ...`，注意 `give` 子命令关键字是**必需的**
 - `clear` 子命令可以清除全部效果或指定效果
 - 放大器从 0 开始（0 = I 级，1 = II 级，2 = III 级）
-- 设置 `[隐藏粒子]` 为 `true` 时不会产生粒子，若需要额外的视觉效果可配合 [`/particle`](../commands/particle/) 使用
-- 状态效果常与 [`/playsound`](../commands/playsound/) 配合，在给予效果的同时播放音效增强反馈
+- 设置 `[隐藏粒子]` 为 `true` 时不会产生粒子，若需要额外的视觉效果可配合 [`/particle`](../particle/) 使用
+- 状态效果常与 [`/playsound`](../playsound/) 配合，在给予效果的同时播放音效增强反馈
 - 需要 OP 等级 1

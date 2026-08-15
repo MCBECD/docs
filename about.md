@@ -42,4 +42,4 @@ Minecraft 是 Mojang Studios 的商标。本项目与 Mojang Studios 或 Microso
 - [快速开始](../getting-started/) — 启用作弊、获取权限、使用命令方块
 - [命令语法基础](../command-syntax/) — 选择器与坐标
 - [写作指南](../writing-guide/) — MDX 组件、提示框与写作规范
-- [获取全套钻石装备](../4/) — 社区贡献的实用命令示例
+- [获取全套钻石装备](../community/4/) — 社区贡献的实用命令示例

@@ -88,9 +88,9 @@ tags: ["方块", "命令方块", "地图制作", "OP1", "批量", "危险"]
 
 ### 相关命令
 
-- [`/fill`](../commands/fill/) — 用方块填充矩形区域，常与 `/clone` 配合使用
-- [`/setblock`](../commands/setblock/) — 放置单个方块
-- [`/execute`](../commands/execute/) — 配合条件判断实现更灵活的克隆逻辑
+- [`/fill`](../fill/) — 用方块填充矩形区域，常与 `/clone` 配合使用
+- [`/setblock`](../setblock/) — 放置单个方块
+- [`/execute`](../execute/) — 配合条件判断实现更灵活的克隆逻辑
 
 > [!NOTE]
 > - 可克隆的最大方块数量有限制（32768），超出会失败

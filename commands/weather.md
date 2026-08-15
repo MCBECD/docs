@@ -63,4 +63,4 @@ tags: ["世界", "聊天栏", "创造", "OP1", "即时"]
 - 晴天也会自然结束，使用大数值可近似实现永久晴天
 - 基岩版的天气行为与 Java 版基本一致，但雷暴天气中闪电的生成频率可能略有不同
 
-**相关命令：** [`/time`](../commands/time/)、[`/gamerule`](../commands/gamerule/)
+**相关命令：** [`/time`](../time/)、[`/gamerule`](../gamerule/)

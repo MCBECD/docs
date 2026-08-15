@@ -29,7 +29,7 @@ tags: ["标准"]
 - [ ] `author` 字段已填写
 - [ ] `updatedAt` 字段格式为 `YYYY-MM-DD` 且为近期日期
 - [ ] `tags` 字段已填写（命令文档和社区文档必填）
-  - 命令文档：对照[标签对照表](./tag-standard/)检查
+  - 命令文档：对照[标签对照表](../tag-standard/)检查
   - 社区文档：包含 1 个内容类型 + 1-2 个技术栈
 - [ ] 不存在未定义的 frontmatter 字段
 
@@ -56,7 +56,7 @@ tags: ["标准"]
 
 **通用检查：**
 
-- [ ] 所有命令引用使用了 `` [`/command`](../commands/command/) `` 格式
+- [ ] 所有命令引用使用了 `` [`/command`](../command/) `` 格式
 - [ ] 交叉引用使用相对路径
 - [ ] 代码块使用了正确的语言标记（`mcfunction`、`json` 等）
 - [ ] 没有使用 Markdown 图片语法
@@ -81,8 +81,8 @@ tags: ["标准"]
 维护者在审核 PR 时，必须按以下清单逐项检查：
 
 **Frontmatter 审查：**
-1. 对照[Frontmatter 标准规范](./frontmatter-standard/)检查所有字段
-2. 对照[标签对照表](./tag-standard/)检查 tags 是否正确
+1. 对照[Frontmatter 标准规范](../frontmatter-standard/)检查所有字段
+2. 对照[标签对照表](../tag-standard/)检查 tags 是否正确
 3. 确认 category 值正确
 
 **内容审查：**

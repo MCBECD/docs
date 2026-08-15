@@ -22,102 +22,68 @@ tags: ["标准"]
 在文档正文中引用其他命令时，必须使用以下格式：
 
 ```mdx
-[`/command`](../commands/command-name/)
+[`/give`](../../commands/give/)
 ```
 
 分解说明：
 - 反引号包裹命令文本：`` `/give` ``（显示为等宽字体的 `/give`）
 - 方括号包裹整体作为链接文本
-- 圆括号内为链接路径
+- 圆括号内为链接路径（相对路径，见下）
 
 **关键规则**：
 
 1. 命令文本必须包含 `/` 前缀
 2. 命令文本必须是命令的实际名称（不使用中文翻译作为链接文本）
 3. 链接路径末尾必须有 `/`
-4. 链接路径不包含 `.mdx` 后缀
-
-正确示例：
-
-```mdx
-详见 [`/give`](../commands/give/) 命令文档。
-
-配合 [`/execute`](../commands/execute/) 在不同上下文中执行。
-
-使用 [`/scoreboard`](../commands/scoreboard/) 追踪玩家数据。
-
-与 [`/tp`](../commands/tp/) 类似，但支持条件判断。
-```
-
-错误示例：
-
-```mdx
-详见 /give 命令。              # 没有链接
-详见 [give](../commands/give/)  # 缺少 / 前缀
-详见 [`/give`](./give)          # 路径末尾缺少 /
-详见 [`/give`](../give/)        # 路径错误，缺少 commands/
-详见 [`给予物品`](../commands/give/)  # 链接文本不应使用中文
-```
+4. 链接路径不包含 `.md` / `.mdx` 后缀
+5. 链接路径必须是能正确跳转到目标文档的相对路径（见第二节）
 
 ---
 
 ### 二、链接路径规则
 
-#### 2.1 路径类型
+#### 2.1 文档 URL 结构
 
-MCBECD 文档中的链接全部使用**相对路径**。绝对路径（如 `/docs/give`）在某些情况下可能不工作，因此禁止使用。
+站点使用 `output: export` + `trailingSlash: true`，文档 URL 由文档 ID 决定：
 
-#### 2.2 路径映射
+| 文件路径 | 文档 ID | 文档 URL |
+|----------|---------|----------|
+| `commands/give.md` | `commands/give` | `/docs/commands/give/` |
+| `community/2.md` | `community/2` | `/docs/community/2/` |
+| `standards/tag-standard.md` | `standards/tag-standard` | `/docs/standards/tag-standard/` |
+| `command-syntax.md` | `command-syntax` | `/docs/command-syntax/` |
 
-根据文档引擎（`lib/docs.ts`）的 ID 生成规则，文件路径到文档 ID 的映射如下：
+#### 2.2 相对路径的计算
 
-| 文件 | 文档 ID | 链接路径（从任意文档引用） |
-|------|---------|--------------------------|
-| `commands/give.mdx` | `commands/give` | `../commands/give/` |
-| `commands/execute.mdx` | `commands/execute` | `../commands/execute/` |
-| `command-syntax.mdx` | `command-syntax` | `../command-syntax/` |
-| `getting-started.mdx` | `getting-started` | `../getting-started/` |
-| `1.mdx` | `1` | `../1/` |
-| `standards/tag-standard.mdx` | `standards/tag-standard` | `../standards/tag-standard/` |
+链接使用**相对路径**：`href` 相对于**当前文档所在目录**解析。
 
-#### 2.3 从不同位置引用的路径
+- 同一个目录（例如 `commands/give` → `commands/execute`）：`../execute/`
+- 从一个子目录到另一个子目录（例如 `community/2` → `commands/time`）：`../../commands/time/`
+- 从子目录到根目录（例如 `commands/give` → `command-syntax`）：`../../command-syntax/`
+- 从根目录到子目录（例如 `about` → `commands/give`）：`../commands/give/`
+- 从根目录到根目录（例如 `about` → `command-syntax`）：`../command-syntax/`
 
-**命令文档引用其他命令文档**（都在 `commands/` 下）：
+**记忆方法**：`../` 表示「上一层」。从 `/docs/commands/give/` 出发，先 `../` 回到 `/docs/commands/`，再 `../` 回到 `/docs/`，然后接目标路径。
 
-```mdx
-[`/execute`](../commands/execute/)
-```
+#### 2.3 常见场景对照表
 
-**命令文档引用基础文档**（从 `commands/` 到根目录）：
-
-```mdx
-更多选择器用法见[命令语法基础](../command-syntax/)。
-```
-
-**命令文档引用社区文档**（从 `commands/` 到根目录）：
-
-```mdx
-类似功能见[雪球菜单](../3/)。
-```
-
-**社区文档引用命令文档**（从根目录到 `commands/`）：
-
-```mdx
-基岩版 1.20+ 使用 [`/time`](../commands/time/) 命令。
-```
-
-**基础文档引用命令文档**（从根目录到 `commands/`）：
-
-```mdx
-详见 [`/give`](../commands/give/) 命令。
-```
+| 源文档 | 目标文档 | 正确相对路径 |
+|--------|----------|--------------|
+| `commands/give` | `commands/execute` | `../execute/` |
+| `commands/give` | `command-syntax` | `../../command-syntax/` |
+| `commands/give` | `community/3` | `../community/3/` |
+| `community/2` | `commands/time` | `../../commands/time/` |
+| `community/2` | `standards/tag-standard` | `../standards/tag-standard/` |
+| `about` | `commands/give` | `../commands/give/` |
+| `about` | `command-syntax` | `../command-syntax/` |
+| `standards/community-standard` | `standards/tag-standard` | `../tag-standard/` |
 
 #### 2.4 路径末尾的斜杠
 
-链接路径末尾**必须**带 `/`。这是 MDX 渲染器（`MDXRenderer.tsx`）处理内部链接的方式。
+链接路径末尾**必须**带 `/`。这是站点路由（`trailingSlash: true`）的要求。
 
-正确：`../commands/give/`
-错误：`../commands/give`、`../commands/give.mdx`
+正确：`../execute/`
+错误：`../execute`、`../execute.md`
 
 ---
 
@@ -172,8 +138,7 @@ MCBECD 文档中的链接全部使用**相对路径**。绝对路径（如 `/doc
 
 | 错误 | 修正 | 原因 |
 |------|------|------|
-| `详见 /give 命令` | `详见 [`/give`](../commands/give/)` | 没有链接 |
-| `[give](./give)` | `[`/give`](../commands/give/)` | 缺少 / 前缀和正确路径 |
-| `[`/give`](../commands/give)` | `[`/give`](../commands/give/)` | 末尾缺少 / |
-| `[`/give`](commands/give/)` | `[`/give`](../commands/give/)` | 缺少 `../` |
-| `[`/data`](../commands/data/)` | 删除此引用 | `/data` 不存在于基岩版 |
+| `详见 /give 命令` | `` 详见 [`/give`](../commands/give/) `` | 没有链接 |
+| `` [`/give`](./give) `` | `` [`/give`](../commands/give/) `` | 路径缺少末尾 `/` 或缺少目录层级 |
+| `` [`/give`](../give/) `` | `` [`/give`](../commands/give/) `` | 缺少 `commands/` 目录 |
+| `` [`/data`](../commands/data/) `` | 删除此引用 | `/data` 不存在于基岩版 |

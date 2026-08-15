@@ -43,7 +43,7 @@ tags: ["状态", "聊天栏", "服务器", "OP1", "即时"]
 /difficulty hard
 ```
 
-困难模式下怪物伤害更高，僵尸可以破门，是 survival 挑战的首选难度。难度设置也可在 [`/gamerule`](../commands/gamerule/) 中配合其他规则调整游戏体验。
+困难模式下怪物伤害更高，僵尸可以破门，是 survival 挑战的首选难度。难度设置也可在 [`/gamerule`](../gamerule/) 中配合其他规则调整游戏体验。
 
 ### 基岩版注意
 
@@ -51,6 +51,6 @@ tags: ["状态", "聊天栏", "服务器", "OP1", "即时"]
 - 困难难度下僵尸可以破门
 - 和平模式下已有怪物不会消失，但不会新生成
 - 难度可在世界设置中永久更改
-- 基岩版不支持 `difficulty` 作为 [`/gamerule`](../commands/gamerule/) 的子命令
-- 难度设置可通过 [`/execute`](../commands/execute/) 结合条件判断动态调整
+- 基岩版不支持 `difficulty` 作为 [`/gamerule`](../gamerule/) 的子命令
+- 难度设置可通过 [`/execute`](../execute/) 结合条件判断动态调整
 - 需要 OP 等级 1

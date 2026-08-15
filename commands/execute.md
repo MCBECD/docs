@@ -122,7 +122,7 @@ tags: ["执行", "条件判断", "命令方块", "自动化", "OP2", "批量", "
 /execute as @a at @s if block ~ ~-1 ~ grass run give @s diamond 1
 ```
 
-仅给脚底为草方块的玩家发放一颗钻石。未站在草方块上的玩家不会执行 [`/give`](../commands/give/) 命令。
+仅给脚底为草方块的玩家发放一颗钻石。未站在草方块上的玩家不会执行 [`/give`](../give/) 命令。
 
 **根据分数显示达标提示：**
 
@@ -130,7 +130,7 @@ tags: ["执行", "条件判断", "命令方块", "自动化", "OP2", "批量", "
 /execute as @a if score @s money >= 100 run title @a title "达标！"
 ```
 
-检查每位玩家的 `money` 计分板分数，达到 100 及以上的玩家会看到标题文字「达标！」。需要先通过 [`/scoreboard`](../commands/scoreboard/) 创建 `money` 目标。
+检查每位玩家的 `money` 计分板分数，达到 100 及以上的玩家会看到标题文字「达标！」。需要先通过 [`/scoreboard`](../scoreboard/) 创建 `money` 目标。
 
 **检测附近安全后显示消息：**
 
@@ -162,7 +162,7 @@ tags: ["执行", "条件判断", "命令方块", "自动化", "OP2", "批量", "
 /execute in nether run locate fortress
 ```
 
-切换到下界维度后执行 [`/locate`](../commands/locate/) 搜索下界要塞。`in` 子命令改变命令执行的维度上下文。
+切换到下界维度后执行 [`/locate`](../locate/) 搜索下界要塞。`in` 子命令改变命令执行的维度上下文。
 
 **在末地召唤末影龙：**
 
@@ -170,13 +170,13 @@ tags: ["执行", "条件判断", "命令方块", "自动化", "OP2", "批量", "
 /execute in the_end run summon ender_dragon 0 64 0
 ```
 
-切换到末地维度，在坐标（0, 64, 0）处召唤末影龙。使用 [`/summon`](../commands/summon/) 配合维度切换实现跨维度操作。
+切换到末地维度，在坐标（0, 64, 0）处召唤末影龙。使用 [`/summon`](../summon/) 配合维度切换实现跨维度操作。
 
 **给所有存活玩家累加生存时间分数：**
 
 <CmdRepeat>`/execute as @a if entity @s run scoreboard players add @s survival_time 1`
 
-在循环命令方块中每游戏刻为所有在线玩家累加 `survival_time` 分数。`if entity @s` 确保仅存活的实体被计入，配合 [`/scoreboard`](../commands/scoreboard/) 使用。
+在循环命令方块中每游戏刻为所有在线玩家累加 `survival_time` 分数。`if entity @s` 确保仅存活的实体被计入，配合 [`/scoreboard`](../scoreboard/) 使用。
 
 **检测并替换岩浆方块：**
 
@@ -184,7 +184,7 @@ tags: ["执行", "条件判断", "命令方块", "自动化", "OP2", "批量", "
 /execute at @p if block ~ ~-1 ~ lava run setblock ~ ~-1 ~ obsidian
 ```
 
-检测最近玩家脚下是否为岩浆，如果是则替换为黑曜石。使用 [`/setblock`](../commands/setblock/) 实现条件方块替换。
+检测最近玩家脚下是否为岩浆，如果是则替换为黑曜石。使用 [`/setblock`](../setblock/) 实现条件方块替换。
 
 ### 基岩版注意
 
@@ -194,13 +194,13 @@ tags: ["执行", "条件判断", "命令方块", "自动化", "OP2", "批量", "
 - 基岩版的 `/execute` 功能相比 Java 版有一些限制，如不支持 `store` 子命令
 - 条件判断失败时，整个命令链不会执行
 - `if score` 支持与具体数值比较，也支持两个玩家分数之间的比较
-- 配合 [`/tp`](../commands/tp/) 可实现更灵活的位置操作
-- 常与 [`/tag`](../commands/tag/) 结合使用，通过实体标签进行条件筛选
+- 配合 [`/tp`](../tp/) 可实现更灵活的位置操作
+- 常与 [`/tag`](../tag/) 结合使用，通过实体标签进行条件筛选
 
 ### 相关命令
 
-- [`/tp`](../commands/tp/) — 传送实体到指定位置
-- [`/scoreboard`](../commands/scoreboard/) — 管理计分板，常与 `/execute if score` 配合
-- [`/tag`](../commands/tag/) — 管理实体标签，用于条件筛选
-- [`/setblock`](../commands/setblock/) — 在指定位置放置方块
-- [`/summon`](../commands/summon/) — 生成实体
+- [`/tp`](../tp/) — 传送实体到指定位置
+- [`/scoreboard`](../scoreboard/) — 管理计分板，常与 `/execute if score` 配合
+- [`/tag`](../tag/) — 管理实体标签，用于条件筛选
+- [`/setblock`](../setblock/) — 在指定位置放置方块
+- [`/summon`](../summon/) — 生成实体

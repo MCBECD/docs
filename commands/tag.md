@@ -39,7 +39,7 @@ tags: ["标签", "实体", "命令方块", "自动化", "数据追踪", "OP1", "
 /tag @e[type=zombie] add undead
 ```
 
-标记所有僵尸为亡灵类，在 [`/effect`](../commands/effect/) 中可批量给予或不给予特定效果。
+标记所有僵尸为亡灵类，在 [`/effect`](../effect/) 中可批量给予或不给予特定效果。
 
 **移除标签：**
 ```mcfunction
@@ -60,7 +60,7 @@ tags: ["标签", "实体", "命令方块", "自动化", "数据追踪", "OP1", "
 /kill @e[tag=cleanup]
 ```
 
-标签常与 [`/kill`](../commands/kill/) 配合，批量移除标记为 `cleanup` 的临时实体。
+标签常与 [`/kill`](../kill/) 配合，批量移除标记为 `cleanup` 的临时实体。
 
 ### 标签与其他命令配合使用
 
@@ -71,21 +71,21 @@ tags: ["标签", "实体", "命令方块", "自动化", "数据追踪", "OP1", "
 /give @e[tag=winner,type=player] diamond 64
 ```
 
-使用 [`/give`](../commands/give/) 奖励带有胜利标签的玩家。
+使用 [`/give`](../give/) 奖励带有胜利标签的玩家。
 
 **传送所有"team_red"玩家：**
 ```mcfunction
 /tp @a[tag=team_red] 0 64 0
 ```
 
-配合 [`/tp`](../commands/tp/) 批量传送同队玩家到指定位置。
+配合 [`/tp`](../tp/) 批量传送同队玩家到指定位置。
 
 **给所有"buffed"玩家添加效果：**
 ```mcfunction
 /effect @a[tag=buffed] strength 30 2 true
 ```
 
-配合 [`/effect`](../commands/effect/) 为标记玩家批量添加状态效果。
+配合 [`/effect`](../effect/) 为标记玩家批量添加状态效果。
 
 ### 基岩版注意
 

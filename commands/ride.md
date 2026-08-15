@@ -105,6 +105,6 @@ tags: ["实体", "聊天栏", "命令方块", "地图制作", "OP1"]
 
 ### 相关命令
 
-- [`/tp`](../commands/tp/) — 传送实体到指定位置，与骑乘均可改变实体位置
-- [`/summon`](../commands/summon/) — 生成实体，可配合 `summon_ride` 在生成时让乘客骑乘
-- [`/execute`](../commands/execute/) — 在不同上下文中执行骑乘命令
+- [`/tp`](../tp/) — 传送实体到指定位置，与骑乘均可改变实体位置
+- [`/summon`](../summon/) — 生成实体，可配合 `summon_ride` 在生成时让乘客骑乘
+- [`/execute`](../execute/) — 在不同上下文中执行骑乘命令

@@ -62,5 +62,5 @@ tags: ["玩家", "聊天栏", "服务器", "OP1", "即时", "可逆", "批量"]
 
 ### 相关命令
 
-- [`/gamemode`](../commands/gamemode/) — 切换游戏模式，与 `mayfly` 能力相关联
-- [`/gamerule`](../commands/gamerule/) — 设置游戏规则，部分规则与玩家能力互补
+- [`/gamemode`](../gamemode/) — 切换游戏模式，与 `mayfly` 能力相关联
+- [`/gamerule`](../gamerule/) — 设置游戏规则，部分规则与玩家能力互补
