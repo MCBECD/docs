@@ -13,9 +13,15 @@ updatedAt: "2026-08-12"
 
 在聊天栏中依次执行：
 
-<CmdChat>/scoreboard objectives add 雪球菜单 dummy</CmdChat>
-<CmdChat>/gamerule commandblockoutput false</CmdChat>
-<CmdChat>/gamerule sendcommandfeedback false</CmdChat>
+```
+/scoreboard objectives add 雪球菜单 dummy
+```
+```
+/gamerule commandblockoutput false
+```
+```
+/gamerule sendcommandfeedback false
+```
 
 ## 命令方块摆放
 
@@ -164,7 +170,7 @@ updatedAt: "2026-08-12"
 
 站在命令方块位置执行：
 
-```mcfunction
+```
 /tickingarea add ~-10 ~-10 ~-10 ~10 ~10 ~10 菜单加载
 ```
 
@@ -191,7 +197,7 @@ updatedAt: "2026-08-12"
 
 将第一条给雪球的指令替换为：
 
-```mcfunction
+```
 /give @a[hasitem={item=snowball,data=1,quantity=0}] snowball 16 1 {"minecraft:item_lock":{"mode":"lock_in_inventory"},"minecraft:display_name":{"value":"雪球菜单"}}
 ```
 
