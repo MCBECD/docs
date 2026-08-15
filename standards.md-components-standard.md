@@ -40,10 +40,10 @@ MCBECD 站点支持多种自定义 MDX 组件，用于增强文档的表现力�
 #### 1.3 使用语法
 
 ```mdx
-<CmdChat>/scoreboard objectives add 雪球菜单 dummy</CmdChat>
-<CmdRepeat>/scoreboard players add @a 在线时间 1</CmdRepeat>
-<CmdChain>/execute at @e[type=snowball] run kill @e[type=snowball,c=1,r=2]</CmdChain>
-<CmdConditionalChain>/scoreboard objectives remove 传送</CmdConditionalChain>
+<CmdChat>`/scoreboard objectives add 雪球菜单 dummy`
+<CmdRepeat>`/scoreboard players add @a 在线时间 1`
+<CmdChain>`/execute at @e[type=snowball] run kill @e[type=snowball,c=1,r=2]`
+<CmdConditionalChain>`/scoreboard objectives remove 传送`
 ```
 
 语法规则：

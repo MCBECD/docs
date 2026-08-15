@@ -174,7 +174,7 @@ tags: ["执行", "条件判断", "命令方块", "自动化", "OP2", "批量", "
 
 **给所有存活玩家累加生存时间分数：**
 
-<CmdRepeat>/execute as @a if entity @s run scoreboard players add @s survival_time 1</CmdRepeat>
+<CmdRepeat>`/execute as @a if entity @s run scoreboard players add @s survival_time 1`
 
 在循环命令方块中每游戏刻为所有在线玩家累加 `survival_time` 分数。`if entity @s` 确保仅存活的实体被计入，配合 [`/scoreboard`](../commands/scoreboard/) 使用。
 

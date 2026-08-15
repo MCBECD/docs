@@ -257,9 +257,9 @@ frontmatter 结束后，正文以一个无标题段落开始。不要使用任�
 
 在聊天栏中依次执行：
 
-<CmdChat>/scoreboard objectives add 雪球菜单 dummy</CmdChat>
+<CmdChat>`/scoreboard objectives add 雪球菜单 dummy`
 
-<CmdChat>/gamerule commandblockoutput false</CmdChat>
+<CmdChat>`/gamerule commandblockoutput false`
 ```
 
 #### 2.3 搭建步骤

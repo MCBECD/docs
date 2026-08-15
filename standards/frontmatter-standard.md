@@ -386,14 +386,14 @@ tags: ["内容类型", "技术栈"]
 
 ## 前置指令
 
-<CmdChat>/命令1</CmdChat>
-<CmdChat>/命令2</CmdChat>
+<CmdChat>`/命令1`
+<CmdChat>`/命令2`
 
 ## 步骤
 
 说明。
 
-<CmdRepeat>/命令</CmdRepeat>
+<CmdRepeat>`/命令`
 
 ## 常见问题
 

@@ -52,11 +52,11 @@ tags: ["标签1", "标签2"]
 用法示例：
 
 ```mdx
-<CmdImpulse>/give @p diamond 64</CmdImpulse>
+<CmdConditionalChain>`/give @p diamond 64`
 
-<CmdRepeat>/execute as @a at @s run setblock ~ ~-1 ~ gold_block</CmdRepeat>
+<CmdRepeat>`/execute as @a at @s run setblock ~ ~-1 ~ gold_block`
 
-<CmdChain>fill ~ ~1 ~ ~ ~3 ~ air</CmdChain>
+<CmdChain>`fill ~ ~1 ~ ~ ~3 ~ air`
 ```
 
 渲染效果：在命令文本前显示一个 16×16 像素的 Minecraft 命令方块图标，后跟等宽字体命令文本。
