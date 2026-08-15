@@ -1,10 +1,10 @@
 ---
 author: "官方•Dingding OvO"
-updatedAt: "2026-08-08"
+updatedAt: "2026-08-12"
 title: "/effect  状态效果"
 category: commands
-description: "给予或移除实体的状态效果"
-tags: ["玩家", "实体", "聊天栏", "生存", "创造", "OP1", "批量", "多人"]
+description: "给予或移除实体的状态效果，可设置持续时间与等级"
+tags: ["玩家", "实体", "聊天栏", "生存", "OP1", "批量", "多人"]
 ---
 
 给予或移除实体的状态效果。
@@ -53,39 +53,52 @@ tags: ["玩家", "实体", "聊天栏", "生存", "创造", "OP1", "批量", "�
 
 ### 示例
 
-```
+**给予最近玩家速度 II：**
+
+```mcfunction
 /effect @p give speed 30 1
 ```
 
 给予最近玩家 30 秒速度 II。
 
-```
+**给予永久夜视（隐藏粒子）：**
+
+```mcfunction
 /effect @p give night_vision 999999 0 true
 ```
 
-给予永久夜视（隐藏粒子，约 578 小时）。
+给予永久夜视，隐藏粒子效果（约 578 小时）。
 
-```
+**清除最近玩家的所有效果：**
+
+```mcfunction
 /effect @p clear
 ```
 
-清除最近玩家的所有效果。
+清除最近玩家的所有状态效果。
 
-```
+**仅清除速度效果：**
+
+```mcfunction
 /effect @p clear speed
 ```
 
-仅清除最近玩家的速度效果。
+仅清除最近玩家的速度效果，保留其他状态效果。
 
-```
+**给僵尸施加减速 III：**
+
+```mcfunction
 /effect @e[type=zombie] give slowness 30 2 true
 ```
 
 给所有僵尸 30 秒减速 III（隐藏粒子）。
 
->[!NOTE]
-> - 效果 ID 使用英文名称，不是数字
-> - 基岩版语法为 `/effect <target> give <effect> ...`，注意 `give` 子命令关键字是**必需的**
-> - `clear` 子命令可以清除全部效果或指定效果
-> - 放大器从 0 开始（0 = I 级，1 = II 级，2 = III 级）
-> - 需要 OP 等级 1
+### 基岩版注意
+
+- 效果 ID 使用英文名称，不是数字
+- 基岩版语法为 `/effect <target> give <effect> ...`，注意 `give` 子命令关键字是**必需的**
+- `clear` 子命令可以清除全部效果或指定效果
+- 放大器从 0 开始（0 = I 级，1 = II 级，2 = III 级）
+- 设置 `[隐藏粒子]` 为 `true` 时不会产生粒子，若需要额外的视觉效果可配合 [`/particle`](../commands/particle/) 使用
+- 状态效果常与 [`/playsound`](../commands/playsound/) 配合，在给予效果的同时播放音效增强反馈
+- 需要 OP 等级 1

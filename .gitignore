@@ -1,2 +1,35 @@
+# OS generated files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+Desktop.ini
+
+# Editor / IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# Node / build artifacts (in case repo is checked out alongside a site)
+node_modules/
+.cache/
+dist/
+.next/
+.out/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Misc
+*.log
+*.tmp
+*.bak

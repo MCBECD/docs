@@ -30,7 +30,7 @@ git checkout -b add-weather-command
 | 类型 | 命名 | 示例 |
 |------|------|------|
 | 命令文档 | `commands/{命令名}.mdx` | `commands/weather.mdx` |
-| 社区文档 | `community-{编号或名称}.mdx` | `community-3.mdx` |
+| 社区文档 | `{编号}.mdx`（纯数字，根目录） | `3.mdx` |
 
 ### Frontmatter 模板
 
@@ -38,11 +38,11 @@ git checkout -b add-weather-command
 ```yaml
 ---
 title: "/weather  设置天气"
-order: 200
 category: commands
 description: "更改当前世界的天气状态"
 author: "你的名字"
 updatedAt: "2026-08-10"
+tags: ["领域标签", "场景标签", "属性标签"]
 ---
 ```
 
@@ -51,48 +51,52 @@ updatedAt: "2026-08-10"
 ---
 title: "你的教程标题"
 category: community
-description: "简短描述"
+description: "简短描述，15-40字"
 author: "你的名字"
 updatedAt: "2026-08-10"
+tags: ["内容类型", "技术栈"]
 ---
 ```
-
-### order 分配
-
-| 范围 | 用途 |
-|------|------|
-| `basics/N` | 基础文档（N 为排序号，如 basics/0, basics/1） |
-| `commands` | 官方命令 |
-| `community` | 社区内容 |
 
 ### 必须包含的章节（命令文档）
 
 ```markdown
-## 语法
+### 语法
 \`\`\`mcfunction
 /command <required> [optional: type]
 \`\`\`
 
-## 参数
-| 参数 | 类型 | 说明 | 可选值 |
-|------|------|------|--------|
-| `required` | 字符串 | 必填说明 | — |
-| `optional` | 整数 | 可选说明 | 0–100 |
+### 参数
+- `<required>` — 必填说明
+- `[optional]` — 可选说明
 
-## 示例
+### 示例
 \`\`\`mcfunction
 /command value1 50
+\`\`\`
+
+效果说明。
+
+\`\`\`mcfunction
 /command value1 100
 \`\`\`
 
-## 基岩版注意
+效果说明。
+
+\`\`\`mcfunction
+/command value1 50 optional
+\`\`\`
+
+效果说明。
+
+### 基岩版注意
 - 需要 OP 等级 X
 - 与 Java 版的差异
 ```
 
 ### Markdown 规范
 
-- **内部链接必须用相对路径**：`[effect 命令](./effect)`（不带 `.mdx` 后缀）
+- **内部链接必须用相对路径**：[`/effect`](../commands/effect/)（不带 `.mdx` 后缀，命令链接末尾带 `/`）
 - 代码块指定语言：` ```mcfunction `
 - 表格对齐、表头完整
 - 中英文之间加空格
@@ -112,16 +116,15 @@ updatedAt: "2026-08-10"
 ## PR 要求
 
 - [ ] 新文档包含完整的 frontmatter
-- [ ] order 不与其他文档冲突（用 10 的间隔）
 - [ ] 内部链接使用相对路径
-- [ ] 至少 2 个实用示例
+- [ ] 至少 3 个实用示例（命令文档）
 - [ ] 包含「基岩版注意」章节（命令文档）
 - [ ] 仅修改你打算修改的内容
 
 ## 需要帮助？
 
-- 参考已有文档：[give.mdx](./give) | [effect.mdx](./effect)
-- 查看语法文档：[command-syntax.mdx](./command-syntax)
+- 参考已有文档：[give.mdx](./commands/give/) | [effect.mdx](./commands/effect/)
+- 查看语法文档：[command-syntax.mdx](./command-syntax/)
 - 提交 Issue 讨论
 
 ---

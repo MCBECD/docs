@@ -1,9 +1,9 @@
 ---
 author: "官方•Dingding OvO"
-updatedAt: "2026-08-09"
+updatedAt: "2026-08-12"
 title: "/particle  粒子效果"
 category: commands
-description: "在指定位置创建粒子效果"
+description: "在指定位置生成粒子效果，支持坐标与参数"
 tags: ["粒子", "命令方块", "地图制作", "自动化", "OP1", "批量"]
 ---
 
@@ -47,34 +47,52 @@ tags: ["粒子", "命令方块", "地图制作", "自动化", "OP1", "批量"]
 ### 示例
 
 **在自己位置创建爱心粒子：**
+
 ```mcfunction
 /particle minecraft:heart_particle ~ ~ ~
 ```
 
+在执行者位置产生一颗飘浮的爱心粒子。
+
 **创建大量火焰粒子效果：**
+
 ```mcfunction
 /particle minecraft:basic_flame_particle ~ ~ ~ 50
 ```
 
+在执行者位置产生 50 个火焰粒子。
+
 **在最近玩家上方创建烟雾：**
+
 ```mcfunction
 /particle minecraft:smoke_particle ~ ~2 ~
 ```
 
+在执行者位置上方 2 格产生烟雾粒子。
+
 **创建附魔粒子效果：**
+
 ```mcfunction
 /particle minecraft:enchanting_table_particle ~ ~ ~ 30
 ```
 
+在执行者位置产生 30 个附魔符文粒子。
+
 **在坐标处创建传送门粒子：**
+
 ```mcfunction
 /particle minecraft:portal_directional 50 70 50
 ```
 
->[!NOTE]
-> - 粒子效果 ID 必须带 `minecraft:` 命名空间前缀
-> - 粒子仅用于视觉效果，不与实体交互，不影响游戏逻辑
-> - 大量粒子（超过数百个）可能导致性能问题，请适量使用
-> - 可与命令方块或 `/execute` 配合使用实现动画效果
-> - 基岩版的粒子 ID 与 Java 版不完全相同，请使用基岩版专属 ID
-> - 需要 OP 等级 1
+在坐标 (50, 70, 50) 处产生传送门粒子。
+
+### 基岩版注意
+
+- 粒子效果 ID 必须带 `minecraft:` 命名空间前缀
+- 粒子仅用于视觉效果，不与实体交互，不影响游戏逻辑
+- 大量粒子（超过数百个）可能导致性能问题，请适量使用
+- 可与命令方块或 [`/execute`](../commands/execute/) 配合使用实现动画效果
+- 基岩版的粒子 ID 与 Java 版不完全相同，请使用基岩版专属 ID
+- 可与 [`/playsound`](../commands/playsound/) 搭配使用，同时产生视觉与音效反馈
+- 部分状态效果（如 [`/effect`](../commands/effect/)）自带的粒子可通过隐藏粒子参数关闭，此时可用 `/particle` 自定义替代粒子
+- 需要 OP 等级 1
