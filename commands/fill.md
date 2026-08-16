@@ -68,10 +68,10 @@ tags: ["方块", "命令方块", "地图制作", "OP1", "批量", "危险", "延
 #### 示例
 
 放置橙色羊毛
-<>`/setblock ~ ~ ~ wool ["color"="orange"]`
+<CmdChat>`/setblock ~ ~ ~ wool ["color"="orange"]`
 
 放置白桦去皮原木
-<>`/setblock ~ ~ ~ wood ["wood_type"="birch","stripped_bit"=true]`
+<CmdChat>`/setblock ~ ~ ~ wood ["wood_type"="birch","stripped_bit"=true]`
 
 方块状态的键名必须使用下划线命名（如 `wood_type`），且需要写全该方块要求的状态，缺失时命令会失败。
 
@@ -79,43 +79,43 @@ tags: ["方块", "命令方块", "地图制作", "OP1", "批量", "危险", "延
 
 **铺一块石头地板：**
 
-<>`/fill ~-5 ~-1 ~-5 ~5 ~-1 ~5 stone`
+<CmdChat>`/fill ~-5 ~-1 ~-5 ~5 ~-1 ~5 stone`
 
 在脚下生成一块 11×11 的石头地板，区域内原有方块全部被替换为石头。
 
 **清空一片区域：**
 
-<>`/fill 0 64 0 15 70 15 air`
+<CmdChat>`/fill 0 64 0 15 70 15 air`
 
 把 (0,64,0) 到 (15,70,15) 的 16×7×16 区域全部替换为空气，快速挖空空间。区域内的箱子物品等内容物不会掉落，会直接消失。
 
 **建造中空的玻璃房间：**
 
-<>`/fill ~ ~ ~ ~10 ~10 ~10 glass hollow`
+<CmdChat>`/fill ~ ~ ~ ~10 ~10 ~10 glass hollow`
 
 生成一个 11×11×11 的玻璃外壳，内部方块被替换为空气，适合做竞技场或房间。内部方块的内容物（如箱子物品）会掉落，但方块本身不会掉落。
 
 **修补缺失的方块：**
 
-<>`/fill ~ ~ ~ ~5 ~5 ~5 stone keep`
+<CmdChat>`/fill ~ ~ ~ ~5 ~5 ~5 stone keep`
 
 只把区域内是空气的位置填成石头，已有方块不受影响，适合修补破损的墙壁或地面。
 
 **只拆除一种方块：**
 
-<>`/fill ~ ~ ~ ~10 ~ ~10 air replace stone`
+<CmdChat>`/fill ~ ~ ~ ~10 ~ ~10 air replace stone`
 
 把区域内所有石头替换为空气，其他方块保持原样，适合精准拆除石头结构。
 
 **带方块状态的填充：**
 
-<>`/fill ~1 ~ ~ ~5 ~3 ~5 wood ["wood_type"="birch"]`
+<CmdChat>`/fill ~1 ~ ~ ~5 ~3 ~5 wood ["wood_type"="birch"]`
 
 填充一个 5×3×5 的白桦木原木区域。`["wood_type"="birch"]` 指定了原木的树种变体，适用于 1.19.70 及以上的版本。
 
 **破坏模式批量收集方块：**
 
-<>`/fill 0 60 0 20 80 20 stone destroy`
+<CmdChat>`/fill 0 60 0 20 80 20 stone destroy`
 
 替换 21×21×21 的区域，原方块和内容物会掉落为物品。范围较大时掉落物可能极多，容易造成卡顿，使用前建议先备份存档。
 

@@ -144,17 +144,17 @@ frontmatter 结束后，正文以一个无标题段落开始。不要使用任�
 ### 示例
 
 **给予最近玩家 64 个钻石：**
-<>`/give @p diamond 64`
+<CmdChat>`/give @p diamond 64`
 
 给予最近的玩家 64 个钻石。
 
 **给予所有玩家一把钻石剑：**
-<>`/give @a diamond_sword 1`
+<CmdChat>`/give @a diamond_sword 1`
 
 给服务器中所有在线玩家各一把钻石剑。
 
 **给予一把锋利 V 钻石剑：**
-<>`/give @s diamond_sword 1 0 {"enchantments":[{"id":"sharpness","level":5}]}`
+<CmdChat>`/give @s diamond_sword 1 0 {"enchantments":[{"id":"sharpness","level":5}]}`
 
 给自己一把带有锋利 V 附魔的钻石剑。
 ````

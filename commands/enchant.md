@@ -84,31 +84,31 @@ tags: ["物品", "玩家", "聊天栏", "生存", "OP1", "单目标"]
 
 **为最近玩家手持的剑附锋利 V：**
 
-<>`/enchant @p sharpness 5`
+<CmdChat>`/enchant @p sharpness 5`
 
 为最近玩家手持的剑或斧添加锋利 V，使其每次近战攻击造成更高的伤害。
 
 **为自己手持的工具附耐久 III：**
 
-<>`/enchant @s unbreaking 3`
+<CmdChat>`/enchant @s unbreaking 3`
 
 为执行者主手的物品添加耐久 III，减少该物品在使用时损耗耐久的概率，延长使用寿命。
 
 **为所有玩家手持的工具附效率 V：**
 
-<>`/enchant @a efficiency 5`
+<CmdChat>`/enchant @a efficiency 5`
 
 为所有在线玩家手持的镐、斧、铲或锄添加效率 V，大幅加快对应方块的破坏速度。
 
 **省略等级参数，附精准采集 I：**
 
-<>`/enchant @p silk_touch`
+<CmdChat>`/enchant @p silk_touch`
 
 `[等级]` 参数可省略，默认按 1 处理。由于精准采集最大等级就是 1，此命令让最近玩家手持的镐直接获得精准采集，采掘矿石时掉落方块本身。
 
 **为手持剑的僵尸附锋利 V：**
 
-<>`/enchant @e[type=zombie,c=1] sharpness 5`
+<CmdChat>`/enchant @e[type=zombie,c=1] sharpness 5`
 
 基岩版 1.19.20 起，`/enchant` 可作用于手持武器的实体。此命令选中最近一只手持剑的僵尸，为其武器添加锋利 V，提升其攻击伤害。
 

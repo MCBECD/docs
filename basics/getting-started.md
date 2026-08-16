@@ -19,7 +19,7 @@ tags: ["入门"]
 
 打开聊天栏，输入 `/`，然后试试：
 
-<>`/give @s diamond 64`
+<CmdChat>`/give @s diamond 64`
 
 这会给自己 64 个钻石。`@s` 表示「执行者自己」。更多选择器用法见 [命令语法基础](../command-syntax/)。详见 [`/give`](../commands/give/) 命令文档。
 
@@ -27,7 +27,7 @@ tags: ["入门"]
 
 命令方块可以自动化执行命令，是制作地图和小游戏的核心工具。先获取命令方块：
 
-<>`/give @s command_block`
+<CmdChat>`/give @s command_block`
 
 放置后右键打开，输入命令（不需要 `/`），选择执行方式：
 
@@ -37,13 +37,13 @@ tags: ["入门"]
 
 ### 常用操作
 
-<>`/time set day`
+<CmdChat>`/time set day`
 设为白天 — 详见 [`/time`](../commands/time/)
 
-<>`/weather clear`
+<CmdChat>`/weather clear`
 切换创造模式 — 详见 [`/gamemode`](../commands/gamemode/)
 
-<>`/kill @e[type=item]`
+<CmdChat>`/kill @e[type=item]`
 清除所有掉落物 — 详见 [`/kill`](../commands/kill/)
 
 ### 下一步

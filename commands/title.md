@@ -69,39 +69,39 @@ tags: ["信息", "玩家", "聊天栏", "命令方块", "OP1", "批量", "多人
 
 **显示简单主标题：**
 
-<>`/title @p title 欢迎来到服务器`
+<CmdChat>`/title @p title 欢迎来到服务器`
 
 在最近玩家的屏幕中央显示主标题「欢迎来到服务器」。淡入、停留、淡出均使用默认时长，即 10/70/20 刻。
 
 **显示带副标题的主标题：**
 
-<>`/title @p title Boss 已被击败`
-<>`/title @p subtitle 恭喜全体玩家`
+<CmdChat>`/title @p title Boss 已被击败`
+<CmdChat>`/title @p subtitle 恭喜全体玩家`
 
 先显示主标题「Boss 已被击败」，再在其正下方以小号文字显示副标题「恭喜全体玩家」。副标题依附主标题渲染，需先有主标题才能看到它。
 
 **在操作栏显示消息：**
 
-<>`/title @a actionbar §a§l你发现了隐藏区域`
+<CmdChat>`/title @a actionbar §a§l你发现了隐藏区域`
 
 在所有玩家的快捷栏上方显示绿色粗体的操作栏消息「你发现了隐藏区域」。操作栏与主标题互不影响，会一直停留，直到被下一条 actionbar 覆盖。
 
 **自定义淡入淡出并显示金色标题：**
 
-<>`/title @a times 30 100 20`
-<>`/title @a title §6第 1 轮开始`
+<CmdChat>`/title @a times 30 100 20`
+<CmdChat>`/title @a title §6第 1 轮开始`
 
 先为所有玩家设定淡入 30 刻（1.5 秒）、停留 100 刻（5 秒）、淡出 20 刻（1 秒）的时长，再显示金色主标题「第 1 轮开始」。times 必须写在 title 之前，否则标题会沿用上一次存储的时长。
 
 **用原始 JSON 组合样式：**
 
-<>`/title @p title {"rawtext":[{"text":"§c§l警报"},{"text":"：请迅速撤离"}]}`
+<CmdChat>`/title @p title {"rawtext":[{"text":"§c§l警报"},{"text":"：请迅速撤离"}]}`
 
 用原始 JSON 把红色粗体的「警报」和默认颜色的「：请迅速撤离」拼成一条主标题。多个 text 对象按顺序拼接，适合在同一条标题里混用不同颜色与样式。
 
 **提前清除标题：**
 
-<>`/title @a clear`
+<CmdChat>`/title @a clear`
 
 立即移除所有玩家屏幕中央正在显示的标题与副标题，适合在过场动画结束或玩家死亡时提前打断尚未播完的标题。此命令不影响操作栏，也不会重置 times 时长。
 

@@ -62,26 +62,26 @@ Minecraft 的「时间」并不是一个简单的时刻，而是由多个相互�
 
 **将时间设为白天：**
 
-<>`/time set day`
+<CmdChat>`/time set day`
 
 把昼夜循环推进到下一个「白天」时刻（1000 刻），天空立即转亮，阳光重新照射，适合快速结束夜晚。
 
 **时间前进 1000 刻：**
 
-<>`/time add 1000`
+<CmdChat>`/time add 1000`
 
 在当前昼夜循环时间上累加 1000 刻（约 50 秒真实时间），太阳与月亮沿轨迹向前移动一小段，可用于缓慢推进时间或微调昼夜阶段。
 
 **设为正午并锁定时间：**
 
-<>`/time set noon`
-<>`/gamerule doDaylightCycle false`
+<CmdChat>`/time set noon`
+<CmdChat>`/gamerule doDaylightCycle false`
 
 先把时间推进到正午（6000 刻），再关闭昼夜循环，让太阳停留在天空最高点，实现永久的白天。
 
 **查询当天时间：**
 
-<>`/time query daytime`
+<CmdChat>`/time query daytime`
 
 在聊天栏返回当前「当天时间」（0 到 23999 的整数），可用于调试或记录时间数值。
 

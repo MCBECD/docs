@@ -209,7 +209,7 @@ MCBECD 文档中涉及的 Minecraft 术语必须保持一致。以下术语表�
 
 正确：
 ````markdown
-<>`/give @p diamond 64`
+<CmdChat>`/give @p diamond 64`
 给予最近的玩家 64 个钻石。
 ````
 

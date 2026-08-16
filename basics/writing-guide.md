@@ -99,7 +99,7 @@ tags: ["标签1", "标签2"]
 支持标准代码围栏语法，带有 Shiki 语法高亮和一键复制功能：
 
 ````markdown
-<>`/give @s diamond_sword 1 0 {"enchantments":[{"id":"sharpness","level":5}]}`
+<CmdChat>`/give @s diamond_sword 1 0 {"enchantments":[{"id":"sharpness","level":5}]}`
 ````
 
 #### `mcfunction` 语言
@@ -199,7 +199,7 @@ tags: ["标签1", "标签2"]
 
 ### 示例
 
-<>`/command @p value`
+<CmdChat>`/command @p value`
 
 描述这个示例的效果。
 

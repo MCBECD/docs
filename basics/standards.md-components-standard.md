@@ -142,7 +142,7 @@ MCBECD 站点通过 `remark-github-alerts` 插件支持 GitHub 风格的提示�
 使用三个反引号围栏，指定语言标记：
 
 ````markdown
-<>`/give @p diamond 64`
+<CmdChat>`/give @p diamond 64`
 ````
 
 #### 4.2 语言标记

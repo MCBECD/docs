@@ -30,15 +30,15 @@ tags: ["入门"]
 
 选择器加参数可限定范围：
 
-<>`/tp @a 0 64 0`
+<CmdChat>`/tp @a 0 64 0`
 
 传送所有玩家到坐标 `0 64 0`。详见 [`/tp`](../commands/tp/) 命令文档。
 
-<>`/effect give @a[r=10] speed 30 1`
+<CmdChat>`/effect give @a[r=10] speed 30 1`
 
 给 10 格内所有玩家施加速度效果。详见 [`/effect`](../commands/effect/) 命令文档。
 
-<>`/kill @e[type=zombie]`
+<CmdChat>`/kill @e[type=zombie]`
 
 清除所有僵尸。详见 [`/kill`](../commands/kill/) 命令文档。
 
@@ -48,11 +48,11 @@ tags: ["入门"]
 - **相对** `~ ~1 ~` — 相对执行位置偏移
 - **局部** `^ ^ ^1` — 相对视线方向
 
-<>`/setblock ~ ~-1 ~ diamond_block`
+<CmdChat>`/setblock ~ ~-1 ~ diamond_block`
 
 在脚下放置钻石块。详见 [`/setblock`](../commands/setblock/) 命令文档。
 
-<>`/fill ~-5 ~-1 ~-5 ~5 ~-1 ~5 stone`
+<CmdChat>`/fill ~-5 ~-1 ~-5 ~5 ~-1 ~5 stone`
 
 铺设 11×11 石头地板。详见 [`/fill`](../commands/fill/) 命令文档。
 
@@ -60,13 +60,13 @@ tags: ["入门"]
 
 用 [`/execute`](../commands/execute/) 在不同上下文中执行命令：
 
-<>`/execute as @a at @s run setblock ~ ~-1 ~ gold_block`
+<CmdChat>`/execute as @a at @s run setblock ~ ~-1 ~ gold_block`
 
 在每个玩家脚下放置金块。详见 [`/execute`](../commands/execute/) 命令文档。
 
 配合 [`/gamerule`](../commands/gamerule/) 控制世界规则：
 
-<>`/gamerule keepInventory true`
+<CmdChat>`/gamerule keepInventory true`
 
 死亡后保留物品栏。详见 [`/gamerule`](../commands/gamerule/) 命令文档。
 

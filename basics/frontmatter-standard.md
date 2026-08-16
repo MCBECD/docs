@@ -45,7 +45,7 @@ Frontmatter 是 MD 文件顶部的 YAML 元数据块，被 `---` 包裹。MCBECD
 
 命令文档的 title 必须遵循以下精确格式：
 
-<>`/command  中文名称`
+<CmdChat>`/command  中文名称`
 
 分解说明：
 
@@ -281,7 +281,7 @@ tags: ["领域标签", "场景标签", "属性标签"]
 ### 示例
 
 **简单示例标题：**
-<>`/command @p value`
+<CmdChat>`/command @p value`
 
 效果说明。
 

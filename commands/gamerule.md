@@ -83,34 +83,34 @@ tags: ["状态", "聊天栏", "服务器", "地图制作", "OP1", "即时", "版
 ### 示例
 
 **查询 keepinventory 的当前值：**
-<>`/gamerule keepinventory`
+<CmdChat>`/gamerule keepinventory`
 
 返回该规则当前设置（例如 `keepinventory = false`），不修改任何值。
 
 **开启死亡不掉落：**
-<>`/gamerule keepinventory true`
+<CmdChat>`/gamerule keepinventory true`
 
 玩家死亡后保留物品栏中的所有物品与经验值，不再掉落。
 
 **锁定当前时间：**
-<>`/gamerule dodaylightcycle false`
+<CmdChat>`/gamerule dodaylightcycle false`
 
 世界时间不再每游戏刻自动推进，昼夜停在当前时刻。之后用 `/time set` 仍可手动改变时间。
 
 **加快作物生长：**
-<>`/gamerule randomtickspeed 3`
+<CmdChat>`/gamerule randomtickspeed 3`
 
 把随机刻速度提高到 3 倍，作物生长、冰霜融化等随机事件明显加快。
 
 **在屏幕显示坐标：**
-<>`/gamerule showcoordinates true`
+<CmdChat>`/gamerule showcoordinates true`
 
 屏幕左上角持续显示你当前的三维坐标。
 
 **制作静音命令方块系统：**
 
-<>`/gamerule sendcommandfeedback false`
-<>`/gamerule commandblockoutput false`
+<CmdChat>`/gamerule sendcommandfeedback false`
+<CmdChat>`/gamerule commandblockoutput false`
 
 关闭命令回显与命令方块输出，让命令方块批量执行时不再刷屏聊天栏。
 
