@@ -1,5 +1,5 @@
 ---
-author: "3-1415f"
+author: "官方•Dingding OvO, 3-1415f"
 updatedAt: "2026-08-12"
 title: "/help  帮助"
 category: commands

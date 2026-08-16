@@ -1,5 +1,5 @@
 ---
-author: "3-1415f"
+author: "官方•Dingding OvO, 3-1415f"
 updatedAt: "2026-08-12"
 title: "/ability  玩家能力"
 category: commands
