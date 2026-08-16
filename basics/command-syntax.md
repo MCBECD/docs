@@ -16,7 +16,7 @@ tags: ["入门"]
 | `[参数]` | 可选 |
 | `a\|b` | 二选一 |
 
-以 [`/give`](../commands/give/) 为例：`/give <玩家> <物品> [数量]`——玩家和物品必填，数量可选。
+以 [`/give`](../../commands/give/) 为例：`/give <玩家> <物品> [数量]`——玩家和物品必填，数量可选。
 
 ### 目标选择器
 
@@ -32,15 +32,15 @@ tags: ["入门"]
 
 <CmdChat>`/tp @a 0 64 0`
 
-传送所有玩家到坐标 `0 64 0`。详见 [`/tp`](../commands/tp/) 命令文档。
+传送所有玩家到坐标 `0 64 0`。详见 [`/tp`](../../commands/tp/) 命令文档。
 
 <CmdChat>`/effect give @a[r=10] speed 30 1`
 
-给 10 格内所有玩家施加速度效果。详见 [`/effect`](../commands/effect/) 命令文档。
+给 10 格内所有玩家施加速度效果。详见 [`/effect`](../../commands/effect/) 命令文档。
 
 <CmdChat>`/kill @e[type=zombie]`
 
-清除所有僵尸。详见 [`/kill`](../commands/kill/) 命令文档。
+清除所有僵尸。详见 [`/kill`](../../commands/kill/) 命令文档。
 
 ### 坐标系统
 
@@ -50,25 +50,25 @@ tags: ["入门"]
 
 <CmdChat>`/setblock ~ ~-1 ~ diamond_block`
 
-在脚下放置钻石块。详见 [`/setblock`](../commands/setblock/) 命令文档。
+在脚下放置钻石块。详见 [`/setblock`](../../commands/setblock/) 命令文档。
 
 <CmdChat>`/fill ~-5 ~-1 ~-5 ~5 ~-1 ~5 stone`
 
-铺设 11×11 石头地板。详见 [`/fill`](../commands/fill/) 命令文档。
+铺设 11×11 石头地板。详见 [`/fill`](../../commands/fill/) 命令文档。
 
 ### 命令组合
 
-用 [`/execute`](../commands/execute/) 在不同上下文中执行命令：
+用 [`/execute`](../../commands/execute/) 在不同上下文中执行命令：
 
 <CmdChat>`/execute as @a at @s run setblock ~ ~-1 ~ gold_block`
 
-在每个玩家脚下放置金块。详见 [`/execute`](../commands/execute/) 命令文档。
+在每个玩家脚下放置金块。详见 [`/execute`](../../commands/execute/) 命令文档。
 
-配合 [`/gamerule`](../commands/gamerule/) 控制世界规则：
+配合 [`/gamerule`](../../commands/gamerule/) 控制世界规则：
 
 <CmdChat>`/gamerule keepInventory true`
 
-死亡后保留物品栏。详见 [`/gamerule`](../commands/gamerule/) 命令文档。
+死亡后保留物品栏。详见 [`/gamerule`](../../commands/gamerule/) 命令文档。
 
 >[!NOTE]
 > - 基岩版不支持 `/data`、`/loot`、`/item` 等部分 Java 版命令
@@ -78,4 +78,4 @@ tags: ["入门"]
 > - 命令方块中输入命令**不需要**前导斜杠 `/`
 > - 聊天栏中输入命令**需要**前导斜杠 `/`
 
-全部命令列表可用 [`/help`](../commands/help/) 查看。
+全部命令列表可用 [`/help`](../../commands/help/) 查看。

@@ -21,7 +21,7 @@ tags: ["入门"]
 
 <CmdChat>`/give @s diamond 64`
 
-这会给自己 64 个钻石。`@s` 表示「执行者自己」。更多选择器用法见 [命令语法基础](../command-syntax/)。详见 [`/give`](../commands/give/) 命令文档。
+这会给自己 64 个钻石。`@s` 表示「执行者自己」。更多选择器用法见 [命令语法基础](../command-syntax/)。详见 [`/give`](../../commands/give/) 命令文档。
 
 ### 命令方块
 
@@ -38,13 +38,13 @@ tags: ["入门"]
 ### 常用操作
 
 <CmdChat>`/time set day`
-设为白天 — 详见 [`/time`](../commands/time/)
+设为白天 — 详见 [`/time`](../../commands/time/)
 
 <CmdChat>`/weather clear`
-切换创造模式 — 详见 [`/gamemode`](../commands/gamemode/)
+切换创造模式 — 详见 [`/gamemode`](../../commands/gamemode/)
 
 <CmdChat>`/kill @e[type=item]`
-清除所有掉落物 — 详见 [`/kill`](../commands/kill/)
+清除所有掉落物 — 详见 [`/kill`](../../commands/kill/)
 
 ### 下一步
 

@@ -149,4 +149,4 @@ tags: ["信息", "玩家", "聊天栏", "命令方块", "OP1", "批量", "多人
 
 - [`/playsound`](../playsound/) — 播放音效，与标题组合形成视听结合的提示系统。
 - [`/execute`](../execute/) — 用 if/unless 条件与 as 子命令实现「满足条件才显示标题」。
-- [命令语法基础](../../command-syntax/) — 了解选择器、坐标与原始 JSON 文本的通用写法。
+- [命令语法基础](../../basics/command-syntax/) — 了解选择器、坐标与原始 JSON 文本的通用写法。

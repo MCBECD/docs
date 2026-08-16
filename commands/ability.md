@@ -115,4 +115,4 @@ tags: ["玩家", "服务器", "聊天栏", "OP1", "即时", "批量", "基岩独
 
 - [`/gamemode`](../gamemode/) — 游戏模式决定玩家的基础能力，`mayfly` 与创造模式飞行、`worldbuilder` 与建造权限直接相关
 - [`/gamerule`](../gamerule/) — 通过 `sendcommandfeedback`、`commandBlocksEnabled` 等规则控制命令输出与执行环境
-- [`命令语法基础`](../../command-syntax/) — 了解 `@p`、`@a`、`@s` 等目标选择器与参数格式的完整说明
+- [`命令语法基础`](../../basics/command-syntax/) — 了解 `@p`、`@a`、`@s` 等目标选择器与参数格式的完整说明

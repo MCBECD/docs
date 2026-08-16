@@ -662,7 +662,7 @@ frontmatter 之后的第一段必须是命令的一句话功能描述。不要�
 - 使用相对路径链接（相对于当前文档所在目录，`../` 表示向上一层）
 - 命令文档之间的链接（都在 `commands/` 下）：`[文本](../command-name/)`
 - 社区文档（`community/`）链接到命令：`[文本](../../commands/command-name/)`
-- 基础文档（根目录）链接到命令：`[文本](../commands/command-name/)`
+- 基础文档（根目录）链接到命令：`[文本](../../commands/command-name/)`
 - 命令文档链接到基础文档（`commands/` → 根目录）：`[文本](../../basics-doc-name/)`
 
 正确示例（从命令文档 `commands/give` 出发）：

@@ -136,7 +136,7 @@ tags: ["标准"]
 
 | 错误 | 修正 | 原因 |
 |------|------|------|
-| `详见 /give 命令` | `` 详见 [`/give`](../commands/give/) `` | 没有链接 |
-| `` [`/give`](./give) `` | `` [`/give`](../commands/give/) `` | 路径缺少末尾 `/` 或缺少目录层级 |
-| `` [`/give`](../give/) `` | `` [`/give`](../commands/give/) `` | 缺少 `commands/` 目录 |
-| `` [`/data`](../commands/data/) `` | 删除此引用 | `/data` 不存在于基岩版 |
+| `详见 /give 命令` | `` 详见 [`/give`](../../commands/give/) `` | 没有链接 |
+| `` [`/give`](./give) `` | `` [`/give`](../../commands/give/) `` | 路径缺少末尾 `/` 或缺少目录层级 |
+| `` [`/give`](../give/) `` | `` [`/give`](../../commands/give/) `` | 缺少 `commands/` 目录 |
+| `` [`/data`](../../commands/data/) `` | 删除此引用 | `/data` 不存在于基岩版 |
