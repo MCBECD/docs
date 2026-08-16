@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO, 3-1415f"
 updatedAt: "2026-08-12"
 title: "/help  帮助"
-category: commands
 description: "查询指定命令的用法，或分页列出全部可用命令，无需开启作弊"
 tags: ["信息", "聊天栏", "生存", "即时"]
 ---

@@ -2,9 +2,7 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "版本兼容性标准"
-category: basics
 hidden: true
-pinned: true
 description: "基岩版命令的版本兼容性记录规范——版本标记规则、废弃语法处理、网易版差异记录与版本迁移指南"
 tags: ["标准"]
 ---

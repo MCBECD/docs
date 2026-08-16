@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "/summon  生成实体"
-category: commands
 description: "在指定位置生成实体，支持生成事件与自定义名称"
 tags: ["实体", "聊天栏", "命令方块", "地图制作", "OP1", "即时", "网易差异"]
 ---

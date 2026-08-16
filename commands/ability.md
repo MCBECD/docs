@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO, 3-1415f"
 updatedAt: "2026-08-12"
 title: "/ability  玩家能力"
-category: commands
 description: "设置或查询玩家的特殊能力，如世界建造者、飞行与禁言，为基岩版独有命令"
 tags: ["玩家", "服务器", "聊天栏", "OP1", "即时", "批量", "基岩独有"]
 ---

@@ -2,9 +2,7 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "Frontmatter 标准规范"
-category: basics
 hidden: true
-pinned: true
 description: "文档元数据字段的完整规范——每个字段的类型、格式、校验规则、示例、错误案例与迁移指南"
 tags: ["标准", "frontmatter"]
 ---
@@ -118,50 +116,6 @@ title: "MCBECD 文档标准总纲"
 title: "标签标准"
 title: "Frontmatter 标准规范"
 ```
-
-#### 2.2 category（分类）
-
-**类型**：string（必填）
-
-**用途**：决定文档在站点上的分类归组。站点前端根据此字段进行分类筛选。
-
-**合法值**：
-
-此字段只接受以下三个值，不接受其他任何值：
-
-| 值 | 适用范围 | 说明 |
-|----|----------|------|
-| `basics` | 基础文档 | 项目介绍、快速开始、语法基础、各类标准规范 |
-| `commands` | 命令文档 | 所有 Minecraft 基岩版命令的详细参考文档 |
-| `community` | 社区文档 | 社区贡献的教程、工具、玩法等 |
-
-**严禁使用的值**：
-
-以下值已在历史版本中使用，现已全部废弃，任何情况下不得使用：
-
-```yaml
-category: "commands/Player"    # 废弃
-category: "commands/World"     # 废弃
-category: "commands/Building"  # 废弃
-category: "commands/Entity"    # 废弃
-category: "commands/UI"        # 废弃
-category: "commands/Advanced"  # 废弃
-category: "examples"           # 废弃，改用 community
-category: "intro"              # 废弃，改用 basics
-category: "basics/0"           # 废弃，统一为 basics
-category: "basics/1"           # 废弃，统一为 basics
-category: "basics/2"           # 废弃，统一为 basics
-category: "basics/3"           # 废弃，统一为 basics
-```
-
-**迁移规则**：
-
-如果文档使用了上述废弃值，必须修改为对应的新值。具体映射：
-
-- `commands/X`（X 为任意子分类）→ `commands`
-- `examples` → `community`
-- `intro` → `basics`
-- `basics/N` → `basics`
 
 #### 2.3 description（描述）
 
@@ -298,35 +252,6 @@ tags: ["标签A", "标签B", "标签C"]
 - 社区文档 3-6 个标签
 - 基础文档 0-2 个标签
 
-#### 2.7 pinned（置顶）
-
-**类型**：boolean（可选）
-
-**用途**：将基础文档固定在文档列表顶部。
-
-**规则**：
-
-- 只有 `category: basics` 的文档可以使用此字段
-- 值为 `true` 或 `false`
-- 命令文档（`category: commands`）不得使用
-- 社区文档（`category: community`）不得使用
-- 建议只将最重要的 3-4 篇基础文档置顶
-
-正确示例：
-
-```yaml
-pinned: true
-pinned: false
-```
-
-错误示例：
-
-```yaml
-pinned: "true"        # 字符串，应为布尔值
-pinned: 1              # 数字，应为布尔值
-pinned: yes            # YAML 布尔别名，不要使用
-```
-
 ---
 
 ### 三、完整模板
@@ -338,7 +263,6 @@ pinned: yes            # YAML 布尔别名，不要使用
 author: "你的名字"
 updatedAt: "2026-08-12"
 title: "/command  中文名称"
-category: commands
 description: "一句话描述命令功能，15-40字"
 tags: ["领域标签", "场景标签", "属性标签"]
 ---
@@ -373,7 +297,6 @@ tags: ["领域标签", "场景标签", "属性标签"]
 author: "你的名字"
 updatedAt: "2026-08-12"
 title: "功能名称"
-category: community
 description: "一句话描述功能，15-40字"
 tags: ["内容类型", "技术栈"]
 ---
@@ -408,11 +331,9 @@ tags: ["内容类型", "技术栈"]
 author: "你的名字"
 updatedAt: "2026-08-12"
 title: "文档标题"
-category: basics
 hidden: true
 description: "一句话描述，15-40字"
 tags: ["标准"]
-pinned: true
 ---
 
 正文内容。
@@ -427,7 +348,6 @@ MCBECD 文档引擎在解析 frontmatter 时执行以下校验。校验失败的
 | 校验项 | 规则 | 失败行为 |
 |--------|------|----------|
 | title 存在性 | 字符串非空 | 警告，使用文件名作为回退标题 |
-| category 存在性 | 字符串为 basics/commands/community | 警告，文档不可见 |
 | description 存在性 | 字符串非空 | 警告，使用空字符串 |
 | updatedAt 格式 | 匹配 /^\d{4}-\d{2}-\d{2}$/ | 警告 |
 | tags 类型 | 为数组（可不存在） | 忽略非数组值 |
@@ -454,24 +374,6 @@ title: "/give   给予物品"
 
 # 正确：恰好两个空格
 title: "/give  给予物品"
-```
-
-#### 5.2 category 使用废弃值
-
-```yaml
-# 错误：
-category: "commands/Player"
-
-# 正确：
-category: commands
-```
-
-```yaml
-# 错误：
-category: "examples"
-
-# 正确：
-category: community
 ```
 
 #### 5.3 description 太短或太长
@@ -530,12 +432,10 @@ frontmatter 字段在站点代码中的映射：
 | 字段 | DocMeta 属性 | 代码位置 | 用途 |
 |------|-------------|----------|------|
 | title | `meta.title` | `lib/docs.ts` → `buildMeta()` | 文档列表/详情页标题 |
-| category | `meta.category` | `lib/docs.ts` → `buildMeta()` | 分类筛选 |
 | description | `meta.description` | `lib/docs.ts` → `buildMeta()` | SEO meta / 搜索摘要 |
 | author | `meta.author` | `lib/docs.ts` → `buildMeta()` | 详情页署名 |
 | updatedAt | `meta.updatedAt` | `lib/docs.ts` → `buildMeta()` | 详情页更新时间 |
 | tags | `meta.tags` | `lib/docs.ts` → `asStringArray()` | 标签筛选/搜索 |
-| pinned | 未直接映射 | — | 基础文档置顶排序 |
 
 `DocMeta` 接口定义（`lib/docs.ts`）：
 
@@ -544,7 +444,7 @@ export interface DocMeta {
   id: string;
   title: string;
   description?: string;
-  category?: string;
+  category: string;
   tags?: string[];
   author?: string;
   updatedAt?: string;

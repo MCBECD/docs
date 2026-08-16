@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "/clone  克隆方块"
-category: commands
 description: "将指定区域的方块复制到目标位置，支持遮罩、克隆模式与方块过滤"
 tags: ["方块", "命令方块", "地图制作", "OP1", "批量", "危险"]
 ---

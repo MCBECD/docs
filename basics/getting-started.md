@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "快速开始"
-category: basics
 description: "启用作弊选项、获取OP权限并学会使用命令方块"
 tags: ["入门"]
 ---

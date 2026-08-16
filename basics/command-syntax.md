@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "命令语法基础"
-category: basics
 description: "基岩版命令的参数格式、目标选择器与坐标系统"
 tags: ["入门"]
 ---

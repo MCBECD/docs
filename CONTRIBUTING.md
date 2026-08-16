@@ -38,7 +38,6 @@ git checkout -b add-weather-command
 ```yaml
 ---
 title: "/weather  设置天气"
-category: commands
 description: "更改当前世界的天气状态"
 author: "你的名字"
 updatedAt: "2026-08-10"
@@ -50,7 +49,6 @@ tags: ["领域标签", "场景标签", "属性标签"]
 ```yaml
 ---
 title: "你的教程标题"
-category: community
 description: "简短描述，15-40字"
 author: "你的名字"
 updatedAt: "2026-08-10"

@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "/tp  传送"
-category: commands
 description: "传送实体到指定坐标或目标实体，支持旋转、朝向与方块检查"
 tags: ["传送", "玩家", "实体", "聊天栏", "命令方块", "OP1", "即时", "多人"]
 ---

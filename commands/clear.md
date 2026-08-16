@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO, 3-1415f"
 updatedAt: "2026-08-12"
 title: "/clear  清除物品"
-category: commands
 description: "清除玩家物品栏中的物品，支持按物品 ID 与数据值过滤，可用于检测物品存在"
 tags: ["物品", "玩家", "命令方块", "聊天栏", "OP1", "批量", "危险"]
 ---

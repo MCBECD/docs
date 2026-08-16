@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "/playsound  播放音效"
-category: commands
 description: "播放指定音效给目标玩家，支持音源位置、音量、音高与最小音量调节"
 tags: ["音效", "聊天栏", "命令方块", "地图制作", "OP1", "批量", "多人"]
 ---

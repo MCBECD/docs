@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "/xp  经验值"
-category: commands
 description: "给予玩家经验值或经验等级，支持正负数增减，用于附魔、修理与等级控制"
 tags: ["玩家", "聊天栏", "生存", "OP1", "多目标"]
 ---

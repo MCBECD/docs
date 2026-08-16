@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "/weather  天气控制"
-category: commands
 description: "设置世界天气为晴天、下雨或雷暴，可指定持续时长并查询当前天气"
 tags: ["世界", "聊天栏", "创造", "OP1", "即时"]
 ---

@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "/locate  定位结构"
-category: commands
 description: "定位最近的生物群系或结构坐标，支持限定仅搜索新生成区块"
 tags: ["世界", "聊天栏", "创造", "地图制作", "OP1", "即时"]
 ---

@@ -2,9 +2,7 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "审核标准"
-category: basics
 hidden: true
-pinned: true
 description: "文档审核的完整流程与标准——贡献者自检清单、维护者审核清单、PR 要求、审核时效与冲突处理"
 tags: ["标准"]
 ---
@@ -24,7 +22,6 @@ tags: ["标准"]
 - [ ] `title` 字段存在且格式正确
   - 命令文档：`/command  中文名称`（两个空格）
   - 社区文档：纯中文名称
-- [ ] `category` 字段存在且值为 `basics`、`commands` 或 `community`
 - [ ] `description` 字段存在且长度在 15-40 字之间
 - [ ] `author` 字段已填写
 - [ ] `updatedAt` 字段格式为 `YYYY-MM-DD` 且为近期日期
@@ -83,7 +80,6 @@ tags: ["标准"]
 **Frontmatter 审查：**
 1. 对照[Frontmatter 标准规范](../frontmatter-standard/)检查所有字段
 2. 对照[标签对照表](../tag-standard/)检查 tags 是否正确
-3. 确认 category 值正确
 
 **内容审查：**
 4. 检查文档结构是否包含所有必须章节
@@ -180,8 +176,7 @@ node scripts/validate-docs.mjs
 ```
 
 校验规则：
-- 必填字段存在性（title、category、description、author、updatedAt）
-- category 值合法性
+- 必填字段存在性（title、description、author、updatedAt）
 - updatedAt 日期格式
 - tags 数组格式
 

@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "/gamemode  游戏模式"
-category: commands
 description: "切换玩家或自己的游戏模式，支持生存、创造、冒险、旁观与默认模式"
 tags: ["玩家", "聊天栏", "服务器", "生存", "创造", "OP1", "即时", "多人"]
 ---

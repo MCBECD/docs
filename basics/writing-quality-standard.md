@@ -2,9 +2,7 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "写作质量标准"
-category: basics
 hidden: true
-pinned: true
 description: "文档写作的质量标准——中文写作规范、术语一致性、排版规则、代码示例规范与常见错误纠正"
 tags: ["标准"]
 ---

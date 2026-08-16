@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "/gamerule  游戏规则"
-category: commands
 description: "设置或查询世界游戏规则，控制昼夜循环、生物生成、掉落、命令方块与玩家伤害等全局行为"
 tags: ["状态", "聊天栏", "服务器", "地图制作", "OP1", "即时", "版本敏感"]
 ---

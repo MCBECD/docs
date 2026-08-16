@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "/fill  填充方块"
-category: commands
 description: "用指定方块批量填充矩形区域，支持替换、破坏、中空、保留等模式与方块状态筛选"
 tags: ["方块", "命令方块", "地图制作", "OP1", "批量", "危险", "延迟"]
 ---

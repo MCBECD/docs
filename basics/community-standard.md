@@ -2,9 +2,7 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "社区文档标准"
-category: basics
 hidden: true
-pinned: true
 description: "社区文档的完整规范——收录范围、frontmatter 要求、内容结构、质量要求、编号分配与审核标准"
 tags: ["标准"]
 ---
@@ -53,15 +51,10 @@ tags: ["标准"]
 author: "作者名"
 updatedAt: "2026-08-12"
 title: "功能名称"
-category: community
 description: "一句话描述功能，15-40字"
 tags: ["内容类型", "技术栈", "标签"]
 ---
 ```
-
-#### 2.1 category 字段
-
-社区文档的 category 必须为 `community`。不允许使用旧的 `examples`。
 
 #### 2.2 tags 字段
 
@@ -174,7 +167,6 @@ title: "雪球菜单"
 
 维护者审核社区文档 PR 时检查以下项目：
 
-1. category 是否为 `community`
 2. tags 是否包含 1 个内容类型 + 1-2 个技术栈
 3. title 格式是否正确
 4. 前置指令是否使用 `<CmdChat>`

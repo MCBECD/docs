@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "/effect  状态效果"
-category: commands
 description: "给予或移除实体的状态效果，支持设置持续时间、等级、隐藏粒子与无限时长"
 tags: ["玩家", "实体", "聊天栏", "生存", "创造", "OP1", "批量", "多人"]
 ---

@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "/difficulty  难度设置"
-category: commands
 description: "切换世界难度等级，影响生物生成、伤害计算与饥饿机制"
 tags: ["状态", "聊天栏", "服务器", "OP1", "即时"]
 ---

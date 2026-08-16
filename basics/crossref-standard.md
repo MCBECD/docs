@@ -2,9 +2,7 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "交叉引用标准"
-category: basics
 hidden: true
-pinned: true
 description: "文档间链接的完整规范——链接格式、路径规则、命令引用格式、外部链接规则与常见错误"
 tags: ["标准"]
 ---

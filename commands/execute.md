@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "/execute  执行命令"
-category: commands
 description: "以其他实体的身份、位置或维度执行命令，支持条件判断"
 tags: ["执行", "条件判断", "命令方块", "自动化", "OP2", "批量", "基岩独有"]
 ---

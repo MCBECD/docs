@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "关于 MCBECD"
-category: basics
 description: "MCBECD 项目介绍、技术栈、参与贡献指南"
 tags: ["入门"]
 ---

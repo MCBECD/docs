@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "/particle  粒子效果"
-category: commands
 description: "在指定位置生成粒子效果，纯视觉无交互，常用于命令方块动画与地图特效"
 tags: ["粒子", "命令方块", "地图制作", "自动化", "OP1", "批量"]
 ---

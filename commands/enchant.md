@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "/enchant  附魔物品"
-category: commands
 description: "为玩家或实体手持的物品添加附魔，受附魔兼容性与最大等级限制"
 tags: ["物品", "玩家", "聊天栏", "生存", "OP1", "单目标"]
 ---

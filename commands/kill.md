@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "/kill  清除实体"
-category: commands
 description: "强制击杀玩家与生物等实体，忽略护甲与保护，可直接移除掉落物等非生物实体"
 tags: ["玩家", "实体", "聊天栏", "命令方块", "OP1", "批量", "危险", "即时"]
 ---

@@ -2,8 +2,7 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "写作指南"
-category: basics
-pinned: true
+hidden: true
 description: "图标系统、自定义 MD 组件与文档写作规范"
 ---
 
@@ -20,7 +19,6 @@ description: "图标系统、自定义 MD 组件与文档写作规范"
 author: "作者名称"
 updatedAt: "YYYY-MM-DD"
 title: "/command  中文名称"
-category: commands
 description: "一句话描述"
 tags: ["标签1", "标签2"]
 ---
@@ -29,7 +27,6 @@ tags: ["标签1", "标签2"]
 | 字段 | 必填 | 说明 |
 |------|------|------|
 | `title` | ✅ | 文档标题 |
-| `category` | ✅ | 分类路径，如 `basics`、`commands`、`community` |
 | `description` | ✅ | 简短描述 |
 | `author` | ✅ | 作者名称 |
 | `updatedAt` | ✅ | 更新日期，格式 `YYYY-MM-DD` |
@@ -184,7 +181,6 @@ tags: ["标签1", "标签2"]
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-09"
 title: "/command  中文名称"
-category: commands
 description: "简短描述"
 tags: ["标签1", "标签2"]
 ---
@@ -237,7 +233,6 @@ node scripts/validate-docs.mjs
 
 校验规则：
 - 必填字段：`title`、`description`、`author`、`updatedAt`
-- `category` 必须是 `basics` / `commands` / `community` 之一
 - `updatedAt` 必须符合 `YYYY-MM-DD` 格式
 - 链接应使用相对路径（绝对路径会产生警告）
 

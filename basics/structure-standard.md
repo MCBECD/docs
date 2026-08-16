@@ -2,9 +2,7 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "文档结构标准"
-category: basics
 hidden: true
-pinned: true
 description: "命令文档、社区文档、基础文档的章节结构规范——必须章节、可选章节、章节顺序、标题层级与内容深度要求"
 tags: ["标准"]
 ---

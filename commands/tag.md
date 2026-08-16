@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "/tag  实体标签"
-category: commands
 description: "管理实体上的标签，支持添加、移除与列出，配合选择器实现分组定位与条件判断"
 tags: ["标签", "实体", "命令方块", "自动化", "数据追踪", "OP1", "批量"]
 ---

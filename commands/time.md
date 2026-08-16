@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "/time  时间控制"
-category: commands
 description: "查询或设置游戏内时间，支持时间增减、预设时刻与昼夜循环控制"
 tags: ["世界", "聊天栏", "创造", "OP1", "即时"]
 ---

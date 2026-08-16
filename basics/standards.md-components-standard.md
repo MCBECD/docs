@@ -2,9 +2,7 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "MD 组件使用标准"
-category: basics
 hidden: true
-pinned: true
 description: "全部自定义 MD 组件的详细用法——7种命令方块图标、提示框、折叠内容、代码块、表格、内联代码、键盘按键"
 tags: ["标准"]
 ---
@@ -249,4 +247,3 @@ MCBECD 站点通过 `remark-github-alerts` 插件支持 GitHub 风格的提示�
 - 自动链接（直接写 URL 不加括号）
 - 图片（`![]()`）—— MCBECD 文档暂不支持图片
 - 任务列表（`- [ ]` 和 `- [x]`）—— 虽然站点引擎支持，但不推荐使用
-

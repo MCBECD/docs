@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO, 3-1415f"
 updatedAt: "2026-08-12"
 title: "/ride  骑乘"
-category: commands
 description: "管理实体间的骑乘关系，支持骑乘、下骑、逐出乘客及召唤坐骑与乘客"
 tags: ["实体", "聊天栏", "命令方块", "地图制作", "OP1", "批量"]
 ---

@@ -2,9 +2,7 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "术语表标准"
-category: basics
 hidden: true
-pinned: true
 description: "MCBECD 文档中所有术语的权威定义——命令术语、游戏概念、技术术语的统一用词与中英文对照"
 tags: ["标准"]
 ---

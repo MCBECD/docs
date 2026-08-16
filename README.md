@@ -40,16 +40,6 @@ MCBECD/docs/
 └── CONTRIBUTING.md           # 贡献指南
 ```
 
-### 命名规则
-
-| 类型 | 命名方式 | 示例 | category 值 |
-|------|---------|------|-------------|
-| **基础文档** | 语义化英文 | `getting-started.md` | `basics` |
-| **官方命令** | `commands/` 子目录 + 命令名 | `commands/give.md` | `commands` |
-| **社区文档** | 纯数字编号 | `3.md` | `community` |
-
-> 社区文档使用纯数字编号（从 1 递增），放在仓库根目录。站点渲染时使用 frontmatter 中的 `title` 字段作为显示名称。
-
 ## 文档格式
 
 每份 `.md` 文件由 **frontmatter** + **Markdown 正文**组成：
@@ -59,7 +49,6 @@ MCBECD/docs/
 title: "/give  给予物品"
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
-category: commands
 description: "给予玩家指定物品，支持数量、数据值与组件"
 tags: ["物品", "玩家", "聊天栏", "生存", "创造", "OP1", "多目标"]
 ---
@@ -72,10 +61,8 @@ tags: ["物品", "玩家", "聊天栏", "生存", "创造", "OP1", "多目标"]
 | `title` | ✅ | 文档标题。命令文档格式：`/command  中文名称`（两个空格）；社区文档：纯中文名称 |
 | `author` | ✅ | 作者署名（MCBECD 社区名称或 GitHub 用户名） |
 | `updatedAt` | ✅ | 最后更新日期，格式 `YYYY-MM-DD` |
-| `category` | ✅ | 分类：`basics` / `commands` / `community` |
 | `description` | ✅ | 一句话描述，15-40 个汉字 |
 | `tags` | ⚠️ | 标签数组。命令文档和社区文档**必填**，基础文档可选。标签名使用简体中文 |
-| `pinned` | ❌ | 是否置顶（仅限 `basics` 文档使用） |
 | `hidden` | ❌ | 是否在列表中隐藏 |
 
 ## 命令文档要求

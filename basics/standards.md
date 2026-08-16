@@ -2,8 +2,7 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "MCBECD 文档标准总纲"
-category: basics
-pinned: true
+hidden: true
 description: "文档标准总纲——Frontmatter 规范、标签体系、命名规则、文档结构、写作深度、交叉引用、MD 组件使用等全部规范的唯一权威来源"
 tags: ["标准"]
 ---
@@ -35,12 +34,10 @@ tags: ["标准"]
 | 字段 | 命令文档 | 社区文档 | 基础文档 | 类型 | 说明 |
 |------|----------|----------|----------|------|------|
 | `title` | **必填** | **必填** | **必填** | string | 文档标题 |
-| `category` | **必填** | **必填** | **必填** | string | 分类标识 |
 | `description` | **必填** | **必填** | **必填** | string | 简短描述 |
 | `author` | **必填** | **必填** | **必填** | string | 作者名称 |
 | `updatedAt` | **必填** | **必填** | **必填** | string | 最后更新日期 |
 | `tags` | **必填** | **必填** | 可选 | string[] | 标签数组 |
-| `pinned` | 不使用 | 不使用 | 可选 | boolean | 是否置顶 |
 
 ### 1.2 title 字段
 
@@ -92,16 +89,6 @@ title: "雪球填平"
 **基础文档的标题格式：**
 
 基础文档的标题无固定格式，但应简洁明确。
-
-### 1.3 category 字段
-
-`category` 字段决定了文档在站点上的分类归组。目前只有三个合法值。
-
-| 值 | 适用范围 | 说明 |
-|----|----------|------|
-| `basics` | 基础文档 | 项目介绍、快速开始、语法基础、写作指南等 |
-| `commands` | 命令文档 | 所有 Minecraft 基岩版命令的详细文档 |
-| `community` | 社区文档 | 社区贡献的教程、工具、玩法等 |
 
 ### 1.4 description 字段
 
@@ -160,16 +147,6 @@ author: "Alex, Steve"
 
 `tags` 是文档的标签数组。详细规范见第二章「标签体系」。
 
-### 1.8 pinned 字段
-
-`pinned` 用于将基础文档固定在文档列表的顶部。
-
-规则：
-- 只有基础文档可以使用此字段
-- 值为 `true` 或 `false`
-- 命令文档和社区文档**不得使用**此字段
-- 建议只将最重要的 3-4 篇基础文档设为置顶
-
 ### 1.9 完整 frontmatter 模板
 
 **命令文档模板：**
@@ -179,7 +156,6 @@ author: "Alex, Steve"
 author: "你的名字"
 updatedAt: "2026-08-12"
 title: "/command  中文名称"
-category: commands
 description: "一句话描述命令功能"
 tags: ["领域标签", "场景标签", "属性标签"]
 ---
@@ -192,7 +168,6 @@ tags: ["领域标签", "场景标签", "属性标签"]
 author: "你的名字"
 updatedAt: "2026-08-12"
 title: "功能名称"
-category: community
 description: "一句话描述这个功能做什么"
 tags: ["内容类型", "技术栈", "标签"]
 ---
@@ -205,10 +180,8 @@ tags: ["内容类型", "技术栈", "标签"]
 author: "你的名字"
 updatedAt: "2026-08-12"
 title: "文档标题"
-category: basics
 description: "一句话描述"
 tags: ["标准"]
-pinned: true
 ---
 ```
 
@@ -897,7 +870,6 @@ MCBECD 站点支持自定义 MD 组件，用于增强文档的表现力。
 author: "作者名"
 updatedAt: "2026-08-12"
 title: "功能名称"
-category: community
 description: "一句话描述"
 tags: ["内容类型", "技术栈"]
 ---
@@ -929,7 +901,6 @@ tags: ["内容类型", "技术栈"]
 
 **Frontmatter 检查：**
 - [ ] `title` 格式正确（命令文档：`/command  中文名`）
-- [ ] `category` 值正确（`basics` / `commands` / `community`）
 - [ ] `description` 长度在 15-40 字之间
 - [ ] `author` 已填写
 - [ ] `updatedAt` 为今天或最近的日期

@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "/scoreboard  计分板"
-category: commands
 description: "管理计分板目标、玩家分数和显示设置，基岩版仅支持 dummy 准则"
 tags: ["计分板", "数据追踪", "命令方块", "聊天栏", "OP1", "多人", "循环"]
 ---

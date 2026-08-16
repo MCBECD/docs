@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "/setblock  放置方块"
-category: commands
 description: "在指定坐标放置或替换单个方块，支持方块状态与放置模式"
 tags: ["方块", "命令方块", "聊天栏", "地图制作", "OP1", "即时"]
 ---

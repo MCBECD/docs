@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "/title  屏幕标题"
-category: commands
 description: "在玩家屏幕显示主标题、副标题与操作栏文字，支持自定义淡入淡出时间与格式化文本"
 tags: ["信息", "玩家", "聊天栏", "命令方块", "OP1", "批量", "多人"]
 ---

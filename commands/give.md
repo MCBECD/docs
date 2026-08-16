@@ -2,7 +2,6 @@
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
 title: "/give  给予物品"
-category: commands
 description: "给予玩家指定物品，支持数量、数据值与组件"
 tags: ["物品", "玩家", "聊天栏", "生存", "创造", "OP1", "多目标"]
 ---
