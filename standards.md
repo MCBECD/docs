@@ -608,17 +608,6 @@ frontmatter 之后的第一段必须是命令的一句话功能描述。不要�
 ```mcfunction
 /give @s diamond_sword 1 0 {"enchantments":[{"id":"sharpness","level":5}]}
 ```
-```
-
-错误示例：
-
-```
-### 示例
-
-/give @p diamond
-```
-
-（只有 1 个示例、没有说明、没有代码块标记）
 
 #### 基岩版注意章节
 
