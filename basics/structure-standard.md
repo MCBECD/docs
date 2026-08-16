@@ -153,10 +153,11 @@ frontmatter 结束后，正文以一个无标题段落开始。不要使用任�
 
 给服务器中所有在线玩家各一把钻石剑。
 
-**给予一把锋利 V 钻石剑：**
-<CmdChat>`/give @s diamond_sword 1 0 {"enchantments":[{"id":"sharpness","level":5}]}`
+**给予一把锋利 V 钻石剑（基岩版先给予再附魔）：**
+<CmdChat>`/give @s diamond_sword`
+<CmdChat>`/enchant @s sharpness 5`
 
-给自己一把带有锋利 V 附魔的钻石剑。
+基岩版 `/give` 无法直接附魔，先给予未附魔的钻石剑，再手持后执行 `/enchant` 附魔。
 ````
 
 错误示例：

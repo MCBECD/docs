@@ -567,8 +567,9 @@ frontmatter 之后的第一段必须是命令的一句话功能描述。不要�
 **给予所有玩家一把钻石剑**
 <CmdChat>`/give @a diamond_sword 1`
 
-**给予一把锋利 V 钻石剑**
-<CmdChat>`/give @s diamond_sword 1 0 {"enchantments":[{"id":"sharpness","level":5}]}`
+**给予一把锋利 V 钻石剑（基岩版先给予再附魔）**
+<CmdChat>`/give @s diamond_sword`
+<CmdChat>`/enchant @s sharpness 5`
 ````
 
 #### 基岩版注意章节
