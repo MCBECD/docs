@@ -83,39 +83,27 @@ tags: ["方块", "命令方块", "聊天栏", "地图制作", "OP1", "即时"]
 ### 示例
 
 **在脚下放置一块石头：**
-```mcfunction
-/setblock ~ ~-1 ~ stone
-```
+<>`/setblock ~ ~-1 ~ stone`
 把脚下那格替换为石头。相对坐标 `~ ~-1 ~` 表示以执行者位置为原点、向下偏移一格。
 
 **在指定坐标放置钻石块：**
-```mcfunction
-/setblock 100 64 100 diamond_block
-```
+<>`/setblock 100 64 100 diamond_block`
 在世界坐标 (100, 64, 100) 处放置一个钻石块，静默覆盖该位置原有的任何方块。
 
 **破坏头顶方块并保留掉落物：**
-```mcfunction
-/setblock ~ ~1 ~ air destroy
-```
+<>`/setblock ~ ~1 ~ air destroy`
 用 `destroy` 模式把头顶的方块替换为空气，原方块会像被玩家挖掘一样掉落为物品并播放破坏音效。`air` 与 `destroy` 组合常用于清除方块同时保留掉落物。
 
 **只在空气位置放置玻璃：**
-```mcfunction
-/setblock ~ ~ ~ glass keep
-```
+<>`/setblock ~ ~ ~ glass keep`
 用 `keep` 模式在你所在位置放置玻璃。仅当该位置为空气时才会写入，若已有方块则命令失败，避免误覆盖已有建筑。
 
 **放置指定颜色的羊毛：**
-```mcfunction
-/setblock ~ ~ ~ wool ["color"="orange"]
-```
+<>`/setblock ~ ~ ~ wool ["color"="orange"]`
 在你所在位置放置一块橙色羊毛。方块状态 `["color"="orange"]` 指定羊毛颜色，省略时默认放置白色羊毛。
 
 **放置去皮白桦原木：**
-```mcfunction
-/setblock ~ ~1 ~ wood ["wood_type"="birch","stripped_bit"=true]
-```
+<>`/setblock ~ ~1 ~ wood ["wood_type"="birch","stripped_bit"=true]`
 在头顶放置一根去皮白桦原木。这里同时指定两个方块状态：`wood_type` 决定木头种类，`stripped_bit` 决定是否去皮。
 
 ### 基岩版注意

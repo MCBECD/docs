@@ -48,37 +48,27 @@ tags: ["玩家", "聊天栏", "服务器", "生存", "创造", "OP1", "即时", 
 ### 示例
 
 **把自己设为创造模式：**
-```mcfunction
-/gamemode creative
-```
+<>`/gamemode creative`
 
 省略玩家参数时默认作用于执行者本人，执行后立即获得飞行与瞬间破坏能力。
 
 **用缩写把最近的玩家设为生存模式：**
-```mcfunction
-/gamemode s @p
-```
+<>`/gamemode s @p`
 
 缩写 `s` 与 `survival` 等价，将距离执行点最近的在线玩家切换为生存模式。
 
 **用整数把所有玩家设为冒险模式：**
-```mcfunction
-/gamemode 2 @a
-```
+<>`/gamemode 2 @a`
 
 整数 `2` 对应冒险模式，服务器中所有在线玩家都会进入冒险模式，无法再破坏方块。
 
 **把自己设为旁观模式：**
-```mcfunction
-/gamemode spectator
-```
+<>`/gamemode spectator`
 
 进入旁观模式后可飞行并穿过方块观察世界，但无法与方块和实体交互。
 
 **把执行者重置为世界默认模式：**
-```mcfunction
-/gamemode default
-```
+<>`/gamemode default`
 
 `default`（或 `5`）会把玩家切回世界设置中定义的默认游戏模式。
 

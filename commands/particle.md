@@ -63,37 +63,27 @@ tags: ["粒子", "命令方块", "地图制作", "自动化", "OP1", "批量"]
 ### 示例
 
 **在自己位置生成一颗爱心粒子：**
-```mcfunction
-/particle minecraft:heart_particle ~ ~ ~
-```
+<>`/particle minecraft:heart_particle ~ ~ ~`
 
 在执行者脚下生成一颗飘浮爱心，短暂上升后消失。由于位置参数可省略，直接输入 `/particle minecraft:heart_particle` 效果相同。
 
 **在固定坐标生成火焰粒子：**
-```mcfunction
-/particle minecraft:basic_flame_particle 100 64 100
-```
+<>`/particle minecraft:basic_flame_particle 100 64 100`
 
 在世界坐标 (100, 64, 100) 处生成一个基础火焰粒子，适合在建筑或场景中标记固定位置。
 
 **在头顶上方生成开心的村民粒子：**
-```mcfunction
-/particle minecraft:villager_happy ~ ~2 ~
-```
+<>`/particle minecraft:villager_happy ~ ~2 ~`
 
 在执行者头顶上方 2 格处生成绿色星光粒子，可用于表示玩家升级或完成任务等正面反馈。
 
 **在所有玩家头顶生成附魔符文粒子：**
-```mcfunction
-/execute @a ~ ~ ~ particle minecraft:enchanting_table_particle ~ ~2 ~
-```
+<>`/execute @a ~ ~ ~ particle minecraft:enchanting_table_particle ~ ~2 ~`
 
 借助 [`/execute`](../execute/) 改变执行者，在每个玩家头顶上方 2 格处生成附魔符文粒子，一次对全体在线玩家生效。
 
 **配合重复命令方块持续生成雪花：**
-```mcfunction
-/particle minecraft:snowflake_particle ~ ~5 ~
-```
+<>`/particle minecraft:snowflake_particle ~ ~5 ~`
 
 把这条命令放进重复命令方块，每个游戏刻都会在执行者上方 5 格处生成一片雪花，持续运行即可营造下雪氛围。
 

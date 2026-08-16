@@ -84,42 +84,32 @@ tags: ["状态", "聊天栏", "服务器", "地图制作", "OP1", "即时", "版
 ### 示例
 
 **查询 keepinventory 的当前值：**
-```mcfunction
-/gamerule keepinventory
-```
+<>`/gamerule keepinventory`
 
 返回该规则当前设置（例如 `keepinventory = false`），不修改任何值。
 
 **开启死亡不掉落：**
-```mcfunction
-/gamerule keepinventory true
-```
+<>`/gamerule keepinventory true`
 
 玩家死亡后保留物品栏中的所有物品与经验值，不再掉落。
 
 **锁定当前时间：**
-```mcfunction
-/gamerule dodaylightcycle false
-```
+<>`/gamerule dodaylightcycle false`
 
 世界时间不再每游戏刻自动推进，昼夜停在当前时刻。之后用 `/time set` 仍可手动改变时间。
 
 **加快作物生长：**
-```mcfunction
-/gamerule randomtickspeed 3
-```
+<>`/gamerule randomtickspeed 3`
 
 把随机刻速度提高到 3 倍，作物生长、冰霜融化等随机事件明显加快。
 
 **在屏幕显示坐标：**
-```mcfunction
-/gamerule showcoordinates true
-```
+<>`/gamerule showcoordinates true`
 
 屏幕左上角持续显示你当前的三维坐标。
 
 **制作静音命令方块系统：**
-```mcfunction
+```
 /gamerule sendcommandfeedback false
 /gamerule commandblockoutput false
 ```

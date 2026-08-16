@@ -67,33 +67,23 @@ tags: ["实体", "聊天栏", "命令方块", "地图制作", "OP1", "即时", "
 ### 示例
 
 **在当前位置生成一只僵尸：**
-```mcfunction
-/summon zombie ~ ~ ~
-```
+<>`/summon zombie ~ ~ ~`
 在命令执行者所在位置生成一只普通僵尸。
 
 **在指定坐标生成一只苦力怕：**
-```mcfunction
-/summon creeper 100 64 100
-```
+<>`/summon creeper 100 64 100`
 在世界坐标（100, 64, 100）处生成一只苦力怕。
 
 **在头顶生成一个 TNT：**
-```mcfunction
-/summon tnt ~ ~1 ~
-```
+<>`/summon tnt ~ ~1 ~`
 在命令执行者头顶 1 格处生成一个已激活的 TNT 实体，约 4 秒后爆炸。
 
 **生成一只闪电苦力怕：**
-```mcfunction
-/summon creeper ~ ~ ~ minecraft:become_charged
-```
+<>`/summon creeper ~ ~ ~ minecraft:become_charged`
 通过生成事件在当前位置生成一只闪电苦力怕，其爆炸威力与爆炸半径均强于普通苦力怕。
 
 **生成一只名称始终显示的守卫僵尸：**
-```mcfunction
-/summon zombie ~ ~1 ~ "~守卫"
-```
+<>`/summon zombie ~ ~1 ~ "~守卫"`
 在头顶生成一只名称为「守卫」的僵尸，由于名称以 `~` 开头，它会始终显示名称。
 
 ### 基岩版注意

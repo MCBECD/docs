@@ -127,72 +127,52 @@ Java 版额外支持的 `deathCount`（死亡数）、`playerKillCount`（击杀
 ### 示例
 
 **创建计分项：**
-```mcfunction
-/scoreboard objectives add money dummy "金币"
-```
+<>`/scoreboard objectives add money dummy "金币"`
 
 创建一个名为 `money`、准则为 `dummy` 的计分项，其显示名称为「金币」。由于是 `dummy` 准则，它的分数不会自动变化，只能由命令修改。
 
 **在侧边栏显示：**
-```mcfunction
-/scoreboard objectives setdisplay sidebar money descending
-```
+<>`/scoreboard objectives setdisplay sidebar money descending`
 
 把 `money` 计分项挂到屏幕右侧的侧边栏，并按降序显示分数，分数高的条目排在前面。
 
 **给最近玩家加分：**
-```mcfunction
-/scoreboard players add @p money 10
-```
+<>`/scoreboard players add @p money 10`
 
 给最近的玩家在 `money` 上增加 10 分；如果该玩家此前没有这条记录，会从 0 开始累加。
 
 **把分数设为固定值：**
-```mcfunction
-/scoreboard players set @p money 100
-```
+<>`/scoreboard players set @p money 100`
 
 把最近玩家在 `money` 上的分数直接覆盖为 100，原来的值被丢弃。
 
 **用假名保存全局数据：**
-```mcfunction
-/scoreboard players set global_var timer 60
-```
+<>`/scoreboard players set global_var timer 60`
 
 给名为 `global_var` 的假分数持有者写入 60。`global_var` 并不是真实存在的玩家，但游戏会为它创建记录，这样就能把倒计时这类全局状态存在计分板里，供命令方块读取。
 
 **判断分数区间：**
-```mcfunction
-/scoreboard players test @p money 50 100
-```
+<>`/scoreboard players test @p money 50 100`
 
 测试最近玩家在 `money` 上的分数是否落在 50 到 100 之间（含两端）。命令方块会依据这条命令的「成功 / 失败」结果决定后续分支。
 
 **把一位玩家的分数转给另一位：**
-```mcfunction
-/scoreboard players operation Steve money += Alex money
-```
+<>`/scoreboard players operation Steve money += Alex money`
 
 把 Alex 在 `money` 上的分数加到 Steve 的 `money` 上，实现玩家之间的分数转移；这条命令不会改动 Alex 自己的分数。
 
 **给自己翻倍：**
-```mcfunction
-/scoreboard players operation @p money += @p money
-```
+<>`/scoreboard players operation @p money += @p money`
 
 目标与源都指向最近的玩家，等价于把该玩家在 `money` 上的分数加到自己身上，实现翻倍。
 
 **投骰子：**
-```mcfunction
-/scoreboard players random @a dice 1 6
-```
+<>`/scoreboard players random @a dice 1 6`
 
 给所有玩家在 `dice` 计分项上各写入一个 1 到 6 之间的随机整数，相当于掷一颗六面骰子；使用前需先用 `objectives add` 创建 `dice` 计分项。
 
 **清空分数：**
-```mcfunction
-/scoreboard players reset @p money
-```
+<>`/scoreboard players reset @p money`
 
 清空最近玩家在 `money` 上的分数记录，但保留 `money` 计分项本身；若该玩家在所有计分项里都没有分数了，就会从追踪集合中移除。
 

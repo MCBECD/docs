@@ -82,41 +82,31 @@ tags: ["音效", "聊天栏", "命令方块", "地图制作", "OP1", "批量", "
 
 **给最近玩家播放爆炸声：**
 
-```mcfunction
-/playsound random.explode @p
-```
+<>`/playsound random.explode @p`
 
 给最近的一名玩家播放一次爆炸声。音量、音高均取默认值 1.0，音源默认为执行者位置，可听范围约 16 格。
 
 **给所有玩家播放升级音效：**
 
-```mcfunction
-/playsound random.levelup @a
-```
+<>`/playsound random.levelup @a`
 
 给所有在线玩家各播放一次经验升级音效，常用于向全体玩家广播提示。
 
 **在指定坐标播放雷声：**
 
-```mcfunction
-/playsound ambient.weather.thunder @a 100 64 100
-```
+<>`/playsound ambient.weather.thunder @a 100 64 100`
 
 以坐标 (100, 64, 100) 为音源播放雷声，所有玩家都能听到。离该坐标越近越响，超过约 16 格后逐渐听不到。
 
 **调节音量与音高：**
 
-```mcfunction
-/playsound note.pling @p ~ ~ ~ 0.5 2.0
-```
+<>`/playsound note.pling @p ~ ~ ~ 0.5 2.0`
 
 在最近玩家的位置播放音符盒叮咚声，音量 0.5（可听范围缩小到约 8 格），音高 2.0（高一个八度、播放速度加倍）。要指定音量时，必须先给出音源位置的 3 个坐标，这里用 `~ ~ ~` 表示执行者位置。
 
 **全图警报音效（指定最小音量）：**
 
-```mcfunction
-/playsound mob.wither.spawn @a 0 64 0 2.0 1.0 0.3
-```
+<>`/playsound mob.wither.spawn @a 0 64 0 2.0 1.0 0.3`
 
 在坐标 (0, 64, 0) 处播放凋灵生成声，音量 2.0（可听半径约 32 格），最小音量 0.3。即使玩家在 32 格之外，也能以 0.3 的响度隐约听到，适合制作全图警报。
 

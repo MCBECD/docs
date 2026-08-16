@@ -114,73 +114,55 @@ tags: ["执行", "条件判断", "命令方块", "自动化", "OP2", "批量", "
 
 **在所有玩家脚下放置钻石块：**
 
-```mcfunction
-/execute as @a at @s run setblock ~ ~-1 ~ diamond_block
-```
+<>`/execute as @a at @s run setblock ~ ~-1 ~ diamond_block`
 
 遍历每个在线玩家，先把执行者切换为该玩家（`as @a`），再把执行位置移到该玩家处（`at @s`），最后在其脚下 1 格放置钻石块。多目标选择器使命令为每个玩家各执行一次。
 
 **在最近玩家头顶召唤闪电：**
 
-```mcfunction
-/execute at @p run summon lightning_bolt ~ ~2 ~
-```
+<>`/execute at @p run summon lightning_bolt ~ ~2 ~`
 
 把执行位置移到最近玩家处但保留原执行者，然后在其头顶 2 格处召唤一道闪电。这里没有用 `as`，因此 `@s` 不会改变。
 
 **杀死站在沙子上的僵尸：**
 
-```mcfunction
-/execute as @e[type=zombie] at @s if block ~ ~-1 ~ sand run kill @s
-```
+<>`/execute as @e[type=zombie] at @s if block ~ ~-1 ~ sand run kill @s`
 
 遍历所有僵尸，对每个僵尸检测其脚下方块是否为 `sand`，是则杀死该僵尸。`if block` 在这里起到过滤器作用，条件不成立的僵尸会被跳过。
 
 **给分数达标的玩家显示标题：**
 
-```mcfunction
-/execute as @a if score @s money matches 100.. run title @s title "达标"
-```
+<>`/execute as @a if score @s money matches 100.. run title @s title "达标"`
 
 遍历每个玩家，检查其 `money` 计分板目标上的分数是否 ≥100，是则给该玩家显示标题「达标」。需要先用 [`/scoreboard`](../scoreboard/) 创建 `money` 目标。
 
 **用两个分数比较刷新最高纪录：**
 
-```mcfunction
-/execute as @a if score @s points > @s record run scoreboard players operation @s record = @s points
-```
+<>`/execute as @a if score @s points > @s record run scoreboard players operation @s record = @s points`
 
 遍历每个玩家，比较其 `points` 与 `record` 两个计分板目标的分数，若当前分超过纪录分，则把 `record` 更新为 `points` 的值。
 
 **半径 10 格内没有僵尸时提示安全：**
 
-```mcfunction
-/execute as @a at @s unless entity @e[type=zombie,r=10] run title @s actionbar "附近安全"
-```
+<>`/execute as @a at @s unless entity @e[type=zombie,r=10] run title @s actionbar "附近安全"`
 
 遍历每个玩家，检查其 10 格半径内是否存在僵尸，不存在时向该玩家显示动作栏「附近安全」。`unless` 表示条件不成立时才继续执行。
 
 **在末地召唤末影龙：**
 
-```mcfunction
-/execute in the_end run summon ender_dragon 0 64 0
-```
+<>`/execute in the_end run summon ender_dragon 0 64 0`
 
 把执行维度切换到末地，然后在坐标 (0, 64, 0) 处召唤末影龙。`in` 只改维度，不改执行者与执行位置。
 
 **让粒子朝向玩家视线发射：**
 
-```mcfunction
-/execute at @p facing entity @p eyes run particle minecraft:basic_flame_particle ^ ^ ^1
-```
+<>`/execute at @p facing entity @p eyes run particle minecraft:basic_flame_particle ^ ^ ^1`
 
 把执行位置移到最近玩家处，并让执行朝向对准该玩家眼睛，然后在其视线前方 1 格发射火焰粒子。`facing entity` 会根据目标眼睛位置重新计算执行朝向。
 
 **把玩家对齐到所在方块中心：**
 
-```mcfunction
-/execute as @a at @s align xz run tp @s ~0.5 ~ ~0.5
-```
+<>`/execute as @a at @s align xz run tp @s ~0.5 ~ ~0.5`
 
 遍历每个玩家，先取得其位置，再把 x、z 坐标向下取整对齐到方块网格（`align xz`），最后传送到该方块的中心点。
 

@@ -50,37 +50,27 @@ tags: ["玩家", "服务器", "聊天栏", "OP1", "即时", "批量", "基岩独
 ### 示例
 
 **给最近玩家开启飞行：**
-```mcfunction
-/ability @p mayfly true
-```
+<>`/ability @p mayfly true`
 
 距离执行者最近的玩家获得飞行权限，即使处于生存模式也能像创造模式一样飞行。
 
 **撤销指定玩家的世界建造者能力：**
-```mcfunction
-/ability Steve worldbuilder false
-```
+<>`/ability Steve worldbuilder false`
 
 玩家 Steve 被撤销世界建造者能力，之后无法再绕过冒险模式的方块交互限制。
 
 **禁言所有在线玩家：**
-```mcfunction
-/ability @a mute true
-```
+<>`/ability @a mute true`
 
 所有在线玩家的聊天消息都会被拦截，其他玩家看不到也听不到这些消息。
 
 **查询某玩家的禁言状态：**
-```mcfunction
-/ability Steve mute
-```
+<>`/ability Steve mute`
 
 查询并返回 Steve 的禁言能力当前值，若为 `true` 表示其正处于禁言状态。
 
 **查询某玩家的全部能力：**
-```mcfunction
-/ability Steve
-```
+<>`/ability Steve`
 
 返回 Steve 当前拥有的全部能力概况，方便你一次确认该玩家的能力状态。
 

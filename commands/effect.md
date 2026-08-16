@@ -85,49 +85,37 @@ tags: ["玩家", "实体", "聊天栏", "生存", "创造", "OP1", "批量", "�
 
 **给予自己 30 秒的速度 II：**
 
-```mcfunction
-/effect @s speed 30 1
-```
+<>`/effect @s speed 30 1`
 
 给自己施加 30 秒的速度 II 效果，移动速度提升 40%。
 
 **给予所有玩家无限时长的夜视并隐藏粒子：**
 
-```mcfunction
-/effect @a night_vision infinite 0 true
-```
+<>`/effect @a night_vision infinite 0 true`
 
 给所有在线玩家施加无限时长的夜视效果，并隐藏粒子旋涡，效果持续到被清除或玩家死亡。
 
 **清除自己的全部状态效果：**
 
-```mcfunction
-/effect @s clear
-```
+<>`/effect @s clear`
 
 移除自己身上的所有状态效果，包括由药水和信标施加的效果。
 
 **仅清除所有玩家的速度效果：**
 
-```mcfunction
-/effect @a clear speed
-```
+<>`/effect @a clear speed`
 
 只移除所有在线玩家的速度效果，其它状态效果不受影响。
 
 **给所有僵尸施加减速 III 并隐藏粒子：**
 
-```mcfunction
-/effect @e[type=zombie] slowness 30 2 true
-```
+<>`/effect @e[type=zombie] slowness 30 2 true`
 
 给世界中的所有僵尸施加 30 秒的减速 III 效果，并隐藏粒子旋涡。
 
 **用 0 秒时长移除最近玩家的中毒效果：**
 
-```mcfunction
-/effect @p poison 0
-```
+<>`/effect @p poison 0`
 
 把 `[秒]` 设为 0 会把最近玩家已有的中毒效果变更为 0 秒，等效于移除该效果。
 

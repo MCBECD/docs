@@ -81,37 +81,27 @@ tags: ["世界", "聊天栏", "创造", "地图制作", "OP1", "即时"]
 ### 示例
 
 **定位最近的村庄：**
-```mcfunction
-/locate structure village
-```
+<>`/locate structure village`
 
 在主世界查找最近的村庄，聊天栏返回其近似水平坐标和距离，y 坐标显示为 `~`。
 
 **定位最近的远古城市：**
-```mcfunction
-/locate structure ancient_city
-```
+<>`/locate structure ancient_city`
 
 查找最近的远古城市。远古城市生成在深暗之域的地下，返回坐标后需向下挖掘才能到达。
 
 **只在未探索区块中查找试炼密室：**
-```mcfunction
-/locate structure trial_chambers true
-```
+<>`/locate structure trial_chambers true`
 
 加 `true` 后只搜索尚未生成的新区块，返回离执行者最近、且位于未探索区域内的试炼密室坐标，避免重复指向已经到访过的建筑。
 
 **定位最近的沙漠生物群系：**
-```mcfunction
-/locate biome minecraft:desert
-```
+<>`/locate biome minecraft:desert`
 
 返回最近沙漠生物群系的一个采样点三维坐标。与结构定位不同，这里会给出完整的 `x y z` 坐标。
 
 **定位下界的诡异森林（需先进入下界）：**
-```mcfunction
-/locate biome minecraft:warped_forest
-```
+<>`/locate biome minecraft:warped_forest`
 
 在下界中查找最近的诡异森林生物群系。若在主世界执行，会因当前维度不存在该生物群系而失败。
 

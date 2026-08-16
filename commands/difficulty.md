@@ -37,23 +37,17 @@ tags: ["状态", "聊天栏", "服务器", "OP1", "即时"]
 ### 示例
 
 **设为和平难度：**
-```mcfunction
-/difficulty peaceful
-```
+<>`/difficulty peaceful`
 
 将世界难度设为和平。敌对生物停止自然生成，玩家的生命值会快速自动回复，饥饿值也不再下降。
 
 **用整数设为普通难度：**
-```mcfunction
-/difficulty 2
-```
+<>`/difficulty 2`
 
 整数 `2` 对应普通难度，与枚举名 `normal` 完全等价。命令会立即写入世界存档并持续生效。
 
 **用单字母设为困难难度：**
-```mcfunction
-/difficulty h
-```
+<>`/difficulty h`
 
 单字母 `h` 是 `hard` 的缩写。困难难度下敌对生物伤害约为普通的 1.5 倍，僵尸能够破坏木门，饥饿值耗尽会直接致死。
 

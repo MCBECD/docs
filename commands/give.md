@@ -65,41 +65,31 @@ tags: ["物品", "玩家", "聊天栏", "生存", "创造", "OP1", "多目标"]
 
 **给予最近玩家 64 个钻石：**
 
-```mcfunction
-/give @p diamond 64
-```
+<>`/give @p diamond 64`
 
 给予距离执行者最近的玩家 64 个钻石，物品直接进入其物品栏，无需拾取。
 
 **给予所有在线玩家一把钻石剑：**
 
-```mcfunction
-/give @a diamond_sword
-```
+<>`/give @a diamond_sword`
 
 省略数量时默认给予 1 个，服务器中每个在线玩家各获得一把钻石剑。
 
 **给自己一块只能放置在木板上的圆石：**
 
-```mcfunction
-/give @s cobblestone 1 0 {"minecraft:can_place_on":{"blocks":["planks"]}}
-```
+<>`/give @s cobblestone 1 0 {"minecraft:can_place_on":{"blocks":["planks"]}}`
 
 在聊天栏执行时 `@s` 指执行者本人。你获得 1 块带放置限制的圆石，它只能被放置在木板上，且该限制只在冒险模式下生效。
 
 **给予所有玩家一个锁定在物品栏里的金苹果：**
 
-```mcfunction
-/give @a golden_apple 1 0 {"minecraft:item_lock":{"mode":"lock_in_inventory"}}
-```
+<>`/give @a golden_apple 1 0 {"minecraft:item_lock":{"mode":"lock_in_inventory"}}`
 
 每个在线玩家各获得 1 个金苹果，物品左上角显示黄色三角标记，无法被丢弃、移出物品栏或用于合成。
 
 **给予指定玩家一把死亡后保留的弓：**
 
-```mcfunction
-/give Steve bow 1 0 {"minecraft:keep_on_death":{}}
-```
+<>`/give Steve bow 1 0 {"minecraft:keep_on_death":{}}`
 
 玩家 `Steve` 获得 1 把弓。即使他死亡且世界未开启 `keepInventory`，这把弓也会保留在物品栏中，不会随死亡掉落。
 

@@ -69,44 +69,32 @@ tags: ["实体", "聊天栏", "命令方块", "地图制作", "OP1", "批量"]
 ### 示例
 
 **让最近玩家骑乘最近的一匹马：**
-```mcfunction
-/ride @p start_riding @e[type=horse,limit=1]
-```
+<>`/ride @p start_riding @e[type=horse,limit=1]`
 
 默认使用 `teleport_rider`，把最近的玩家传送到最近一匹马身边，并让其骑乘上去。
 
 **把坐骑传送到玩家身边再骑乘：**
-```mcfunction
-/ride @p start_riding @e[type=horse,limit=1] teleport_ride
-```
+<>`/ride @p start_riding @e[type=horse,limit=1] teleport_ride`
 
 改用 `teleport_ride`，让那匹马被传送到玩家身边，再由玩家骑乘。适合马离玩家较远、想让坐骑主动过来的场景。
 
 **让所有玩家下骑：**
-```mcfunction
-/ride @a stop_riding
-```
+<>`/ride @a stop_riding`
 
 解除所有玩家与其坐骑之间的骑乘关系，玩家会在坐骑附近落地。
 
 **让所有马逐出乘客：**
-```mcfunction
-/ride @e[type=horse] evict_riders
-```
+<>`/ride @e[type=horse] evict_riders`
 
 从坐骑侧解除关系，每匹马上骑乘的实体都会被逐出，效果与 `stop_riding` 相反方向。
 
 **为所有鸡召唤小僵尸乘客（鸡骑士）：**
-```mcfunction
-/ride @e[type=chicken] summon_rider zombie minecraft:as_baby_jockey
-```
+<>`/ride @e[type=chicken] summon_rider zombie minecraft:as_baby_jockey`
 
 在每只鸡的位置召唤一只僵尸，并通过 `minecraft:as_baby_jockey` 事件将其设为小僵尸形态，使其能通过鸡的骑乘过滤，形成原版的鸡骑士。
 
 **为带标签 A 的玩家召唤坐骑：**
-```mcfunction
-/ride @a[tag=A] summon_ride horse reassign_rides "A 的坐骑"
-```
+<>`/ride @a[tag=A] summon_ride horse reassign_rides "A 的坐骑"`
 
 在每个带标签 `A` 的玩家位置召唤一匹名为「A 的坐骑」的马，并让玩家骑乘上去；`reassign_rides` 会先让已在骑乘的玩家下骑再重新召唤。
 

@@ -34,11 +34,11 @@ frontmatter 结束后，正文以一个无标题段落开始。不要使用任�
 
 正确示例：
 
-```
+```md
 给予玩家指定物品。基岩版 1.20.50+ 已弃用旧版数据值语法，改用物品组件系统。
 ```
 
-```
+```md
 管理计分板目标、玩家分数和显示设置。计分板是基岩版中实现数据追踪、条件判断和复杂游戏逻辑的核心工具。
 ```
 
@@ -142,30 +142,24 @@ frontmatter 结束后，正文以一个无标题段落开始。不要使用任�
 
 正确示例：
 
-```md
+````md
 ### 示例
 
 **给予最近玩家 64 个钻石：**
-```mcfunction
-/give @p diamond 64
-```
+<>`/give @p diamond 64`
 
 给予最近的玩家 64 个钻石。
 
 **给予所有玩家一把钻石剑：**
-```mcfunction
-/give @a diamond_sword 1
-```
+<>`/give @a diamond_sword 1`
 
 给服务器中所有在线玩家各一把钻石剑。
 
 **给予一把锋利 V 钻石剑：**
-```mcfunction
-/give @s diamond_sword 1 0 {"enchantments":[{"id":"sharpness","level":5}]}
-```
+<>`/give @s diamond_sword 1 0 {"enchantments":[{"id":"sharpness","level":5}]}`
 
 给自己一把带有锋利 V 附魔的钻石剑。
-```
+````
 
 错误示例：
 

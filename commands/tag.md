@@ -40,44 +40,32 @@ tags: ["标签", "实体", "命令方块", "自动化", "数据追踪", "OP1", "
 ### 示例
 
 **给自己添加 admin 标签：**
-```mcfunction
-/tag @s add admin
-```
+<>`/tag @s add admin`
 
 给执行者（通常是你自己）的标签集合写入 `admin`，之后任何命令都能用 `@a[tag=admin]` 挑出所有拥有该标签的玩家。
 
 **给所有僵尸添加 undead 标签：**
-```mcfunction
-/tag @e[type=zombie] add undead
-```
+<>`/tag @e[type=zombie] add undead`
 
 选中当前已加载范围内的所有僵尸并写入 `undead` 标签，可配合 [`/effect`](../effect/) 或 [`/kill`](../kill/) 批量处理这类实体。
 
 **移除标签：**
-```mcfunction
-/tag @s remove admin
-```
+<>`/tag @s remove admin`
 
 从执行者身上删除 `admin` 标签。若执行者本来就没有该标签，命令返回失败但不影响任何实体。
 
 **列出自己拥有的标签：**
-```mcfunction
-/tag @s list
-```
+<>`/tag @s list`
 
 在聊天栏列出执行者当前拥有的全部标签，可用于调试时确认标签是否正确添加或移除。
 
 **用标签圈定一批实体后批量清理：**
-```mcfunction
-/kill @e[tag=cleanup]
-```
+<>`/kill @e[tag=cleanup]`
 
 杀死所有带 `cleanup` 标签的实体，常用于小游戏结束或地图重置时清理此前标记过的临时实体。
 
 **同时要求多个标签（逻辑与）：**
-```mcfunction
-/kill @e[tag=marked,tag=!exempt]
-```
+<>`/kill @e[tag=marked,tag=!exempt]`
 
 只杀死带 `marked` 且不带 `exempt` 的实体。多个 `tag=` 参数叠加时所有条件必须同时满足，可用于需要精细筛选的场景。
 

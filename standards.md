@@ -48,9 +48,7 @@ tags: ["标准"]
 
 **命令文档的标题格式：**
 
-```
-/command  中文名称
-```
+<>`/command  中文名称`
 
 规则：
 - 命令名前必须有 `/` 前缀
@@ -77,10 +75,6 @@ title: "Give command"          # 不要英文
 ```
 
 **社区文档的标题格式：**
-
-```
-功能的简短中文名称
-```
 
 规则：
 - 直接使用功能名称，不加前缀
@@ -519,13 +513,13 @@ frontmatter 之后的第一段必须是命令的一句话功能描述。不要�
 
 正确示例：
 
-```
+```md
 给予玩家指定物品。基岩版 1.20.50+ 已弃用旧版数据值语法，改用物品组件系统。
 ```
 
 错误示例：
 
-```
+```md
 # /give 命令
 本教程将详细介绍 give 命令的各种用法和参数。
 ```
@@ -591,23 +585,18 @@ frontmatter 之后的第一段必须是命令的一句话功能描述。不要�
 
 正确示例：
 
-```
+````md
 ### 示例
 
-**给予最近玩家 64 个钻石：**
-```mcfunction
-/give @p diamond 64
-```
+**给予最近玩家 64 个钻石**
+<>`/give @p diamond 64`
 
-**给予所有玩家一把钻石剑：**
-```mcfunction
-/give @a diamond_sword 1
-```
+**给予所有玩家一把钻石剑**
+<>`/give @a diamond_sword 1`
 
-**给予一把锋利 V 钻石剑：**
-```mcfunction
-/give @s diamond_sword 1 0 {"enchantments":[{"id":"sharpness","level":5}]}
-```
+**给予一把锋利 V 钻石剑**
+<>`/give @s diamond_sword 1 0 {"enchantments":[{"id":"sharpness","level":5}]}`
+````
 
 #### 基岩版注意章节
 
@@ -841,9 +830,7 @@ MCBECD 站点支持自定义 MD 组件，用于增强文档的表现力。
 使用标准围栏语法，指定语言标记。
 
 ````md
-```mcfunction
-/give @p diamond 64
-```
+<>`/give @p diamond 64`
 ````
 
 **语言标记选择：**
