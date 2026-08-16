@@ -75,10 +75,8 @@ Minecraft 的「时间」并不是一个简单的时刻，而是由多个相互�
 
 **设为正午并锁定时间：**
 
-```
-/time set noon
-/gamerule doDaylightCycle false
-```
+<>`/time set noon`
+<>`/gamerule doDaylightCycle false`
 
 先把时间推进到正午（6000 刻），再关闭昼夜循环，让太阳停留在天空最高点，实现永久的白天。
 

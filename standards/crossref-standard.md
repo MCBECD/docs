@@ -21,7 +21,7 @@ tags: ["标准"]
 
 在文档正文中引用其他命令时，必须使用以下格式：
 
-```md
+```markdown
 [`/give`](../../commands/give/)
 ```
 
@@ -98,7 +98,7 @@ tags: ["标准"]
 
 #### 3.2 外部链接书写格式
 
-```md
+```markdown
 [Minecraft Wiki](https://minecraft.wiki/w/Commands)
 ```
 

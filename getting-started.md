@@ -38,17 +38,14 @@ tags: ["入门"]
 
 ### 常用操作
 
-```
-/time set day
-/weather clear
-/gamemode creative
-/kill @e[type=item]
-```
+<>`/time set day`
+设为白天 — 详见 [`/time`](../commands/time/)
 
-- 设为白天 — 详见 [`/time`](../commands/time/)
-- 清除雨天 — 详见 [`/weather`](../commands/weather/)
-- 切换创造模式 — 详见 [`/gamemode`](../commands/gamemode/)
-- 清除所有掉落物 — 详见 [`/kill`](../commands/kill/)
+<>`/weather clear`
+切换创造模式 — 详见 [`/gamemode`](../commands/gamemode/)
+
+<>`/kill @e[type=item]`
+清除所有掉落物 — 详见 [`/kill`](../commands/kill/)
 
 ### 下一步
 

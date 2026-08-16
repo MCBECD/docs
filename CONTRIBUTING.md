@@ -13,7 +13,7 @@
 
 ### 环境搭建
 
-```bash
+```sh
 # 1. Fork 本仓库
 # 2. Clone 你的 fork
 git clone https://github.com/YOUR_USERNAME/docs.git

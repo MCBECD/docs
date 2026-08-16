@@ -51,7 +51,7 @@ tags: ["标签1", "标签2"]
 
 用法示例：
 
-```md
+```markdown
 <CmdConditionalChain>`/give @p diamond 64`
 
 <CmdRepeat>`/execute as @a at @s run setblock ~ ~-1 ~ gold_block`
@@ -65,7 +65,7 @@ tags: ["标签1", "标签2"]
 
 支持 GitHub 风格的提示框语法，在文档中插入不同级别的提示信息：
 
-```md
+```markdown
 > [!NOTE]
 > 这是一条普通提示信息。
 
@@ -84,7 +84,7 @@ tags: ["标签1", "标签2"]
 
 也可以自定义标题：
 
-```md
+```markdown
 > [!WARNING] 基岩版独有
 > 此命令在 Java 版中不可用。
 ```
@@ -101,7 +101,7 @@ tags: ["标签1", "标签2"]
 
 支持标准代码围栏语法，带有 Shiki 语法高亮和一键复制功能：
 
-````md
+````markdown
 <>`/give @s diamond_sword 1 0 {"enchantments":[{"id":"sharpness","level":5}]}`
 ````
 
@@ -120,7 +120,7 @@ tags: ["标签1", "标签2"]
 
 使用单个反引号包裹内联代码：
 
-```md
+```markdown
 使用 `<玩家>` 选择器指定目标。
 ```
 
@@ -128,7 +128,7 @@ tags: ["标签1", "标签2"]
 
 在文档中引用其他命令时，使用反引号包裹命令文本作为链接文字：
 
-```md
+```markdown
 详见 [`/give`](../commands/give/) 命令文档。
 ```
 
@@ -138,7 +138,7 @@ tags: ["标签1", "标签2"]
 
 支持 `<details>` / `<summary>` 创建可折叠内容：
 
-```md
+```markdown
 <details>
 <summary>点击展开详细信息</summary>
 
@@ -151,7 +151,7 @@ tags: ["标签1", "标签2"]
 
 使用 `<kbd>` 标签显示键盘按键：
 
-```md
+```markdown
 按 <kbd>Ctrl</kbd> + <kbd>C</kbd> 复制代码。
 ```
 
@@ -159,7 +159,7 @@ tags: ["标签1", "标签2"]
 
 使用标准 GFM 表格语法：
 
-```md
+```markdown
 | 参数 | 类型 | 说明 |
 |------|------|------|
 | `<玩家>` | Target | 目标玩家选择器 |
@@ -170,7 +170,7 @@ tags: ["标签1", "标签2"]
 
 支持 GFM 任务列表：
 
-```md
+```markdown
 - [x] 已完成的任务
 - [ ] 待完成的任务
 ```
@@ -179,7 +179,7 @@ tags: ["标签1", "标签2"]
 
 新建命令文档时，推荐使用以下结构：
 
-```md
+```markdown
 ---
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-09"
@@ -217,13 +217,13 @@ tags: ["标签1", "标签2"]
 
 可以使用项目自带的脚手架脚本快速创建新文档：
 
-```bash
+```sh
 node scripts/new-doc.mjs <命令名> ["标题"] [排序号]
 ```
 
 示例：
 
-```bash
+```sh
 node scripts/new-doc.mjs camera "摄像机控制" 32
 ```
 
@@ -231,7 +231,7 @@ node scripts/new-doc.mjs camera "摄像机控制" 32
 
 提交前运行校验脚本检查 frontmatter 完整性：
 
-```bash
+```sh
 node scripts/validate-docs.mjs
 ```
 

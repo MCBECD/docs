@@ -175,7 +175,7 @@ update-snowball-menu
 
 MCBECD 项目提供校验脚本，可在提交前运行：
 
-```bash
+```sh
 node scripts/validate-docs.mjs
 ```
 

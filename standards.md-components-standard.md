@@ -38,7 +38,7 @@ MCBECD 站点支持多种自定义 MD 组件，用于增强文档的表现力。
 
 #### 1.3 使用语法
 
-```md
+```markdown
 <CmdChat>`/scoreboard objectives add 雪球菜单 dummy`
 <CmdRepeat>`/scoreboard players add @a 在线时间 1`
 <CmdChain>`/execute at @e[type=snowball] run kill @e[type=snowball,c=1,r=2]`
@@ -61,7 +61,7 @@ MCBECD 站点通过 `remark-github-alerts` 插件支持 GitHub 风格的提示�
 
 #### 2.2 基本语法
 
-```md
+```markdown
 > [!NOTE]
 > 这是一条普通提示信息。
 
@@ -80,7 +80,7 @@ MCBECD 站点通过 `remark-github-alerts` 插件支持 GitHub 风格的提示�
 
 #### 2.3 自定义标题
 
-```md
+```markdown
 > [!WARNING] 基岩版独有
 > 此命令在 Java 版中不可用。
 
@@ -112,7 +112,7 @@ MCBECD 站点通过 `remark-github-alerts` 插件支持 GitHub 风格的提示�
 
 #### 3.1 语法
 
-```md
+```markdown
 <details>
 <summary>点击展开详细信息</summary>
 
@@ -143,7 +143,7 @@ MCBECD 站点通过 `remark-github-alerts` 插件支持 GitHub 风格的提示�
 
 使用三个反引号围栏，指定语言标记：
 
-````md
+````markdown
 <>`/give @p diamond 64`
 ````
 
@@ -185,7 +185,7 @@ MCBECD 站点通过 `remark-github-alerts` 插件支持 GitHub 风格的提示�
 
 #### 5.1 基本语法
 
-```md
+```markdown
 | 列标题1 | 列标题2 | 列标题3 |
 |---------|---------|---------|
 | 数据1 | 数据2 | 数据3 |
@@ -214,7 +214,7 @@ MCBECD 站点通过 `remark-github-alerts` 插件支持 GitHub 风格的提示�
 
 使用反引号包裹代码片段：
 
-```md
+```markdown
 使用 `@p` 选择最近玩家。
 物品 ID 为 `diamond_sword`。
 ```
@@ -233,7 +233,7 @@ MCBECD 站点通过 `remark-github-alerts` 插件支持 GitHub 风格的提示�
 
 使用 `<kbd>` 标签显示键盘按键：
 
-```md
+```markdown
 按 <kbd>Ctrl</kbd> + <kbd>C</kbd> 复制代码。
 按 <kbd>T</kbd> 打开聊天栏。
 ```
