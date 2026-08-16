@@ -11,7 +11,7 @@ tags: ["入门"]
 
 MCBECD（Minecraft Bedrock Edition Commands Documentation）是一个由社区驱动的开源项目，致力于为 Minecraft 基岩版提供全面、准确的命令参考文档。无论你是刚接触命令方块的新手，还是经验丰富的地图作者，MCBECD 都能帮助你快速查找命令用法与语法。
 
-目前 MCBECD 已经收录了 20+ 条常用命令的详细文档，涵盖语法说明、参数解释、实用示例以及基岩版特有的注意事项。所有文档以 MD 格式编写，支持丰富的排版和代码高亮。写作规范详见 [写作指南](../writing-guide/)。
+目前 MCBECD 已经收录了 26 条常用命令的详细文档，涵盖语法说明、参数解释、实用示例以及基岩版特有的注意事项。所有文档以 MD 格式编写，支持丰富的排版和代码高亮。写作规范详见 [写作指南](../writing-guide/)。
 
 MCBECD 网站支持 7 种界面语言（简体中文、English、繁體中文、日本語、한국어、Deutsch、Français），你可以随时在设置中切换。
 
@@ -30,6 +30,15 @@ MCBECD 是一个完全由社区贡献的项目，我们欢迎所有人参与。�
 
 - [网站仓库 CONTRIBUTING.md](https://github.com/MCBECD/site/blob/main/CONTRIBUTING.md)
 - [文档仓库 CONTRIBUTING.md](https://github.com/MCBECD/docs/blob/main/CONTRIBUTING.md)
+
+## 作者
+
+MCBECD 由以下作者共同维护：
+
+- **丁丁QZ** — [GitHub](https://github.com/DingdingOvO) · [哔哩哔哩](https://b23.tv/v9QuaTO) · [快手](https://v.kuaishou.com/JTZL7bix)
+- **官方•Dingding OvO** — [GitHub](https://github.com/DingdingOvO)
+
+网站前端（含导航栏、设置面板等）的源代码完全开源，可在 [GitHub 仓库](https://github.com/MCBECD/site) 中查看。
 
 ## 开源许可
 
