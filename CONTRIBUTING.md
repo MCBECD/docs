@@ -29,8 +29,8 @@ git checkout -b add-weather-command
 
 | 类型 | 命名 | 示例 |
 |------|------|------|
-| 命令文档 | `commands/{命令名}.mdx` | `commands/weather.mdx` |
-| 社区文档 | `{编号}.mdx`（纯数字，根目录） | `3.mdx` |
+| 命令文档 | `commands/{命令名}.md` | `commands/weather.md` |
+| 社区文档 | `{编号}.md`（纯数字，根目录） | `3.md` |
 
 ### Frontmatter 模板
 
@@ -96,14 +96,14 @@ tags: ["内容类型", "技术栈"]
 
 ### Markdown 规范
 
-- **内部链接必须用相对路径**：[`/effect`](../commands/effect/)（不带 `.mdx` 后缀，命令链接末尾带 `/`）
+- **内部链接必须用相对路径**：[`/effect`](../commands/effect/)（不带 `.md` 后缀，命令链接末尾带 `/`）
 - 代码块指定语言：` ```mcfunction `
 - 表格对齐、表头完整
 - 中英文之间加空格
 
 ## 提交流程
 
-1. **本地验证** — 确保 `.mdx` 文件格式正确，frontmatter 无遗漏
+1. **本地验证** — 确保 `.md` 文件格式正确，frontmatter 无遗漏
 2. **Commit** — 使用清晰的中文提交信息
    ```
    add: /weather 命令文档
@@ -123,8 +123,8 @@ tags: ["内容类型", "技术栈"]
 
 ## 需要帮助？
 
-- 参考已有文档：[give.mdx](./commands/give/) | [effect.mdx](./commands/effect/)
-- 查看语法文档：[command-syntax.mdx](./command-syntax/)
+- 参考已有文档：[give.md](./commands/give/) | [effect.md](./commands/effect/)
+- 查看语法文档：[command-syntax.md](./command-syntax/)
 - 提交 Issue 讨论
 
 ---

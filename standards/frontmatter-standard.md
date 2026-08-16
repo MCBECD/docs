@@ -11,13 +11,13 @@ tags: ["标准", "frontmatter"]
 
 ## Frontmatter 标准规范
 
-Frontmatter 是 MDX 文件顶部的 YAML 元数据块，被 `---` 包裹。MCBECD 站点通过 `gray-matter` 库解析 frontmatter，将其转化为 `DocMeta` 对象用于前端渲染。frontmatter 中的每一个字段都直接影响文档在站点上的显示行为、搜索索引、分类归组和排序逻辑。本文档以法律条文的严谨性，逐一定义每个字段的规范。
+Frontmatter 是 MD 文件顶部的 YAML 元数据块，被 `---` 包裹。MCBECD 站点通过 `gray-matter` 库解析 frontmatter，将其转化为 `DocMeta` 对象用于前端渲染。frontmatter 中的每一个字段都直接影响文档在站点上的显示行为、搜索索引、分类归组和排序逻辑。本文档以法律条文的严谨性，逐一定义每个字段的规范。
 
 ---
 
 ### 一、总则
 
-1.1 每篇 `.mdx` 文件必须以 frontmatter 开头，不得省略。没有 frontmatter 的文件将被文档引擎忽略，不会出现在站点上。
+1.1 每篇 `.md` 文件必须以 frontmatter 开头，不得省略。没有 frontmatter 的文件将被文档引擎忽略，不会出现在站点上。
 
 1.2 frontmatter 必须用三个减号 `---` 作为起始和结束标记。起始 `---` 必须是文件的第一行，前面不得有空行、空格或其他字符。结束 `---` 后必须紧跟一个空行，然后才是正文内容。
 
@@ -555,9 +555,9 @@ export interface DocMeta {
 }
 ```
 
-解析过程（`lib/docs.ts` → `parseMdxMeta`）：
+解析过程（`lib/docs.ts` → `parseMdMeta`）：
 
-1. 读取 `.mdx` 文件全文
+1. 读取 `.md` 文件全文
 2. 使用 `gray-matter` 库的 `matter()` 函数提取 frontmatter
 3. `matter()` 返回 `data`（frontmatter 对象）和 `content`（正文）
 4. `buildMeta()` 函数从 `data` 中提取各字段，通过 `asString()` 和 `asStringArray()` 进行类型安全转换

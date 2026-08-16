@@ -371,8 +371,8 @@ MCBECD 标签系统分为四类：**领域标签**、**场景标签**、**属性
 
 | 标签 | 定义 | 适用文档 |
 |------|------|----------|
-| `"标准"` | 标准规范文档 | standards.mdx、frontmatter-standard.mdx 等 |
-| `"入门"` | 新手入门文档 | getting-started.mdx、command-syntax.mdx 等 |
+| `"标准"` | 标准规范文档 | standards.md、frontmatter-standard.md 等 |
+| `"入门"` | 新手入门文档 | getting-started.md、command-syntax.md 等 |
 
 ---
 
@@ -431,5 +431,5 @@ tags: ["领域标签", "场景标签", "属性标签"]
 1. 在 MCBECD/docs 仓库提交 Issue，说明需要新增的标签名称、定义、适用文档
 2. 维护者讨论批准后，在本文档中添加标签定义
 3. 更新对照表（如有对应命令）
-4. 更新根目录 `standards.mdx` 中的标签速查表
+4. 更新根目录 `standards.md` 中的标签速查表
 5. 在本文件的 `updatedAt` 字段更新日期

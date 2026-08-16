@@ -10,30 +10,30 @@ MCBECD Docs 是 [MCBECD 站点](https://github.com/MCBECD/site) 的**文档内�
 
 ## 文档结构
 
-所有文档为扁平 `.mdx` 文件，放在仓库根目录或子目录中：
+所有文档为扁平 `.md` 文件，放在仓库根目录或子目录中：
 
 ```
 MCBECD/docs/
-├── about.mdx                # 项目介绍
-├── getting-started.mdx       # 快速开始
-├── command-syntax.mdx        # 命令语法基础
-├── writing-guide.mdx         # 文档写作指南
-├── standards.mdx             # 标准规范总纲
+├── about.md                # 项目介绍
+├── getting-started.md       # 快速开始
+├── command-syntax.md        # 命令语法基础
+├── writing-guide.md         # 文档写作指南
+├── standards.md             # 标准规范总纲
 │
 ├── commands/
-│   ├── give.mdx              # /give 命令
-│   ├── effect.mdx            # /effect 命令
-│   ├── execute.mdx           # /execute 命令
+│   ├── give.md              # /give 命令
+│   ├── effect.md            # /effect 命令
+│   ├── execute.md           # /execute 命令
 │   ...（22 个官方命令）
 │
-├── 1.mdx                     # 社区贡献：「在线时间」
-├── 2.mdx                     # 社区贡献
-├── 3.mdx                     # 社区贡献
+├── 1.md                     # 社区贡献：「在线时间」
+├── 2.md                     # 社区贡献
+├── 3.md                     # 社区贡献
 │
 ├── standards/
-│   ├── frontmatter-standard.mdx
-│   ├── structure-standard.mdx
-│   ├── tag-standard.mdx
+│   ├── frontmatter-standard.md
+│   ├── structure-standard.md
+│   ├── tag-standard.md
 │   ...（12 个标准规范文档）
 │
 ├── README.md                 # 本文件
@@ -44,15 +44,15 @@ MCBECD/docs/
 
 | 类型 | 命名方式 | 示例 | category 值 |
 |------|---------|------|-------------|
-| **基础文档** | 语义化英文 | `getting-started.mdx` | `basics` |
-| **官方命令** | `commands/` 子目录 + 命令名 | `commands/give.mdx` | `commands` |
-| **社区文档** | 纯数字编号 | `3.mdx` | `community` |
+| **基础文档** | 语义化英文 | `getting-started.md` | `basics` |
+| **官方命令** | `commands/` 子目录 + 命令名 | `commands/give.md` | `commands` |
+| **社区文档** | 纯数字编号 | `3.md` | `community` |
 
 > 社区文档使用纯数字编号（从 1 递增），放在仓库根目录。站点渲染时使用 frontmatter 中的 `title` 字段作为显示名称。
 
 ## 文档格式
 
-每份 `.mdx` 文件由 **frontmatter** + **Markdown 正文**组成：
+每份 `.md` 文件由 **frontmatter** + **Markdown 正文**组成：
 
 ```yaml
 ---
@@ -94,7 +94,7 @@ tags: ["物品", "玩家", "聊天栏", "生存", "创造", "OP1", "多目标"]
 
 标签从预定义的标签集中选取，不得自行创造新标签。
 
-- **命令文档**：3-7 个标签，必须对照[标签对照表](./standards/tag-standard.mdx)检查
+- **命令文档**：3-7 个标签，必须对照[标签对照表](./standards/tag-standard.md)检查
 - **社区文档**：3-6 个标签，包含 1 个内容类型标签 + 1-2 个技术栈标签
 - **基础文档**：0-2 个标签
 
@@ -103,7 +103,7 @@ tags: ["物品", "玩家", "聊天栏", "生存", "创造", "OP1", "多目标"]
 ## 添加新文档
 
 1. Fork 本仓库
-2. 创建 `.mdx` 文件（社区文档用下一个可用数字编号，命令文档用命令名）
+2. 创建 `.md` 文件（社区文档用下一个可用数字编号，命令文档用命令名）
 3. 填写正确的 frontmatter（确保所有必填字段已填写）
 4. **使用相对链接**引用其他文档：[`/give`](../commands/give/)
 5. 提交 PR 到 `main` 分支

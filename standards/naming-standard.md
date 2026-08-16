@@ -5,7 +5,7 @@ title: "文件命名标准"
 category: basics
 hidden: true
 pinned: true
-description: "所有 .mdx 文件的命名规则——命令文档、社区文档、基础文档的命名格式、禁止规则与迁移映射"
+description: "所有 .md 文件的命名规则——命令文档、社区文档、基础文档的命名格式、禁止规则与迁移映射"
 tags: ["标准"]
 ---
 
@@ -13,13 +13,13 @@ tags: ["标准"]
 
 文件命名是文档系统的基础。站点的文档引擎（`lib/docs.ts`）通过文件名生成文档 ID（`DocMeta.id`），文档 ID 用于路由、链接和缓存。如果文件命名不规范，会导致链接断裂、路由错误和搜索失败。
 
-本文档定义所有 `.mdx` 文件的命名规则。任何不符合本标准的文件名都应在审核中被拒绝。
+本文档定义所有 `.md` 文件的命名规则。任何不符合本标准的文件名都应在审核中被拒绝。
 
 ---
 
 ### 一、通用规则
 
-1.1 文件扩展名必须为 `.mdx`。不允许使用 `.md`、`.markdown`、`.txt` 等其他扩展名。
+1.1 文件扩展名必须为 `.md`。不允许使用 `.md`、`.markdown`、`.txt` 等其他扩展名。
 
 1.2 文件名只允许包含以下字符：
 - 小写英文字母 `a-z`
@@ -48,10 +48,10 @@ tags: ["标准"]
 
 #### 2.1 命名规则
 
-文件名 = 命令名（小写，不含 `/`）+ `.mdx`
+文件名 = 命令名（小写，不含 `/`）+ `.md`
 
 规则分解：
-- 不含 `/` 前缀（`/give` 的文件名是 `give.mdx`，不是 `/give.mdx`）
+- 不含 `/` 前缀（`/give` 的文件名是 `give.md`，不是 `/give.md`）
 - 全部小写
 - 不含空格
 - 不含参数、不含版本号、不含中文翻译
@@ -60,28 +60,28 @@ tags: ["标准"]
 
 | 命令 | 文件名 |
 |------|--------|
-| `/give` | `commands/give.mdx` |
-| `/execute` | `commands/execute.mdx` |
-| `/scoreboard` | `commands/scoreboard.mdx` |
-| `/setblock` | `commands/setblock.mdx` |
-| `/playsound` | `commands/playsound.mdx` |
-| `/tp` | `commands/tp.mdx` |
+| `/give` | `commands/give.md` |
+| `/execute` | `commands/execute.md` |
+| `/scoreboard` | `commands/scoreboard.md` |
+| `/setblock` | `commands/setblock.md` |
+| `/playsound` | `commands/playsound.md` |
+| `/tp` | `commands/tp.md` |
 
 错误示例：
 
 | 错误文件名 | 错误原因 |
 |------------|----------|
-| `commands/Give.mdx` | 大写字母 |
-| `commands/give_command.mdx` | 包含下划线 |
-| `commands/give 命令.mdx` | 包含中文和空格 |
-| `commands/-give.mdx` | 以连字符开头 |
-| `commands/give-items.mdx` | 添加了不必要的单词 |
-| `commands/give1.mdx` | 添加了数字 |
-| `give.mdx` | 不在 commands/ 子目录下 |
+| `commands/Give.md` | 大写字母 |
+| `commands/give_command.md` | 包含下划线 |
+| `commands/give 命令.md` | 包含中文和空格 |
+| `commands/-give.md` | 以连字符开头 |
+| `commands/give-items.md` | 添加了不必要的单词 |
+| `commands/give1.md` | 添加了数字 |
+| `give.md` | 不在 commands/ 子目录下 |
 
 #### 2.2 文档 ID 生成规则
 
-站点引擎将 `commands/give.mdx` 的文档 ID 生成为 `commands/give`。这个 ID 用于：
+站点引擎将 `commands/give.md` 的文档 ID 生成为 `commands/give`。这个 ID 用于：
 
 - 路由：`/docs/commands/give`
 - 链接：`[文本](../../commands/give/)`
@@ -98,45 +98,45 @@ tags: ["标准"]
 
 #### 3.1 命名规则
 
-文件名 = 纯数字编号 + `.mdx`
+文件名 = 纯数字编号 + `.md`
 
 规则分解：
 - 编号从 1 开始递增
-- 不补零（`1.mdx`，不是 `01.mdx`）
-- 不加任何前缀（`1.mdx`，不是 `community-1.mdx`）
-- 不加任何英文描述（`1.mdx`，不是 `1-snowball-menu.mdx`）
-- 不跳号（`1.mdx`、`2.mdx`、`3.mdx`，不能跳过 4）
+- 不补零（`1.md`，不是 `01.md`）
+- 不加任何前缀（`1.md`，不是 `community-1.md`）
+- 不加任何英文描述（`1.md`，不是 `1-snowball-menu.md`）
+- 不跳号（`1.md`、`2.md`、`3.md`，不能跳过 4）
 
 正确示例：
 
 ```
-1.mdx
-2.mdx
-3.mdx
-4.mdx
-5.mdx
+1.md
+2.md
+3.md
+4.md
+5.md
 ```
 
 错误示例：
 
 | 错误文件名 | 错误原因 |
 |------------|----------|
-| `community-1.mdx` | 旧格式，含前缀 |
-| `community-get-diamonds.mdx` | 旧格式，含英文描述 |
-| `01.mdx` | 补零 |
-| `example-1.mdx` | 使用了单词前缀 |
-| `snowball-menu.mdx` | 使用了英文描述 |
+| `community-1.md` | 旧格式，含前缀 |
+| `community-get-diamonds.md` | 旧格式，含英文描述 |
+| `01.md` | 补零 |
+| `example-1.md` | 使用了单词前缀 |
+| `snowball-menu.md` | 使用了英文描述 |
 
 #### 3.2 编号分配规则
 
-1. 查看根目录下已有的最大编号（如已有 `3.mdx`，下一个编号为 4）
+1. 查看根目录下已有的最大编号（如已有 `3.md`，下一个编号为 4）
 2. 使用下一个连续编号
 3. 不重用已删除文档的编号
 4. 不跳号
 
 #### 3.3 文档 ID 生成
 
-`1.mdx` 的文档 ID 为 `1`。路由为 `/docs/1`。
+`1.md` 的文档 ID 为 `1`。路由为 `/docs/1`。
 
 ---
 
@@ -146,7 +146,7 @@ tags: ["标准"]
 
 #### 4.1 命名规则
 
-文件名 = 语义化英文小写（单词间用连字符 `-` 分隔）+ `.mdx`
+文件名 = 语义化英文小写（单词间用连字符 `-` 分隔）+ `.md`
 
 规则分解：
 - 全部小写
@@ -157,25 +157,25 @@ tags: ["标准"]
 正确示例：
 
 ```
-about.mdx
-getting-started.mdx
-command-syntax.mdx
-writing-guide.mdx
-tag-standard.mdx
-standards.mdx
-frontmatter-standard.mdx
-naming-standard.mdx
+about.md
+getting-started.md
+command-syntax.md
+writing-guide.md
+tag-standard.md
+standards.md
+frontmatter-standard.md
+naming-standard.md
 ```
 
 错误示例：
 
 | 错误文件名 | 错误原因 |
 |------------|----------|
-| `About.mdx` | 大写字母 |
-| `getting_started.mdx` | 下划线 |
-| `getting started.mdx` | 空格 |
-| `commandSyntax.mdx` | 驼峰命名 |
-| `1-intro.mdx` | 以数字开头（与社区文档混淆） |
+| `About.md` | 大写字母 |
+| `getting_started.md` | 下划线 |
+| `getting started.md` | 空格 |
+| `commandSyntax.md` | 驼峰命名 |
+| `1-intro.md` | 以数字开头（与社区文档混淆） |
 
 ---
 
@@ -183,12 +183,12 @@ naming-standard.mdx
 
 ```
 MCBECD/docs/
-├── *.mdx                    # 基础文档（根目录）
+├── *.md                    # 基础文档（根目录）
 ├── commands/                 # 命令文档（子目录）
-│   └── *.mdx
-├── [0-9]+.mdx               # 社区文档（根目录，纯数字命名）
+│   └── *.md
+├── [0-9]+.md               # 社区文档（根目录，纯数字命名）
 ├── standards/                # 标准规范文档（子目录）
-│   └── *.mdx
+│   └── *.md
 ├── README.md
 ├── CONTRIBUTING.md
 └── LICENSE
@@ -209,11 +209,11 @@ MCBECD/docs/
 
 | 旧文件名 | 新文件名 | 迁移说明 |
 |----------|----------|----------|
-| `community-1.mdx` | `1.mdx` | 去掉前缀 |
-| `community-2.mdx` | `2.mdx` | 去掉前缀 |
-| `community-get-diamonds.mdx` | `4.mdx` | 去掉英文描述，用下一个编号 |
-| `examples/xxx.mdx` | `N.mdx`（根目录） | 去掉子目录，用编号命名 |
-| `{name}/index.mdx` | `{name}.mdx` | 扁平化 |
+| `community-1.md` | `1.md` | 去掉前缀 |
+| `community-2.md` | `2.md` | 去掉前缀 |
+| `community-get-diamonds.md` | `4.md` | 去掉英文描述，用下一个编号 |
+| `examples/xxx.md` | `N.md`（根目录） | 去掉子目录，用编号命名 |
+| `{name}/index.md` | `{name}.md` | 扁平化 |
 
 ---
 
@@ -224,16 +224,16 @@ MCBECD/docs/
 1. 跳过所有以 `.` 开头的文件（如 `.gitignore`）
 2. 跳过 `README.md`、`CONTRIBUTING.md`、`LICENSE`
 3. 对于目录，递归扫描
-4. 对于 `.mdx` 文件，解析 frontmatter 生成 `DocMeta`
-5. 文档 ID = 文件相对于 `content/docs/` 的路径（去掉 `.mdx`）
+4. 对于 `.md` 文件，解析 frontmatter 生成 `DocMeta`
+5. 文档 ID = 文件相对于 `content/docs/` 的路径（去掉 `.md`）
 
 示例路径映射：
 
 | 文件路径 | 文档 ID | 路由 |
 |----------|---------|------|
-| `content/docs/give.mdx` | `give` | `/docs/give` |
-| `content/docs/commands/give.mdx` | `commands/give` | `/docs/commands/give` |
-| `content/docs/1.mdx` | `1` | `/docs/1` |
-| `content/docs/standards/tag-standard.mdx` | `standards/tag-standard` | `/docs/standards/tag-standard` |
+| `content/docs/give.md` | `give` | `/docs/give` |
+| `content/docs/commands/give.md` | `commands/give` | `/docs/commands/give` |
+| `content/docs/1.md` | `1` | `/docs/1` |
+| `content/docs/standards/tag-standard.md` | `standards/tag-standard` | `/docs/standards/tag-standard` |
 
 理解这个映射关系对于正确编写交叉引用链接至关重要。

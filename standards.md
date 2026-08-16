@@ -4,7 +4,7 @@ updatedAt: "2026-08-12"
 title: "MCBECD 文档标准总纲"
 category: basics
 pinned: true
-description: "文档标准总纲——Frontmatter 规范、标签体系、命名规则、文档结构、写作深度、交叉引用、MDX 组件使用等全部规范的唯一权威来源"
+description: "文档标准总纲——Frontmatter 规范、标签体系、命名规则、文档结构、写作深度、交叉引用、MD 组件使用等全部规范的唯一权威来源"
 tags: ["标准"]
 ---
 
@@ -20,7 +20,7 @@ tags: ["标准"]
 4. 文档结构规范
 5. 写作深度要求
 6. 交叉引用规范
-7. MDX 组件使用规范
+7. MD 组件使用规范
 8. 社区文档规范
 9. 校验与审核流程
 
@@ -28,7 +28,7 @@ tags: ["标准"]
 
 ## 一、Frontmatter 规范
 
-每个 `.mdx` 文件的顶部必须包含 YAML frontmatter，用 `---` 包裹。frontmatter 是文档的元数据，决定了文档在站点上的显示方式、排序、分类和检索行为。
+每个 `.md` 文件的顶部必须包含 YAML frontmatter，用 `---` 包裹。frontmatter 是文档的元数据，决定了文档在站点上的显示方式、排序、分类和检索行为。
 
 ### 1.1 字段总览
 
@@ -108,13 +108,6 @@ title: "雪球填平"
 | `basics` | 基础文档 | 项目介绍、快速开始、语法基础、写作指南等 |
 | `commands` | 命令文档 | 所有 Minecraft 基岩版命令的详细文档 |
 | `community` | 社区文档 | 社区贡献的教程、工具、玩法等 |
-
-**规则：**
-
-- `category` 字段**不允许使用其他值**
-- 不允许使用子分类（如 `commands/Player`、`basics/3` 等旧格式全部废弃）
-- 命令文档一律使用 `commands`，不再按命令类型细分
-- 社区文档一律使用 `community`，不再使用 `examples`
 
 ### 1.4 description 字段
 
@@ -398,7 +391,7 @@ tags: ["标签A", "标签B", "标签C"]
 命令文档存放在 `commands/` 子目录下，文件名为命令名（不含 `/`）。
 
 规则：
-- 文件名 = 命令名（小写）+ `.mdx`
+- 文件名 = 命令名（小写）+ `.md`
 - 不含 `/` 前缀
 - 不含空格
 - 全部小写
@@ -406,18 +399,9 @@ tags: ["标签A", "标签B", "标签C"]
 正确示例：
 
 ```
-commands/give.mdx
-commands/execute.mdx
-commands/scoreboard.mdx
-```
-
-错误示例：
-
-```
-commands/Give.mdx        # 大写
-commands/give命令.mdx     # 含中文
-commands/give command.mdx # 含空格
-commands/-give.mdx       # 含斜杠
+commands/give.md
+commands/execute.md
+commands/scoreboard.md
 ```
 
 ### 3.2 社区文档
@@ -425,7 +409,7 @@ commands/-give.mdx       # 含斜杠
 社区文档存放在仓库根目录，文件名为**纯数字**。
 
 规则：
-- 文件名 = 数字编号 + `.mdx`
+- 文件名 = 数字编号 + `.md`
 - 编号从 1 开始递增
 - 新增社区文档使用下一个可用编号
 - 不含任何单词或字母前缀
@@ -433,18 +417,9 @@ commands/-give.mdx       # 含斜杠
 正确示例：
 
 ```
-1.mdx
-2.mdx
-3.mdx
-```
-
-错误示例：
-
-```
-community-1.mdx           # 旧格式，已废弃
-community-get-diamonds.mdx # 旧格式，已废弃
-snowball-menu.mdx          # 不要用英文命名
-01.mdx                     # 不要补零
+1.md
+2.md
+3.md
 ```
 
 ### 3.3 基础文档
@@ -459,67 +434,69 @@ snowball-menu.mdx          # 不要用英文命名
 现有基础文档：
 
 ```
-about.mdx
-getting-started.mdx
-command-syntax.mdx
-writing-guide.mdx
-standards.mdx
+about.md
+getting-started.md
+command-syntax.md
+writing-guide.md
+standards.md
 ```
 
 ### 3.4 目录结构总览
 
 ```
 MCBECD/docs/
-├── about.mdx                  # 基础：项目介绍
-├── getting-started.mdx         # 基础：快速开始
-├── command-syntax.mdx         # 基础：命令语法
-├── writing-guide.mdx          # 基础：写作指南
-├── standards.mdx              # 基础：标准总纲（本文件）
-│
-├── commands/                   # 命令文档目录
-│   ├── clone.mdx
-│   ├── difficulty.mdx
-│   ├── effect.mdx
-│   ├── enchant.mdx
-│   ├── execute.mdx
-│   ├── fill.mdx
-│   ├── gamemode.mdx
-│   ├── gamerule.mdx
-│   ├── give.mdx
-│   ├── kill.mdx
-│   ├── locate.mdx
-│   ├── particle.mdx
-│   ├── playsound.mdx
-│   ├── scoreboard.mdx
-│   ├── setblock.mdx
-│   ├── summon.mdx
-│   ├── tag.mdx
-│   ├── time.mdx
-│   ├── title.mdx
-│   ├── tp.mdx
-│   ├── weather.mdx
-│   └── xp.mdx
-│
-├── standards/                  # 标准规范文档目录
-│   ├── community-standard.mdx  # 社区文档标准
-│   ├── crossref-standard.mdx  # 交叉引用标准
-│   ├── frontmatter-standard.mdx # Frontmatter 标准规范
-│   ├── glossary-standard.mdx  # 术语表标准
-│   ├── mdx-components-standard.mdx # MDX 组件使用标准
-│   ├── naming-standard.mdx    # 文件命名标准
-│   ├── review-standard.mdx    # 审核标准
-│   ├── structure-standard.mdx # 文档结构标准
-│   ├── tag-standard.mdx       # 标签标准规范
-│   ├── version-compat-standard.mdx # 版本兼容性标准
-│   └── writing-quality-standard.mdx # 写作质量标准
-│
-├── 1.mdx                       # 社区：在线时间
-├── 2.mdx                       # 社区：雪球填平
-├── 3.mdx                       # 社区：雪球菜单
-│
-├── README.md
 ├── CONTRIBUTING.md
-└── LICENSE
+├── README.md
+├── commands/
+│   ├── ability.md
+│   ├── clear.md
+│   ├── clone.md
+│   ├── difficulty.md
+│   ├── effect.md
+│   ├── enchant.md
+│   ├── execute.md
+│   ├── fill.md
+│   ├── gamemode.md
+│   ├── gamerule.md
+│   ├── give.md
+│   ├── help.md
+│   ├── kill.md
+│   ├── locate.md
+│   ├── particle.md
+│   ├── playsound.md
+│   ├── ride.md
+│   ├── scoreboard.md
+│   ├── setblock.md
+│   ├── summon.md
+│   ├── tag.md
+│   ├── time.md
+│   ├── title.md
+│   ├── tp.md
+│   ├── weather.md
+│   └── xp.md
+├── community/
+│   ├── 1.md
+│   ├── 2.md
+│   ├── 3.md
+│   ├── 4.md
+│   └── 5.md
+├── standards/
+│   ├── community-standard.md
+│   ├── crossref-standard.md
+│   ├── frontmatter-standard.md
+│   ├── glossary-standard.md
+│   ├── naming-standard.md
+│   ├── review-standard.md
+│   ├── structure-standard.md
+│   ├── tag-standard.md
+│   ├── version-compat-standard.md
+│   └── writing-quality-standard.md
+├── about.md
+├── command-syntax.md
+├── getting-started.md
+├── standards.md
+├── standards.md-components-standard.md
+└── writing-guide.md
 ```
 
 ---
@@ -739,7 +716,7 @@ frontmatter 之后的第一段必须是命令的一句话功能描述。不要�
 
 正确示例（从命令文档 `commands/give` 出发）：
 
-```mdx
+```md
 详见 [`/execute`](../execute/) 命令文档。
 
 配合 [`/summon`](../summon/) 在不同上下文中执行命令。
@@ -749,7 +726,7 @@ frontmatter 之后的第一段必须是命令的一句话功能描述。不要�
 
 错误示例：
 
-```mdx
+```md
 详见 /give 命令。          # 没有链接
 详见 /give(./give)。        # 路径错误
 详见 give。                  # 缺少 / 前缀和链接
@@ -768,9 +745,9 @@ frontmatter 之后的第一段必须是命令的一句话功能描述。不要�
 
 ---
 
-## 七、MDX 组件使用规范
+## 七、MD 组件使用规范
 
-MCBECD 站点支持自定义 MDX 组件，用于增强文档的表现力。
+MCBECD 站点支持自定义 MD 组件，用于增强文档的表现力。
 
 ### 7.1 命令方块图标组件
 
@@ -796,7 +773,7 @@ MCBECD 站点支持自定义 MDX 组件，用于增强文档的表现力。
 
 正确示例：
 
-```mdx
+```md
 <CmdChat>`/scoreboard objectives add 雪球菜单 dummy`
 
 <CmdRepeat>`/scoreboard players add @a 在线时间 1`
@@ -818,7 +795,7 @@ MCBECD 站点支持自定义 MDX 组件，用于增强文档的表现力。
 
 用于插入不同级别的提示信息。
 
-```mdx
+```md
 > [!NOTE]
 > 普通提示。
 
@@ -837,7 +814,7 @@ MCBECD 站点支持自定义 MDX 组件，用于增强文档的表现力。
 
 也可以自定义标题：
 
-```mdx
+```md
 > [!WARNING] 基岩版独有
 > 此命令在 Java 版中不可用。
 ```
@@ -855,7 +832,7 @@ MCBECD 站点支持自定义 MDX 组件，用于增强文档的表现力。
 
 用于 FAQ 或可折叠的补充内容。
 
-```mdx
+```md
 <details>
 <summary>点击展开</summary>
 
@@ -874,7 +851,7 @@ MCBECD 站点支持自定义 MDX 组件，用于增强文档的表现力。
 
 使用标准围栏语法，指定语言标记。
 
-````mdx
+````md
 ```mcfunction
 /give @p diamond 64
 ```
@@ -893,7 +870,7 @@ MCBECD 站点支持自定义 MDX 组件，用于增强文档的表现力。
 
 使用标准 GFM 表格。表头必须完整，每列对齐。
 
-```mdx
+```md
 | 参数 | 类型 | 说明 |
 |------|------|------|
 | `<玩家>` | 选择器 | 目标玩家 |
@@ -903,7 +880,7 @@ MCBECD 站点支持自定义 MDX 组件，用于增强文档的表现力。
 
 使用反引号包裹命令、参数名、物品 ID 等代码片段。
 
-```mdx
+```md
 使用 `@p` 选择最近玩家。
 
 物品 ID 为 `diamond_sword`。
@@ -913,7 +890,7 @@ MCBECD 站点支持自定义 MDX 组件，用于增强文档的表现力。
 
 使用 `<kbd>` 标签。
 
-```mdx
+```md
 按 <kbd>Ctrl</kbd> + <kbd>C</kbd> 复制。
 ```
 
@@ -960,7 +937,7 @@ tags: ["内容类型", "技术栈"]
 
 ### 8.4 社区文档的质量要求
 
-- 所有命令方块指令必须使用对应的 `<CmdXxx>` 组件
+- 所有命令方块指令必须使用对应的 `<Cmdxx>` 组件
 - 前置指令（聊天栏执行的）必须用 `<CmdChat>` 并明确说明
 - 每个步骤的命令方块类型（脉冲/重复/连锁/条件）必须写明
 - 常见问题必须用 `<details>` 折叠
@@ -987,7 +964,7 @@ tags: ["内容类型", "技术栈"]
 - [ ] 示例数量至少 3 个
 - [ ] 所有命令引用使用了反引号+链接
 - [ ] 代码块使用了正确的语言标记
-- [ ] 命令方块指令使用了 `<CmdXxx>` 组件
+- [ ] 命令方块指令使用了 `<Cmdxx>` 组件
 - [ ] 交叉引用使用了相对路径
 
 ### 9.2 维护者审核
@@ -998,35 +975,20 @@ tags: ["内容类型", "技术栈"]
 2. 检查 frontmatter 是否完整且格式正确
 3. 检查文档结构是否包含所有必须章节
 4. 检查交叉引用路径是否正确
-5. 检查 MDX 组件使用是否正确
+5. 检查 MD 组件使用是否正确
 6. 检查内容是否有事实性错误
 7. 检查中文写作质量（无错别字、语句通顺）
 
 ### 9.3 标准更新流程
 
-1. 如需新增标签，先在 `standards/tag-standard.mdx` 中更新标签索引和对照表，再在本文件中同步更新
+1. 如需新增标签，先在 `standards/tag-standard.md` 中更新标签索引和对照表，再在本文件中同步更新
 2. 如需新增文档类型或修改 frontmatter 规则，直接修改本文件
 3. 标准更新后，所有现有文档应在合理时间内完成迁移
 4. 重大标准变更需在 Issue 中讨论并获得维护者批准
 
 ---
 
-## 附录 A：旧格式迁移指南
-
-以下是已废弃的格式，所有文档必须迁移到新格式。
-
-| 旧格式 | 新格式 | 说明 |
-|--------|--------|------|
-| `category: commands/Player` | `category: commands` | 取消命令子分类 |
-| `category: commands/World` | `category: commands` | 取消命令子分类 |
-| `category: examples` | `category: community` | 重命名分类 |
-| `community-1.mdx` | `1.mdx` | 去掉前缀 |
-| `community-get-diamonds.mdx` | `4.mdx`（下一个可用编号） | 去掉单词名 |
-| `examples/xxx.mdx` | 不使用子目录 | 社区文档放根目录 |
-| `{name}/index.mdx + meta.json` | `{name}.mdx` | 扁平化 |
-| `order: 110` 字段 | 已移除 | 不再使用 order 排序 |
-
-## 附录 B：标签速查表
+## 附录：标签速查表
 
 按使用频率排列的最常用标签：
 

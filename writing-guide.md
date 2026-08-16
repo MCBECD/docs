@@ -4,16 +4,16 @@ updatedAt: "2026-08-12"
 title: "写作指南"
 category: basics
 pinned: true
-description: "图标系统、自定义 MDX 组件与文档写作规范"
+description: "图标系统、自定义 MD 组件与文档写作规范"
 ---
 
 ## 写作指南
 
-本文档介绍 MCBECD 站点的 Markdown/MDX 写作规范，包括图标系统、自定义组件、代码高亮和文档结构。
+本文档介绍 MCBECD 站点的 Markdown/MD 写作规范，包括图标系统、自定义组件、代码高亮和文档结构。
 
 ### Frontmatter 规范
 
-每个 `.mdx` 文件必须包含以下 frontmatter：
+每个 `.md` 文件必须包含以下 frontmatter：
 
 ```yaml
 ---
@@ -37,7 +37,7 @@ tags: ["标签1", "标签2"]
 
 ### 命令方块图标组件
 
-在 MDX 中可以使用 7 种命令方块图标组件，用于展示命令在命令方块中的执行方式：
+在 MD 中可以使用 7 种命令方块图标组件，用于展示命令在命令方块中的执行方式：
 
 | 组件 | 图标 | 用途 |
 |------|------|------|
@@ -51,7 +51,7 @@ tags: ["标签1", "标签2"]
 
 用法示例：
 
-```mdx
+```md
 <CmdConditionalChain>`/give @p diamond 64`
 
 <CmdRepeat>`/execute as @a at @s run setblock ~ ~-1 ~ gold_block`
@@ -65,7 +65,7 @@ tags: ["标签1", "标签2"]
 
 支持 GitHub 风格的提示框语法，在文档中插入不同级别的提示信息：
 
-```mdx
+```md
 > [!NOTE]
 > 这是一条普通提示信息。
 
@@ -84,7 +84,7 @@ tags: ["标签1", "标签2"]
 
 也可以自定义标题：
 
-```mdx
+```md
 > [!WARNING] 基岩版独有
 > 此命令在 Java 版中不可用。
 ```
@@ -101,7 +101,7 @@ tags: ["标签1", "标签2"]
 
 支持标准代码围栏语法，带有 Shiki 语法高亮和一键复制功能：
 
-````mdx
+````md
 ```mcfunction
 /give @s diamond_sword 1 0 {"enchantments":[{"id":"sharpness","level":5}]}
 ```
@@ -122,7 +122,7 @@ tags: ["标签1", "标签2"]
 
 使用单个反引号包裹内联代码：
 
-```mdx
+```md
 使用 `<玩家>` 选择器指定目标。
 ```
 
@@ -130,7 +130,7 @@ tags: ["标签1", "标签2"]
 
 在文档中引用其他命令时，使用反引号包裹命令文本作为链接文字：
 
-```mdx
+```md
 详见 [`/give`](../commands/give/) 命令文档。
 ```
 
@@ -140,7 +140,7 @@ tags: ["标签1", "标签2"]
 
 支持 `<details>` / `<summary>` 创建可折叠内容：
 
-```mdx
+```md
 <details>
 <summary>点击展开详细信息</summary>
 
@@ -153,7 +153,7 @@ tags: ["标签1", "标签2"]
 
 使用 `<kbd>` 标签显示键盘按键：
 
-```mdx
+```md
 按 <kbd>Ctrl</kbd> + <kbd>C</kbd> 复制代码。
 ```
 
@@ -161,7 +161,7 @@ tags: ["标签1", "标签2"]
 
 使用标准 GFM 表格语法：
 
-```mdx
+```md
 | 参数 | 类型 | 说明 |
 |------|------|------|
 | `<玩家>` | Target | 目标玩家选择器 |
@@ -172,7 +172,7 @@ tags: ["标签1", "标签2"]
 
 支持 GFM 任务列表：
 
-```mdx
+```md
 - [x] 已完成的任务
 - [ ] 待完成的任务
 ```
@@ -181,7 +181,7 @@ tags: ["标签1", "标签2"]
 
 新建命令文档时，推荐使用以下结构：
 
-```mdx
+```md
 ---
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-09"
@@ -251,19 +251,19 @@ node scripts/validate-docs.mjs
 
 ```
 MCBECD/docs/
-├── about.mdx
-├── getting-started.mdx
-├── command-syntax.mdx
+├── about.md
+├── getting-started.md
+├── command-syntax.md
 ├── commands/
-│   ├── execute.mdx
-│   ├── give.mdx
-│   ├── tp.mdx
-│   └── kill.mdx
-├── 1.mdx
-├── 2.mdx
-├── 3.mdx
+│   ├── execute.md
+│   ├── give.md
+│   ├── tp.md
+│   └── kill.md
+├── 1.md
+├── 2.md
+├── 3.md
 ├── standards/
-│   └── *.mdx
+│   └── *.md
 ├── CONTRIBUTING.md
 └── README.md
 ```

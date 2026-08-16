@@ -1,0 +1,53 @@
+docs/
+├── CONTRIBUTING.md
+├── README.md
+├── commands/
+│   ├── ability.md
+│   ├── clear.md
+│   ├── clone.md
+│   ├── difficulty.md
+│   ├── effect.md
+│   ├── enchant.md
+│   ├── execute.md
+│   ├── fill.md
+│   ├── gamemode.md
+│   ├── gamerule.md
+│   ├── give.md
+│   ├── help.md
+│   ├── kill.md
+│   ├── locate.md
+│   ├── particle.md
+│   ├── playsound.md
+│   ├── ride.md
+│   ├── scoreboard.md
+│   ├── setblock.md
+│   ├── summon.md
+│   ├── tag.md
+│   ├── time.md
+│   ├── title.md
+│   ├── tp.md
+│   ├── weather.md
+│   └── xp.md
+├── community/
+│   ├── 1.md
+│   ├── 2.md
+│   ├── 3.md
+│   ├── 4.md
+│   └── 5.md
+├── standards/
+│   ├── community-standard.md
+│   ├── crossref-standard.md
+│   ├── frontmatter-standard.md
+│   ├── glossary-standard.md
+│   ├── naming-standard.md
+│   ├── review-standard.md
+│   ├── structure-standard.md
+│   ├── tag-standard.md
+│   ├── version-compat-standard.md
+│   └── writing-quality-standard.md
+├── about.md
+├── command-syntax.md
+├── getting-started.md
+├── standards.md
+├── standards.md-components-standard.md
+└── writing-guide.md

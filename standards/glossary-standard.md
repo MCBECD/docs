@@ -64,8 +64,8 @@ tags: ["标准"]
 
 | 标准术语 | 英文对照 | 定义 | 禁止使用 |
 |----------|----------|------|----------|
-| frontmatter | frontmatter | MDX 文件顶部的 YAML 元数据块 | 头部信息、元数据区 |
-| MDX | MDX | 支持 JSX 组件的 Markdown 扩展格式 | Markdown |
+| frontmatter | frontmatter | MD 文件顶部的 YAML 元数据块 | 头部信息、元数据区 |
+| MD | MD | 支持 JSX 组件的 Markdown 扩展格式 | Markdown |
 | 子模块 | Git Submodule | Git 中嵌套引用另一个仓库的机制 | 子仓库 |
 | Pull Request | Pull Request | 代码合并请求 | PR（正式文档中不使用缩写） |
 | 提交 | Commit | Git 中的代码变更记录 | commit |

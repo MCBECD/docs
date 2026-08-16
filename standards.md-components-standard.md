@@ -1,17 +1,17 @@
 ---
 author: "官方•Dingding OvO"
 updatedAt: "2026-08-12"
-title: "MDX 组件使用标准"
+title: "MD 组件使用标准"
 category: basics
 hidden: true
 pinned: true
-description: "全部自定义 MDX 组件的详细用法——7种命令方块图标、提示框、折叠内容、代码块、表格、内联代码、键盘按键"
+description: "全部自定义 MD 组件的详细用法——7种命令方块图标、提示框、折叠内容、代码块、表格、内联代码、键盘按键"
 tags: ["标准"]
 ---
 
-## MDX 组件使用标准
+## MD 组件使用标准
 
-MCBECD 站点支持多种自定义 MDX 组件，用于增强文档的表现力。这些组件由 `MDXRenderer.tsx` 注册，在所有 `.mdx` 文档中可直接使用。本文档逐一说明每种组件的用途、语法、使用规则和常见错误。
+MCBECD 站点支持多种自定义 MD 组件，用于增强文档的表现力。这些组件由 `MDRenderer.tsx` 注册，在所有 `.md` 文档中可直接使用。本文档逐一说明每种组件的用途、语法、使用规则和常见错误。
 
 ---
 
@@ -33,13 +33,12 @@ MCBECD 站点支持多种自定义 MDX 组件，用于增强文档的表现力�
 | `<CmdConditionalImpulse>` | 条件脉冲 | 仅在上一个命令方块成功时执行一次 |
 | `<CmdConditionalRepeat>` | 条件重复 | 仅在上一个成功时每个刻执行 |
 | `<CmdConditionalChain>` | 条件连锁 | 仅在上一个成功时触发 |
-| `<CmdChat>` | 聊天栏 | 命令在聊天栏中手动输入执行 |
 
 **说明**：`<CmdImpulse>` 组件一般用于红石触发。仅需执行一次的命令使用<code>```</code>包裹。
 
 #### 1.3 使用语法
 
-```mdx
+```md
 <CmdChat>`/scoreboard objectives add 雪球菜单 dummy`
 <CmdRepeat>`/scoreboard players add @a 在线时间 1`
 <CmdChain>`/execute at @e[type=snowball] run kill @e[type=snowball,c=1,r=2]`
@@ -62,7 +61,7 @@ MCBECD 站点通过 `remark-github-alerts` 插件支持 GitHub 风格的提示�
 
 #### 2.2 基本语法
 
-```mdx
+```md
 > [!NOTE]
 > 这是一条普通提示信息。
 
@@ -81,7 +80,7 @@ MCBECD 站点通过 `remark-github-alerts` 插件支持 GitHub 风格的提示�
 
 #### 2.3 自定义标题
 
-```mdx
+```md
 > [!WARNING] 基岩版独有
 > 此命令在 Java 版中不可用。
 
@@ -113,7 +112,7 @@ MCBECD 站点通过 `remark-github-alerts` 插件支持 GitHub 风格的提示�
 
 #### 3.1 语法
 
-```mdx
+```md
 <details>
 <summary>点击展开详细信息</summary>
 
@@ -126,7 +125,7 @@ MCBECD 站点通过 `remark-github-alerts` 插件支持 GitHub 风格的提示�
 
 - 适合 FAQ、补充说明、长篇幅内容
 - `<summary>` 内容应简洁（5-15 个字）
-- 折叠内容内可以包含任何 Markdown/MDX 内容（代码块、表格、列表等）
+- 折叠内容内可以包含任何 Markdown/MD 内容（代码块、表格、列表等）
 - 核心文档内容**不应**放在折叠中（折叠内容是可选阅读的）
 - 不要嵌套折叠
 
@@ -144,7 +143,7 @@ MCBECD 站点通过 `remark-github-alerts` 插件支持 GitHub 风格的提示�
 
 使用三个反引号围栏，指定语言标记：
 
-````mdx
+````md
 ```mcfunction
 /give @p diamond 64
 ```
@@ -162,7 +161,7 @@ MCBECD 站点通过 `remark-github-alerts` 插件支持 GitHub 风格的提示�
 
 #### 4.3 mcfunction 高亮规则
 
-站点内置了自定义的 `mcfunction` 语法高亮规则（`lib/mdx/mcfunction.json`）。自动识别以下元素：
+站点内置了自定义的 `mcfunction` 语法高亮规则（`lib/md/mcfunction.json`）。自动识别以下元素：
 
 | 元素 | 高亮方式 | 示例 |
 |------|----------|------|
@@ -188,7 +187,7 @@ MCBECD 站点通过 `remark-github-alerts` 插件支持 GitHub 风格的提示�
 
 #### 5.1 基本语法
 
-```mdx
+```md
 | 列标题1 | 列标题2 | 列标题3 |
 |---------|---------|---------|
 | 数据1 | 数据2 | 数据3 |
@@ -205,7 +204,7 @@ MCBECD 站点通过 `remark-github-alerts` 插件支持 GitHub 风格的提示�
 
 #### 5.3 渲染效果
 
-站点引擎（`MDXRenderer.tsx`）会自动为表格添加以下样式：
+站点引擎（`MDRenderer.tsx`）会自动为表格添加以下样式：
 - 外层包裹 `overflow-x-auto` 容器（支持横向滚动）
 - 表格添加边框 `border border-[var(--color-border)]`
 - 表头添加背景色 `bg-[var(--color-bg-tertiary)]`
@@ -217,7 +216,7 @@ MCBECD 站点通过 `remark-github-alerts` 插件支持 GitHub 风格的提示�
 
 使用反引号包裹代码片段：
 
-```mdx
+```md
 使用 `@p` 选择最近玩家。
 物品 ID 为 `diamond_sword`。
 ```
@@ -236,7 +235,7 @@ MCBECD 站点通过 `remark-github-alerts` 插件支持 GitHub 风格的提示�
 
 使用 `<kbd>` 标签显示键盘按键：
 
-```mdx
+```md
 按 <kbd>Ctrl</kbd> + <kbd>C</kbd> 复制代码。
 按 <kbd>T</kbd> 打开聊天栏。
 ```
@@ -247,7 +246,7 @@ MCBECD 站点通过 `remark-github-alerts` 插件支持 GitHub 风格的提示�
 
 以下 Markdown 特性在 MCBECD 文档中**禁止使用**：
 
-- HTML 标签（`<div>`、`<span>`、`<img>` 等），除了 MDX 自定义组件和 `<kbd>`、`<details>`、`<summary>` 之外
+- HTML 标签（`<div>`、`<span>`、`<img>` 等），除了 MD 自定义组件和 `<kbd>`、`<details>`、`<summary>` 之外
 - 脚注（`[^1]`）
 - 自动链接（直接写 URL 不加括号）
 - 图片（`![]()`）—— MCBECD 文档暂不支持图片
