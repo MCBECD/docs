@@ -33,12 +33,7 @@ MCBECD 是一个完全由社区贡献的项目，我们欢迎所有人参与。�
 
 ## 作者
 
-MCBECD 由以下作者共同维护：
-
 - **丁丁QZ** — [GitHub](https://github.com/DingdingOvO) · [哔哩哔哩](https://b23.tv/v9QuaTO) · [快手](https://v.kuaishou.com/JTZL7bix)
-- **官方•Dingding OvO** — [GitHub](https://github.com/DingdingOvO)
-
-网站前端（含导航栏、设置面板等）的源代码完全开源，可在 [GitHub 仓库](https://github.com/MCBECD/site) 中查看。
 
 ## 开源许可
 
