@@ -1,12 +1,20 @@
 ---
 author: "官方•Dingding OvO"
-updatedAt: "2026-08-12"
+updatedAt: "2026-10-17"
 title: "命令语法基础"
 description: "基岩版命令的参数格式、目标选择器与坐标系统"
 tags: ["入门"]
 ---
 
 基岩版命令由命令名和参数组成。如果你是第一次接触命令，建议先阅读 [快速开始](../getting-started/)。
+
+### 原理
+
+一条命令被游戏解析时，先拆成**命令名**和**参数**两部分，再按该命令自己的语法逐段校验。参数不是自由文本，每一段都有固定类型：选择器、整数、字符串、坐标或枚举。任一段类型不符，整条命令直接失败，不会部分生效。
+
+**选择器**是在执行瞬间求值的对象集合。`@a` 不是「所有玩家」这个静态概念，而是「此刻在线且满足过滤条件的玩家」——同一行 `@a` 在不同时刻、不同维度可能匹配到完全不同的对象；玩家离线时 `@a` 就匹配不到他。
+
+**坐标**同样在执行时解析。`~ ~1 ~` 的基准是**执行位置**，而不是玩家当前站立的位置。用 [`/execute`](../commands/execute/) 改变执行位置后，同一个 `~ ~1 ~` 会指向别处——这正是命令能被复用的原因。
 
 ### 语法约定
 
@@ -16,7 +24,7 @@ tags: ["入门"]
 | `[参数]` | 可选 |
 | `a\|b` | 二选一 |
 
-以 [`/give`](../../commands/give/) 为例：`/give <玩家> <物品> [数量]`——玩家和物品必填，数量可选。
+以 [`/give`](../commands/give/) 为例：`/give <玩家> <物品> [数量]`——玩家和物品必填，数量可选。
 
 ### 目标选择器
 
@@ -32,15 +40,15 @@ tags: ["入门"]
 
 <CmdChat>`/tp @a 0 64 0`
 
-传送所有玩家到坐标 `0 64 0`。详见 [`/tp`](../../commands/tp/) 命令文档。
+传送所有玩家到坐标 `0 64 0`。详见 [`/tp`](../commands/tp/) 命令文档。
 
 <CmdChat>`/effect give @a[r=10] speed 30 1`
 
-给 10 格内所有玩家施加速度效果。详见 [`/effect`](../../commands/effect/) 命令文档。
+给 10 格内所有玩家施加速度效果。详见 [`/effect`](../commands/effect/) 命令文档。
 
 <CmdChat>`/kill @e[type=zombie]`
 
-清除所有僵尸。详见 [`/kill`](../../commands/kill/) 命令文档。
+清除所有僵尸。详见 [`/kill`](../commands/kill/) 命令文档。
 
 ### 坐标系统
 
@@ -50,25 +58,25 @@ tags: ["入门"]
 
 <CmdChat>`/setblock ~ ~-1 ~ diamond_block`
 
-在脚下放置钻石块。详见 [`/setblock`](../../commands/setblock/) 命令文档。
+在脚下放置钻石块。详见 [`/setblock`](../commands/setblock/) 命令文档。
 
 <CmdChat>`/fill ~-5 ~-1 ~-5 ~5 ~-1 ~5 stone`
 
-铺设 11×11 石头地板。详见 [`/fill`](../../commands/fill/) 命令文档。
+铺设 11×11 石头地板。详见 [`/fill`](../commands/fill/) 命令文档。
 
 ### 命令组合
 
-用 [`/execute`](../../commands/execute/) 在不同上下文中执行命令：
+用 [`/execute`](../commands/execute/) 在不同上下文中执行命令：
 
 <CmdChat>`/execute as @a at @s run setblock ~ ~-1 ~ gold_block`
 
-在每个玩家脚下放置金块。详见 [`/execute`](../../commands/execute/) 命令文档。
+在每个玩家脚下放置金块。详见 [`/execute`](../commands/execute/) 命令文档。
 
-配合 [`/gamerule`](../../commands/gamerule/) 控制世界规则：
+配合 [`/gamerule`](../commands/gamerule/) 控制世界规则：
 
 <CmdChat>`/gamerule keepInventory true`
 
-死亡后保留物品栏。详见 [`/gamerule`](../../commands/gamerule/) 命令文档。
+死亡后保留物品栏。详见 [`/gamerule`](../commands/gamerule/) 命令文档。
 
 >[!NOTE]
 > - 基岩版不支持 `/data`、`/loot`、`/item` 等部分 Java 版命令
@@ -78,4 +86,4 @@ tags: ["入门"]
 > - 命令方块中输入命令**不需要**前导斜杠 `/`
 > - 聊天栏中输入命令**需要**前导斜杠 `/`
 
-全部命令列表可用 [`/help`](../../commands/help/) 查看。
+全部命令列表可用 [`/help`](../commands/help/) 查看。

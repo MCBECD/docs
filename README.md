@@ -6,39 +6,48 @@ Minecraft 基岩版命令文档 —— 社区驱动的 Bedrock Edition 命令参
 
 ## 这是什么？
 
-MCBECD Docs 是 [MCBECD 站点](https://github.com/MCBECD/site) 的**文档内容仓库**，以 Git 子模块形式被站点消费。专注于 Minecraft **基岩版（Bedrock Edition）** 命令系统 —— 参数格式、返回值、可用命令均与 Java 版有差异，本文档以基岩版为准。
+MCBECD Docs 是 [MCBECD 站点](https://github.com/MCBECD/site) 的**文档内容仓库**，以 Git 子模块（挂载到站点的 `content/docs`）形式被消费。站点在构建时扫描本仓库，**不依赖任何数据库** —— 本仓库就是唯一内容源。
 
-## 文档结构
+专注于 Minecraft **基岩版（Bedrock Edition）** 命令系统：参数格式、返回值、可用命令均与 Java 版有差异，本文档以基岩版为准。
 
-所有文档为扁平 `.md` 文件，放在仓库根目录或子目录中：
+## 目录结构
+
+站点按**一级目录名**识别文档分类，分类名直接决定 URL 前缀：
 
 ```
 MCBECD/docs/
-├── about.md                # 项目介绍
-├── getting-started.md       # 快速开始
-├── command-syntax.md        # 命令语法基础
-├── writing-guide.md         # 文档写作指南
-├── standards.md             # 标准规范总纲
+├── basics/        # 基础文档   → /<文件名>/
+│   ├── about.md            # 关于 MCBECD
+│   ├── command-syntax.md   # 命令语法基础
+│   └── getting-started.md  # 快速开始
 │
-├── commands/
-│   ├── give.md              # /give 命令
-│   ├── effect.md            # /effect 命令
-│   ├── execute.md           # /execute 命令
-│   ...（22 个官方命令）
+├── commands/      # 命令文档   → /commands/<文件名>/
+│   ├── give.md
+│   ├── execute.md
+│   └── …（共 26 篇）
 │
-├── 1.md                     # 社区贡献：「在线时间」
-├── 2.md                     # 社区贡献
-├── 3.md                     # 社区贡献
+├── community/     # 社区文档   → /community/<文件名>/
+│   ├── 1.md   # 在线时间
+│   ├── 2.md   # 雪球填平
+│   ├── 3.md   # 雪球菜单
+│   ├── 4.md   # 获取全套钻石装备
+│   └── 5.md   # 玩家互传（TPA）
 │
-├── standards/
-│   ├── frontmatter-standard.md
-│   ├── structure-standard.md
-│   ├── tag-standard.md
-│   ...（12 个标准规范文档）
+├── standards/     # 文档规范（唯一规范，不在站点展示）
+│   └── README.md  # 目录分类、Frontmatter、统一章节顺序、标签、组件等
 │
-├── README.md                 # 本文件
-└── CONTRIBUTING.md           # 贡献指南
+├── README.md      # 本文件
+└── CONTRIBUTING.md
 ```
+
+> **新增分类目录时**，必须同步修改站点的 `lib/docs.ts`（`SCAN_CATEGORIES`）并新增对应路由 `app/<分类>/[slug]/page.tsx`，否则文档不会被站点收录。
+
+## 被谁使用？
+
+| 项目 | 关系 |
+|------|------|
+| [MCBECD/site](https://github.com/MCBECD/site) | Git 子模块 `content/docs`，构建时拉取 |
+| [mcbecd.pages.dev](https://mcbecd.pages.dev) | 线上站点 |
 
 ## 文档格式
 
@@ -58,12 +67,12 @@ tags: ["物品", "玩家", "聊天栏", "生存", "创造", "OP1", "多目标"]
 
 | 字段 | 必填 | 说明 |
 |------|------|------|
-| `title` | ✅ | 文档标题。命令文档格式：`/command  中文名称`（两个空格）；社区文档：纯中文名称 |
+| `title` | ✅ | 文档标题。命令文档格式：`/command  中文名称`（两个空格）；其余文档为纯中文名称 |
 | `author` | ✅ | 作者署名（MCBECD 社区名称或 GitHub 用户名） |
 | `updatedAt` | ✅ | 最后更新日期，格式 `YYYY-MM-DD` |
 | `description` | ✅ | 一句话描述，15-40 个汉字 |
 | `tags` | ⚠️ | 标签数组。命令文档和社区文档**必填**，基础文档可选。标签名使用简体中文 |
-| `hidden` | ❌ | 是否在列表中隐藏 |
+| `hidden` | ❌ | 是否在列表分区中隐藏（仍可通过站点的「隐藏文档」入口访问） |
 
 ## 命令文档要求
 
@@ -75,13 +84,11 @@ tags: ["物品", "玩家", "聊天栏", "生存", "创造", "OP1", "多目标"]
 4. **示例**（`### 示例`）—— 至少 **3 个**可直接使用的命令示例，从简单到复杂排列
 5. **基岩版注意**（`### 基岩版注意`）—— 与 Java 版的差异、版本兼容性、OP 等级要求
 
-正文长度不低于 800 字（不含代码块）。
-
 ## 标签要求
 
 标签从预定义的标签集中选取，不得自行创造新标签。
 
-- **命令文档**：3-7 个标签，必须对照[标签对照表](./standards/tag-standard.md)检查
+- **命令文档**：3-7 个标签，必须对照 [文档规范](./standards/README.md) 第五章的标签表检查
 - **社区文档**：3-6 个标签，包含 1 个内容类型标签 + 1-2 个技术栈标签
 - **基础文档**：0-2 个标签
 
@@ -90,19 +97,12 @@ tags: ["物品", "玩家", "聊天栏", "生存", "创造", "OP1", "多目标"]
 ## 添加新文档
 
 1. Fork 本仓库
-2. 创建 `.md` 文件（社区文档用下一个可用数字编号，命令文档用命令名）
+2. 在对应分类目录下创建 `.md` 文件（命令文档用命令名；社区文档用下一个可用数字编号）
 3. 填写正确的 frontmatter（确保所有必填字段已填写）
-4. **使用相对链接**引用其他文档：[`/give`](../commands/give/)
+4. **使用相对链接**引用其他文档：[`/give`](../../commands/give/)（从 `community/` 出发）
 5. 提交 PR 到 `main` 分支
 
 详见 [CONTRIBUTING.md](./CONTRIBUTING.md)。
-
-## 被谁使用？
-
-| 项目 | 关系 |
-|------|------|
-| [MCBECD/site](https://github.com/MCBECD/site) | Git 子模块，构建时拉取 |
-| [mcbecd.pages.dev](https://mcbecd.pages.dev) | 线上站点 |
 
 ## License
 

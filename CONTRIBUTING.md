@@ -29,8 +29,9 @@ git checkout -b add-weather-command
 
 | 类型 | 命名 | 示例 |
 |------|------|------|
+| 基础文档 | `basics/{名称}.md` | `basics/getting-started.md` |
 | 命令文档 | `commands/{命令名}.md` | `commands/weather.md` |
-| 社区文档 | `{编号}.md`（纯数字，根目录） | `3.md` |
+| 社区文档 | `community/{编号}.md`（纯数字） | `community/6.md` |
 
 ### Frontmatter 模板
 
@@ -94,7 +95,7 @@ tags: ["内容类型", "技术栈"]
 
 ### Markdown 规范
 
-- **内部链接必须用相对路径**：[`/effect`](../commands/effect/)（不带 `.md` 后缀，命令链接末尾带 `/`）
+- **内部链接必须用相对路径**：从当前文件所在目录出发，指向目标文档的目录（不带 `.md` 后缀，末尾带 `/`）。例如 `community/6.md` 引用 `/give` 时写作 [`/give`](../../commands/give/)
 - 代码块指定语言：` ```mcfunction `
 - 表格对齐、表头完整
 - 中英文之间加空格
@@ -121,8 +122,8 @@ tags: ["内容类型", "技术栈"]
 
 ## 需要帮助？
 
-- 参考已有文档：[give.md](./commands/give/) | [effect.md](./commands/effect/)
-- 查看语法文档：[command-syntax.md](./command-syntax/)
+- 参考已有文档：[commands/give.md](./commands/give.md) | [commands/effect.md](./commands/effect.md)
+- 查看语法文档：[basics/command-syntax.md](./basics/command-syntax.md)
 - 提交 Issue 讨论
 
 ---
