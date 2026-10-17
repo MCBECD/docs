@@ -23,19 +23,9 @@ cd docs
 git checkout -b add-weather-command
 ```
 
-## 文档写作规范
+## Frontmatter 模板
 
-### 文件命名
-
-| 类型 | 命名 | 示例 |
-|------|------|------|
-| 基础文档 | `basics/{名称}.md` | `basics/getting-started.md` |
-| 命令文档 | `commands/{命令名}.md` | `commands/weather.md` |
-| 社区文档 | `community/{编号}.md`（纯数字） | `community/6.md` |
-
-### Frontmatter 模板
-
-**命令文档：**
+命令文档：
 ```yaml
 ---
 title: "/weather  设置天气"
@@ -46,7 +36,7 @@ tags: ["领域标签", "场景标签", "属性标签"]
 ---
 ```
 
-**社区文档：**
+社区文档：
 ```yaml
 ---
 title: "你的教程标题"
@@ -57,48 +47,7 @@ tags: ["内容类型", "技术栈"]
 ---
 ```
 
-### 必须包含的章节（命令文档）
-
-```markdown
-### 语法
-\`\`\`mcfunction
-/command <required> [optional: type]
-\`\`\`
-
-### 参数
-- `<required>` — 必填说明
-- `[optional]` — 可选说明
-
-### 示例
-\`\`\`mcfunction
-/command value1 50
-\`\`\`
-
-效果说明。
-
-\`\`\`mcfunction
-/command value1 100
-\`\`\`
-
-效果说明。
-
-\`\`\`mcfunction
-/command value1 50 optional
-\`\`\`
-
-效果说明。
-
-### 基岩版注意
-- 需要 OP 等级 X
-- 与 Java 版的差异
-```
-
-### Markdown 规范
-
-- **内部链接必须用相对路径**：从当前文件所在目录出发，指向目标文档的目录（不带 `.md` 后缀，末尾带 `/`）。例如 `community/6.md` 引用 `/give` 时写作 [`/give`](../../commands/give/)
-- 代码块指定语言：` ```mcfunction `
-- 表格对齐、表头完整
-- 中英文之间加空格
+文件命名、章节结构、标签、链接写法统一见 [文档规范](./standards/README.md)，那一份是唯一标准。
 
 ## 提交流程
 
