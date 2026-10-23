@@ -79,8 +79,8 @@ tags: ["入门"]
 死亡后保留物品栏。详见 [`/gamerule`](../commands/gamerule/) 命令文档。
 
 >[!NOTE]
-> - 基岩版不支持 `/data`、`/loot`、`/item` 等部分 Java 版命令
-> - 基岩版从 1.19.50 开始支持旁观模式
+> - 基岩版没有 `/data`、`/item`，但有 `/loot`、`/replaceitem`、`/structure` 等 Java 版没有或形态不同的命令
+> - 旁观模式自 1.18.30 起可用 `/gamemode 6` 进入，1.18.31 起支持 `/gamemode spectator`
 > - 返回值使用整数（如 0、1、2），与 Java 版不同
 > - 支持 `@initiator` 选择器（仅 NPC 交互时有效）
 > - 命令方块中输入命令**不需要**前导斜杠 `/`
