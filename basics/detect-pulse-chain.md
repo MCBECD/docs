@@ -27,7 +27,7 @@ tags: ["命令方块", "条件判断"]
 ① 重复方块（检测）  →  ② 红石比较器（读成功次数）  →  ③ 脉冲方块 + 连锁链（动作）
 ```
 
-- ① 的命令要让"命中"表现为成功，常用 `execute if entity ...` 或 `testfor`。
+- ① 的命令要让"命中"表现为成功，常用 `execute if entity ...`。旧写法 `testfor` 已被取代，不要再用于新地图。
 - ② 比较器背对 ①，可以隔一个实体方块。
 - ③ 是普通脉冲链，第一块设脉冲，后面接连锁。
 
@@ -48,7 +48,7 @@ tags: ["命令方块", "条件判断"]
 
 **丢雪球只提示一次**：
 
-<CmdRepeat>`/testfor @e[type=snowball]`
+<CmdRepeat>`/execute if entity @e[type=snowball]`
 
 <CmdImpulse>`/say 你丢出了雪球！`
 

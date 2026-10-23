@@ -60,9 +60,9 @@ tags: ["命令方块"]
 
 **放钻石块换绿宝石**：三个方块串成一条链，检测位置上有钻石块，就给最近的玩家一颗绿宝石，并打上标签防止重复发放。
 
-<CmdRepeat>`/testforblock 0 4 0 diamond_block`
+<CmdRepeat>`/execute if block 0 4 0 diamond_block`
 
-<CmdChain>`/testfor @p[tag=!placed_block]`
+<CmdChain>`/execute if entity @p[tag=!placed_block]`
 
 <CmdChain>`/give @p emerald`
 
