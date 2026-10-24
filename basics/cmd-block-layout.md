@@ -36,17 +36,27 @@ R>  C>  C>
 {
  "v": 1,
  "blocks": [
-  { "x": 0, "y": 0, "z": 0, "kind": "impulse", "facing": 5 },
-  { "x": 4, "y": 0, "z": 0, "kind": "impulse-cond", "facing": 5 },
-  { "x": 7, "y": 0, "z": 0, "kind": "chain", "facing": 5 },
-  { "x": 0, "y": 0, "z": 3, "kind": "chain-cond", "facing": 5 },
-  { "x": 4, "y": 0, "z": 3, "kind": "repeat", "facing": 5 },
-  { "x": 7, "y": 0, "z": 3, "kind": "repeat-cond", "facing": 5 }
+  { "x": 0, "y": 0, "z": 0, "kind": "impulse", "facing": 5,
+    "faces": { "top": 180, "bottom": 0, "left": 90, "right": 270 } },
+  { "x": 4, "y": 0, "z": 0, "kind": "impulse-cond", "facing": 5,
+    "faces": { "top": 180, "bottom": 0, "left": 90, "right": 270 } },
+  { "x": 7, "y": 0, "z": 0, "kind": "chain", "facing": 5,
+    "faces": { "top": 180, "bottom": 0, "left": 90, "right": 270 } },
+  { "x": 0, "y": 0, "z": 3, "kind": "chain-cond", "facing": 5,
+    "faces": { "top": 180, "bottom": 0, "left": 90, "right": 270 } },
+  { "x": 4, "y": 0, "z": 3, "kind": "repeat", "facing": 5,
+    "faces": { "top": 180, "bottom": 0, "left": 90, "right": 270 } },
+  { "x": 7, "y": 0, "z": 3, "kind": "repeat-cond", "facing": 5,
+    "faces": { "top": 180, "bottom": 0, "left": 90, "right": 270 } }
  ]
 }
 ```
 
-第一行是脉冲、脉冲（有条件）、连锁；第二行接着是连锁（有条件）、重复、重复（有条件）。这里直接用坐标写，是因为字符网格的列宽是均匀的，摆不出这种带间距的对照表。
+第一行是脉冲、脉冲（有条件）、连锁；第二行接着是连锁（有条件）、重复、重复（有条件）。
+
+这段用的是坐标而不是字符网格：字符网格的列宽是均匀的，摆不出这种带间距的对照表。
+
+`faces` 每组四个面都要转：**命令方块左右两侧是同一种花纹，但游戏里两面各指各的**（朝东的斜槽与朝西的斜槽方向相反），所以 `left` 90°、`right` 270° 各转各的；顶面 `top` 与底面 `bottom` 也是同一张图的两个方向，一个 180°、一个 0°。不转的话，六个面看起来是"同一张图硬贴上去"，方向对不上。
 
 ### 朝向
 
@@ -104,7 +114,7 @@ JSON 就是渲染器的输入格式，一个方块一项：
 | `facing` | `2` 北、`3` 南、`4` 西、`5` 东 |
 | `faces` | 可选，六个面各自的旋转角 |
 
-`faces` 的键是 `front` `back` `left` `right` `top` `bottom`，值是角度，取 0 / 90 / 180 / 270。没写的面用默认值：只有 `bottom` 默认 180°，其余 0°——顶底共用一张图，底面不转过来就是反的。
+`faces` 的键是 `front` `back` `left` `right` `top` `bottom`，值是角度，取 0 / 90 / 180 / 270。没写的面用默认值：只有 `bottom` 默认 180°，其余 0°。**默认值只是技术缺省，不等于游戏里的正确朝向**——六个面只有四张图，顶底共用一张、左右共用一张，要让每个面上的花纹都朝对，就得逐面给角度。
 
 ```cmdblock
 {
