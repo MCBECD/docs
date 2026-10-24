@@ -41,6 +41,8 @@ T 显就是用 `title` / `titleraw` 在玩家屏幕上持续显示信息——�
 
 ### 一个状态栏
 
+下面的 `objective` 是计分项的名字，要先建出来才有内容可读：`/scoreboard objectives add 金币 dummy`。计分项不存在时，`score` 组件什么都不显示。
+
 <CmdRepeat>`/titleraw @a actionbar {"rawtext":[{"text":"§e金币 §f"},{"score":{"name":"*","objective":"金币"}},{"text":"  §a在线 §f"},{"score":{"name":"*","objective":"在线"}},{"text":"  §b等级 §f"},{"score":{"name":"*","objective":"等级"}}]}`
 
 挂在重复命令方块上，保持开启、延迟 2。每人看到自己的三项数据，每秒刷新 10 次。颜色用 `§` 码，基岩版 rawtext 不支持 Java 那种 `"color"` 字段和十六进制色值。

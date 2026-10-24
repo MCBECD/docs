@@ -34,6 +34,8 @@ tags: ["命令方块", "条件判断"]
 
 ### 三种常用写法
 
+下面的例子用 `scores={菜单=N}` 当开关。这是计分板的条件写法：先 `/scoreboard objectives add 菜单 dummy` 建一个目标，再用 `/scoreboard players set @s 菜单 1` 把某个玩家的状态写成 1，选择器里写 `scores={菜单=1}` 就只匹配状态为 1 的人。
+
 **抬头确认**：条件写成 `rx=-88`，配合状态分数，避免菜单关着也被触发。
 
 <CmdChain>`/tp @a[scores={菜单=1},rx=-88] 5000 70 5000`

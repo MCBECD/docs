@@ -43,7 +43,7 @@ tags: ["信息"]
 {"score":{"name":"@s","objective":"金币"}}
 ```
 
-`name` 可以是选择器、玩家名、实体的计分板 ID，写 `*` 表示**读这句话的人自己**。`objective` 是计分项名称，必须和创建时完全一致。
+`name` 可以是选择器、玩家名、实体的计分板 ID，写 `*` 表示**读这句话的人自己**。`objective` 是计分项名称，必须先有 `/scoreboard objectives add <名字> dummy` 建过，且拼写完全一致。
 
 **`selector`** 直接给一个选择器：
 
