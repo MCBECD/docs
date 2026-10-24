@@ -24,7 +24,7 @@ MCBECD/docs/
 ├── commands/      # 命令文档   → /commands/<文件名>/
 │   ├── give.md
 │   ├── execute.md
-│   └── …（共 26 篇）
+│   └── …（共 30 篇）
 │
 ├── community/     # 社区文档   → /community/<文件名>/
 │   ├── 1.md   # 在线时间
